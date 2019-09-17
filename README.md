@@ -13,11 +13,11 @@ The goal of this 1-day workshop is to teach new-to-programming data professional
 ### Learning Objectives
 
 - An introduction to R & RStudio
-- Hpw to set up a project using RStudio
-- Basic R syntax and an introduction to the tidyverse
+- How to set up a project using RStudio
+- An introductio to basic R syntax and the tidyverse
 - How to get help in R
 - How to import and export tabular data in common formats
-- How to look at data in R and RStudio
+- How to look at data in R & RStudio
 - How to manipulate a data frame
 - How to make and save plots
 - How to get help using reproducible example
@@ -32,7 +32,7 @@ The goal of this 1-day workshop is to teach new-to-programming data professional
 (5) Making Publication Quality Plots with `ggplot2`
 (6) Data Manipulation with `dplyr`
 (7) Data Manipulation with `tidy` (_tentative_)
-(8) Seeking Help with `reprex`
+(8) Seeking Help from Others with `reprex`
 
 Most of the above lesson material is sourced from the Software Carpentry Foundation (now The Carpenties) [R for Reproducible Scientific Analysis](http://swcarpentry.github.io/r-novice-gapminder/) lesson material: Thomas Wright and Naupaka Zimmerman (eds): "Software Carpentry: R for
 Reproducible Scientific Analysis."  Version 2016.06, June 2016,
