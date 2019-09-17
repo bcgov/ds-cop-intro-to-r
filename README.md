@@ -25,17 +25,17 @@ The goal of this 1-day workshop is to teach new-to-programming data professional
 
 ### Lessons
 
-(1) Introduction to R & RStudio
-(2) Project Management with RStudio
-(3) Seeking Help in R
-(4) Data Structures
-(5) Making Publication Quality Plots with `ggplot2`
-(6) Data Manipulation with `dplyr`
-(7) Data Manipulation with `tidy` (_tentative_)
-(8) Seeking Help from Others with `reprex`
+(1) Introduction to R & RStudio  
+(2) Project Management with RStudio  
+(3) Seeking Help in R  
+(4) Data Structures  
+(5) Making Publication Quality Plots with `ggplot2`  
+(6) Data Manipulation with `dplyr`  
+(7) Data Manipulation with `tidy` (_tentative_)  
+(8) Seeking Help from Others with `reprex`  
 
-Most of the above lesson material is sourced from the Software Carpentry Foundation (now The Carpenties) [R for Reproducible Scientific Analysis](http://swcarpentry.github.io/r-novice-gapminder/) lesson material: Thomas Wright and Naupaka Zimmerman (eds): "Software Carpentry: R for
-Reproducible Scientific Analysis."  Version 2016.06, June 2016,
+Most of the above lesson material is sourced from the Software Carpentry Foundation (now The Carpenties) [R for Reproducible Scientific Analysis](http://swcarpentry.github.io/r-novice-gapminder/) lesson material: Thomas Wright and Naupaka Zimmerman (eds): _Software Carpentry: R for
+Reproducible Scientific Analysis_.  Version 2016.06, June 2016,
 https://github.com/swcarpentry/r-novice-gapminder,
 10.5281/zenodo.57520.
 
