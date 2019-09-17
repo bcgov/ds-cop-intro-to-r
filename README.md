@@ -1,17 +1,49 @@
 <a id="devex-badge" rel="Exploration" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="Being designed and built, but in the lab. May change, disappear, or be buggy." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/exploration.svg" title="Being designed and built, but in the lab. May change, disappear, or be buggy." /></a>
 
-ds-cop-intro-to-r
-============================
 
-A repository to house materials for a one-day course introducing participants to R.
+# Introduction to Data Science Using R
 
-### Project Status
 
-In Development
+A repository to house materials for a 1-day course introducing participants to data science using [R](https://www.r-project.org/).
+
+
+The goal of this 1-day workshop is to teach new-to-programming data professionals to import data, clean up and summarize a data set, and make some static data visualizations using the program R. R is a popular statistical computing language, commonly used in many scientific disciplines for statistical analysis, generating production-quality graphics, and automating data workflow tasks. The workshop content will follow best practices for using R for data analysis, giving attendees a foundation in the fundamentals of R and scientific computing.
+
+
+### Learning Objectives
+
+- An introduction to R & RStudio
+- Hpw to set up a project using RStudio
+- Basic R syntax and an introduction to the tidyverse
+- How to get help in R
+- How to import and export tabular data in common formats
+- How to look at data in R and RStudio
+- How to manipulate a data frame
+- How to make and save plots
+- How to get help using reproducible example
+
+
+### Lessons
+
+(1) Introduction to R & RStudio
+(2) Project Management with RStudio
+(3) Seeking Help in R
+(4) Data Structures
+(5) Making Publication Quality Plots with `ggplot2`
+(6) Data Manipulation with `dplyr`
+(7) Data Manipulation with `tidy` (_tentative_)
+(8) Seeking Help with `reprex`
+
+Most of the above lesson material is sourced from the Software Carpentry Foundation (now The Carpenties) [R for Reproducible Scientific Analysis](http://swcarpentry.github.io/r-novice-gapminder/) lesson material: Thomas Wright and Naupaka Zimmerman (eds): "Software Carpentry: R for
+Reproducible Scientific Analysis."  Version 2016.06, June 2016,
+https://github.com/swcarpentry/r-novice-gapminder,
+10.5281/zenodo.57520.
+
 
 ### Getting Help or Reporting an Issue
 
 To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/ds-cop-intro-to-r/issues/).
+
 
 ### How to Contribute
 
@@ -19,20 +51,16 @@ If you would like to contribute, please see our [CONTRIBUTING](CONTRIBUTING.md) 
 
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
+
 ### License
+
+[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
 
 ```
 Copyright 2019 Province of British Columbia
 
-Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and limitations under the License.
+This work is licensed under the Creative Commons Attribution 4.0 International License.
+To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 ```
 ---
 *This project was created using the [bcgovr](https://github.com/bcgov/bcgovr) package.* 
