@@ -14,7 +14,7 @@ The goal of this 1-day workshop is to teach new-to-programming data professional
 
 - An introduction to R & RStudio
 - How to set up a project using RStudio
-- An introductio to basic R syntax and the tidyverse
+- An introduction to basic R syntax and the tidyverse
 - How to get help in R
 - How to import and export tabular data in common formats
 - How to look at data in R & RStudio
