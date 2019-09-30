@@ -1,20 +1,20 @@
 ---
 title: Dataframe Manipulation with dplyr
-# teaching: 40
-# exercises: 15
-# questions:
-# - "How can I manipulate dataframes without repeating myself?"
-# objectives:
-# - " To be able to use the six main dataframe manipulation 'verbs' with pipes in  `dplyr`."
-# - " To understand how `group_by()` and `summarize()` can be combined to summarize datasets."
-# - " Be able to analyze a subset of data using logical filtering."
-# keypoints:
-# - "Use the `dplyr` package to manipulate dataframes."
-# - "Use `select()` to choose variables from a dataframe."
-# - "Use `filter()` to choose data based on values."
-# - "Use `group_by()` and `summarize()` to work with subsets of data."
-# - "Use `mutate()` to create new variables."
-# source: Rmd
+teaching: 40
+exercises: 15
+questions:
+- "How can I manipulate dataframes without repeating myself?"
+objectives:
+- " To be able to use the six main dataframe manipulation 'verbs' with pipes in  `dplyr`."
+- " To understand how `group_by()` and `summarize()` can be combined to summarize datasets."
+- " Be able to analyze a subset of data using logical filtering."
+keypoints:
+- "Use the `dplyr` package to manipulate dataframes."
+- "Use `select()` to choose variables from a dataframe."
+- "Use `filter()` to choose data based on values."
+- "Use `group_by()` and `summarize()` to work with subsets of data."
+- "Use `mutate()` to create new variables."
+source: Rmd
 ---
 
 
