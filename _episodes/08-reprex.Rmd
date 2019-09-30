@@ -1,5 +1,5 @@
 ---
-title: Writing Good Software
+title: "Seeking Help from Others with reprex"
 teaching: 15
 exercises: 0
 questions:
@@ -14,8 +14,42 @@ keypoints:
 - "Don't repeat yourself."
 - "Don't repeat yourself."
 - "Be consistent in naming, indentation, and other aspects of style."
+- "To be able to seek help from your peers."
 source: Rmd
 ---
+
+## When your code doesn't work: seeking help from your peers
+
+If you're having trouble using a function, 9 times out of 10,
+the answers you are seeking have already been answered on
+[Stack Overflow](http://stackoverflow.com/). You can search using
+the `[r]` tag.
+
+If you can't find the answer, there are a few useful functions to
+help you ask a question from your peers:
+
+```{r, eval=FALSE}
+?dput
+```
+
+Will dump the data you're working with into a format so that it can
+be copy and pasted by anyone else into their R session.
+
+```{r}
+sessionInfo()
+```
+
+Will print out your current version of R, as well as any packages you
+have loaded. This can be useful for others to help reproduce and debug
+your issue.
+
+
+## Other ports of call
+
+* [Quick R](http://www.statmethods.net/)
+* [RStudio cheat sheets](http://www.rstudio.com/resources/cheatsheets/)
+* [Cookbook for R](http://www.cookbook-r.com/)
+
 
 ## Structure your project folder
 
