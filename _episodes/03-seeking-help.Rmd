@@ -147,7 +147,9 @@ fields. This can be a good starting point.
 > colleagues, because different countries have different conventions for the
 > decimal point (i.e. comma vs period).
 > hint: use `??csv` to lookup csv related functions.
+>
 > > ## Solution to Challenge 3
+> >
 > >
 > > The standard R function for reading tab-delimited files with a period
 > > decimal separator is read.delim(). You can also do this with
