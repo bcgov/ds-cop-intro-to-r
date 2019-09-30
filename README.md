@@ -54,7 +54,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### License
 
-[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
+[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/). 
 
 ```
 Copyright 2019 Province of British Columbia
