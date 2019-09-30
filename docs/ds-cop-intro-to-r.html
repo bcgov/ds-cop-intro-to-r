@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Introduction to Data Science using R Workshop</title>
+  <meta name="description" content="This book contains materials for a 1 day Introduction to R workshop" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Introduction to Data Science using R Workshop" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book contains materials for a 1 day Introduction to R workshop" />
+  <meta name="github-repo" content="bcgov/ds-cop-intro-to-r" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to Data Science using R Workshop" />
+  
+  <meta name="twitter:description" content="This book contains materials for a 1 day Introduction to R workshop" />
+  
+
+<meta name="author" content="Sam Albers, Stephanie Hazlitt &amp; Andy Teucher" />
+
+
+<meta name="date" content="2019-09-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="0.1" data-path=""><a href="#layers"><i class="fa fa-check"></i><b>0.1</b> Layers</a></li>
+<li class="chapter" data-level="0.2" data-path=""><a href="#transformations-and-statistics"><i class="fa fa-check"></i><b>0.2</b> Transformations and statistics</a></li>
+<li class="chapter" data-level="0.3" data-path=""><a href="#multi-panel-figures"><i class="fa fa-check"></i><b>0.3</b> Multi-panel figures</a></li>
+<li class="chapter" data-level="0.4" data-path=""><a href="#modifying-text"><i class="fa fa-check"></i><b>0.4</b> Modifying text</a></li>
+<li class="chapter" data-level="0.5" data-path=""><a href="#exporting-the-plot"><i class="fa fa-check"></i><b>0.5</b> Exporting the plot</a></li>
+<li class="chapter" data-level="0.6" data-path=""><a href="#the-readr-package"><i class="fa fa-check"></i><b>0.6</b> The <code>readr</code> package</a></li>
+<li class="chapter" data-level="0.7" data-path=""><a href="#the-dplyr-package"><i class="fa fa-check"></i><b>0.7</b> The <code>dplyr</code> package</a></li>
+<li class="chapter" data-level="0.8" data-path=""><a href="#using-select"><i class="fa fa-check"></i><b>0.8</b> Using select()</a></li>
+<li class="chapter" data-level="0.9" data-path=""><a href="#using-filter"><i class="fa fa-check"></i><b>0.9</b> Using filter()</a></li>
+<li class="chapter" data-level="0.10" data-path=""><a href="#using-filter-with-pipes"><i class="fa fa-check"></i><b>0.10</b> Using filter() with pipes</a></li>
+<li class="chapter" data-level="0.11" data-path=""><a href="#using-group_by-and-summarize"><i class="fa fa-check"></i><b>0.11</b> Using group_by() and summarize()</a></li>
+<li class="chapter" data-level="0.12" data-path=""><a href="#using-summarize"><i class="fa fa-check"></i><b>0.12</b> Using summarize()</a></li>
+<li class="chapter" data-level="0.13" data-path=""><a href="#count-and-n"><i class="fa fa-check"></i><b>0.13</b> count() and n()</a></li>
+<li class="chapter" data-level="0.14" data-path=""><a href="#using-mutate"><i class="fa fa-check"></i><b>0.14</b> Using mutate()</a></li>
+<li class="chapter" data-level="0.15" data-path=""><a href="#connect-mutate-with-logical-filtering-ifelse"><i class="fa fa-check"></i><b>0.15</b> Connect mutate with logical filtering: ifelse</a></li>
+<li class="chapter" data-level="0.16" data-path=""><a href="#combining-dplyr-and-ggplot2"><i class="fa fa-check"></i><b>0.16</b> Combining <code>dplyr</code> and <code>ggplot2</code></a></li>
+<li class="chapter" data-level="0.17" data-path=""><a href="#other-great-resources"><i class="fa fa-check"></i><b>0.17</b> Other great resources</a></li>
+<li class="chapter" data-level="0.18" data-path=""><a href="#getting-started"><i class="fa fa-check"></i><b>0.18</b> Getting started</a></li>
+<li class="chapter" data-level="0.19" data-path=""><a href="#convert-long-format-with-gather"><i class="fa fa-check"></i><b>0.19</b> Convert long format with gather()</a></li>
+<li class="chapter" data-level="0.20" data-path=""><a href="#advantage-to-plotting-and-tables"><i class="fa fa-check"></i><b>0.20</b> Advantage to plotting and tables</a></li>
+<li class="chapter" data-level="0.21" data-path=""><a href="#other-great-resources-1"><i class="fa fa-check"></i><b>0.21</b> Other great resources</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Data Science using R Workshop</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Introduction to Data Science using R Workshop</h1>
+<p class="author"><em>Sam Albers, Stephanie Hazlitt &amp; Andy Teucher</em></p>
+<p class="date"><em>2019-09-30</em></p>
+</div>
+
+<p>Plotting our data is one of the best ways to
+quickly explore it and the various relationships
+between variables.</p>
+<p>There are three main plotting systems in R,
+the <a href="http://www.statmethods.net/graphs/index.html">base plotting system</a>, the <a href="http://www.statmethods.net/advgraphs/trellis.html">lattice</a>
+package, and the <a href="http://www.statmethods.net/advgraphs/ggplot2.html">ggplot2</a> package.</p>
+<p>Today we’ll be learning about the ggplot2 package, because
+it is the most effective for creating publication quality
+graphics.</p>
+<p>ggplot2 is built on the grammar of graphics, the idea that any plot can be
+expressed from the same set of components: a <strong>data</strong> set, a
+<strong>coordinate system</strong>, and a set of geometric objects or <strong>geoms</strong>–the visual representation of data
+points.</p>
+<p>The key to understanding ggplot2 is thinking about a figure in layers.
+This idea may be familiar to you if you have used image editing programs like Photoshop, Illustrator, or
+Inkscape.</p>
+<p>Let’s start off by loading our gapminder data:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb1-2" title="2">gapminder &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/gapminder_data.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3">gapminder</a></code></pre></div>
+<pre><code># A tibble: 1,704 x 6
+   country      year      pop continent lifeExp gdpPercap
+   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Afghanistan  1952  8425333 Asia         28.8      779.
+ 2 Afghanistan  1957  9240934 Asia         30.3      821.
+ 3 Afghanistan  1962 10267083 Asia         32.0      853.
+ 4 Afghanistan  1967 11537966 Asia         34.0      836.
+ 5 Afghanistan  1972 13079460 Asia         36.1      740.
+ 6 Afghanistan  1977 14880372 Asia         38.4      786.
+ 7 Afghanistan  1982 12881816 Asia         39.9      978.
+ 8 Afghanistan  1987 13867957 Asia         40.8      852.
+ 9 Afghanistan  1992 16317921 Asia         41.7      649.
+10 Afghanistan  1997 22227415 Asia         41.8      635.
+# ... with 1,694 more rows</code></pre>
+<p>And jump right in my making an example ggplot2 plot:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="fig/rmd-08-lifeExp-vs-gdpPercap-scatter-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>So the first thing we do is call the <code>ggplot</code> function. This function lets R
+know that we’re creating a new plot, and any of the arguments we give the
+<code>ggplot</code> function are the <em>global</em> options for the plot: they apply to all
+layers on the plot.</p>
+<p>We’ve passed in two arguments to <code>ggplot</code>. First, we tell <code>ggplot</code> what data we
+want to show on our figure, in this example the gapminder data we read in
+earlier. For the second argument, we passed in the <code>aes</code> function, which
+tells <code>ggplot</code> how variables in the <strong>data</strong> map to <em>aesthetic</em> properties of
+the figure, in this case the <strong>x</strong> and <strong>y</strong> locations. Here we told <code>ggplot</code> we
+want to plot the “gdpPercap” column of the gapminder data frame on the x-axis, and
+the “lifeExp” column on the y-axis. Notice that we didn’t need to explicitly
+pass <code>aes</code> these columns (e.g. <code>x = gapminder[, "gdpPercap"]</code>), this is because
+<code>ggplot</code> is smart enough to know to look in the <strong>data</strong> for that column!</p>
+<p>By itself, the call to <code>ggplot</code> isn’t enough to draw a figure:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp))</a></code></pre></div>
+<p><img src="fig/rmd-08-no-geom-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>We need to tell <code>ggplot</code> how we want to visually represent the data, which we
+do by adding a new <strong>geom</strong> layer. In our example, we used <code>geom_point</code>, which
+tells <code>ggplot</code> we want to visually represent the relationship between <strong>x</strong> and
+<strong>y</strong> as a scatterplot of points:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="fig/rmd-08-lifeExp-vs-gdpPercap-scatter2-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p><em>Recap</em>: Every ggplot2 plot has three key components: (1) data, (2) set of aesthetic mappings between variables in the data and visual properties on the plot, and (3) at least one layer, created with a geom function.</p>
+<blockquote>
+<h2 id="challenge-1">Challenge 1</h2>
+<p>Modify the example so that the figure shows how life expectancy has
+changed over time:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p>Hint: the gapminder dataset has a column called “year”, which should appear
+on the x-axis.</p>
+<blockquote>
+<h2 id="solution-to-challenge-1">Solution to challenge 1</h2>
+<p>Here is one possible solution:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="fig/rmd-08-ch1-sol-1.png" width="816" style="display: block; margin: auto;" /></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<h2 id="challenge-2">Challenge 2</h2>
+<p>In the previous examples and challenge we’ve used the <code>aes</code> function to tell
+the scatterplot <strong>geom</strong> about the <strong>x</strong> and <strong>y</strong> locations of each point.
+Another <em>aesthetic</em> property we can modify is the point <em>colour</em>. Modify the
+code from the previous challenge to <strong>colour</strong> the points by the “continent”
+column. What trends do you see in the data? Are they what you expected?</p>
+<blockquote>
+<h2 id="solution-to-challenge-2">Solution to challenge 2</h2>
+<p>In the previous examples and challenge we’ve used the <code>aes</code> function to tell
+the scatterplot <strong>geom</strong> about the <strong>x</strong> and <strong>y</strong> locations of each point.
+Another <em>aesthetic</em> property we can modify is the point <em>colour</em>. Modify the
+code from the previous challenge to <strong>colour</strong> the points by the “continent”
+column. What trends do you see in the data? Are they what you expected?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">colour =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="fig/rmd-08-ch2-sol-1.png" width="816" style="display: block; margin: auto;" /></p>
+</blockquote>
+</blockquote>
+<div id="layers" class="section level2">
+<h2><span class="header-section-number">0.1</span> Layers</h2>
+<p>Using a scatterplot probably isn’t the best for visualizing change over time.
+Instead, let’s tell <code>ggplot</code> to visualize the data as a line plot:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">colour =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<p><img src="fig/rmd-08-lifeExp-line-no-group-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>Instead of adding a <code>geom_point</code> layer, we’ve added a <code>geom_line</code> layer, however it looks like the lines are connecting the wrong points? We need to add the <strong>group</strong> <em>aesthetic</em>, which tells <code>ggplot</code> to draw a line for each country.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">colour =</span> continent, <span class="dt">group =</span> country)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<p><img src="fig/rmd-08-lifeExp-line-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>What if we want to visualize both lines and points on the plot? We can simply add another layer to the plot:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">colour =</span> continent, <span class="dt">group =</span> country)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="fig/rmd-08-lifeExp-line-point-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>It’s important to note that each layer is drawn on top of the previous layer. In
+this example, the points have been drawn <em>on top of</em> the lines. Here’s a
+demonstration:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">group =</span> country)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">colour =</span> continent)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="fig/rmd-08-lifeExp-layer-example-1-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>In this example, the <em>aesthetic</em> mapping of <strong>colour</strong> has been moved from the
+global plot options in <code>ggplot</code> to the <code>geom_line</code> layer so it no longer applies
+to the points. Now we can clearly see that the points are drawn on top of the
+lines.</p>
+<blockquote>
+<h2 id="tip-setting-an-aesthetic-to-a-value-instead-of-a-mapping"><span class="header-section-number">0.1</span> Tip: Setting an aesthetic to a value instead of a mapping</h2>
+<p>So far, we’ve seen how to use an aesthetic (such as <strong>colour</strong>) as a <em>mapping</em> to a variable in the data. For example, when we use <code>geom_line(mapping = aes(colour = continent))</code>, ggplot will give a different colour to each continent. But what if we want to change the colour of all lines to blue? You may think that <code>geom_line(mapping = aes(colour = "blue"))</code> should work, but it doesn’t. Since we don’t want to create a mapping to a specific variable, we simply move the colour specification outside of the <code>aes()</code> function, like this: <code>geom_line(colour = "blue")</code>.</p>
+</blockquote>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">group =</span> country)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="fig/rmd-08-example-colour-all-1.png" width="816" style="display: block; margin: auto;" /></p>
+<blockquote>
+<h2 id="challenge-3"><span class="header-section-number">0.1</span> Challenge 3</h2>
+<p>Switch the order of the point and line layers from the previous example. What
+happened?</p>
+<blockquote>
+<h2 id="solution-to-challenge-3"><span class="header-section-number">0.1</span> Solution to challenge 3</h2>
+<p>Switch the order of the point and line layers from the previous example. What
+happened?</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">group =</span> country)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">colour =</span> continent))</a></code></pre></div>
+<p><img src="fig/rmd-08-ch3-sol-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>The lines now get drawn over the points!</p>
+</blockquote>
+</blockquote>
+</div>
+<div id="transformations-and-statistics" class="section level2">
+<h2><span class="header-section-number">0.2</span> Transformations and statistics</h2>
+<p>ggplot2 also makes it easy to overlay statistical models over the data. To
+demonstrate we’ll go back to our first example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="fig/rmd-08-lifeExp-vs-gdpPercap-scatter3-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>Currently it’s hard to see the relationship between the points due to some strong
+outliers in GDP per capita. We can change the scale of units on the x axis using
+the <em>scale</em> functions. These control the mapping between the data values and
+visual values of an aesthetic. We can also modify the transparency of the
+points, using the <em>alpha</em> function, which is especially helpful when you have
+a large amount of data which is very clustered.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_log10</span>()</a></code></pre></div>
+<p><img src="fig/rmd-08-axis-scale-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>The <code>log10</code> function applied a transformation to the values of the gdpPercap
+column before rendering them on the plot, so that each multiple of 10 now only
+corresponds to an increase in 1 on the transformed scale, e.g. a GDP per capita
+of 1,000 is now 3 on the y axis, a value of 10,000 corresponds to 4 on the y
+axis and so on. This makes it easier to visualize the spread of data on the
+x-axis.</p>
+<blockquote>
+<h2 id="tip-reminder-setting-an-aesthetic-to-a-value-instead-of-a-mapping"><span class="header-section-number">0.2</span> Tip Reminder: Setting an aesthetic to a value instead of a mapping</h2>
+<p>Notice that we used <code>geom_point(alpha = 0.5)</code>. As the previous tip mentioned, using a setting outside of the <code>aes()</code> function will cause this value to be used for all points, which is what we want in this case. But just like any other aesthetic setting, <em>alpha</em> can also be mapped to a variable in the data. For example, we can give a different transparency to each continent with <code>geom_point(mapping = aes(alpha = continent))</code>.</p>
+</blockquote>
+<p>We can fit a simple relationship to the data by adding another layer, <code>geom_smooth</code>:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</a></code></pre></div>
+<p><img src="fig/rmd-08-lm-fit-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>We can make the line thicker by <em>setting</em> the <strong>size</strong> aesthetic in the
+<code>geom_smooth</code> layer:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">size =</span> <span class="fl">1.5</span>)</a></code></pre></div>
+<p><img src="fig/rmd-08-lm-fit2-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>There are two ways an <em>aesthetic</em> can be specified. Here we <em>set</em> the <strong>size</strong>
+aesthetic by passing it as an argument to <code>geom_smooth</code>. Previously in the
+lesson we’ve used the <code>aes</code> function to define a <em>mapping</em> between data
+variables and their visual representation.</p>
+<blockquote>
+<h2 id="challenge-4a"><span class="header-section-number">0.2</span> Challenge 4a</h2>
+<p>Modify the colour and size of the points on the point layer in the previous
+example.</p>
+<p>Hint: do not use the <code>aes</code> function.</p>
+<blockquote>
+<h2 id="solution-to-challenge-4a"><span class="header-section-number">0.2</span> Solution to challenge 4a</h2>
+<p>Modify the colour and size of the points on the point layer in the previous
+example.</p>
+<p>Hint: do not use the <code>aes</code> function.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">colour =</span> <span class="st">&quot;orange&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">size =</span> <span class="fl">1.5</span>)</a></code></pre></div>
+<p><img src="fig/rmd-08-ch4a-sol-1.png" width="816" style="display: block; margin: auto;" /></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<h2 id="challenge-4b"><span class="header-section-number">0.2</span> Challenge 4b</h2>
+<p>Modify your solution to Challenge 4a so that the
+points are now a different shape and are coloured by continent with new
+trendlines. Hint: The colour argument can be used inside the aesthetic.</p>
+<blockquote>
+<h2 id="solution-to-challenge-4b"><span class="header-section-number">0.2</span> Solution to challenge 4b</h2>
+<p>Modify Challenge 4 so that the points are now a different shape and are
+coloured by continent with new trendlines.</p>
+<p>Hint: The colour argument can be used inside the aesthetic.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> gapminder, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">colour =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">shape =</span> <span class="dv">17</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">size =</span> <span class="fl">1.5</span>)</a></code></pre></div>
+<p><img src="fig/rmd-08-ch4b-sol-1.png" width="816" style="display: block; margin: auto;" /></p>
+</blockquote>
+</blockquote>
+</div>
+<div id="multi-panel-figures" class="section level2">
+<h2><span class="header-section-number">0.3</span> Multi-panel figures</h2>
+<p>Earlier we visualized the change in life expectancy over time across all
+countries in one plot. Alternatively, we can split this out over multiple panels
+by adding a layer of <strong>facet</strong> panels.</p>
+<blockquote>
+<h2 id="tip"><span class="header-section-number">0.3</span> Tip</h2>
+<p>We start by making a subset of data including only countries located
+in the Americas.</p>
+</blockquote>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">asia_oceania &lt;-<span class="st"> </span>gapminder[gapminder<span class="op">$</span>continent <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Asia&quot;</span>, <span class="st">&quot;Oceania&quot;</span>),]</a>
+<a class="sourceLine" id="cb21-2" title="2"></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="co"># library(dplyr)</span></a>
+<a class="sourceLine" id="cb21-4" title="4"><span class="co"># asia_oceania &lt;- filter(gapminder, continent %in% c(&quot;Asia&quot;, &quot;Oceania&quot;))</span></a>
+<a class="sourceLine" id="cb21-5" title="5"></a>
+<a class="sourceLine" id="cb21-6" title="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> asia_oceania, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-7" title="7"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb21-8" title="8"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>country)</a></code></pre></div>
+<p><img src="fig/rmd-08-facet-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>The <code>facet_wrap</code> layer took a “formula” as its argument, denoted by the tilde
+(~). This tells R to draw a panel for each unique value in the country column
+of the gapminder dataset.</p>
+</div>
+<div id="modifying-text" class="section level2">
+<h2><span class="header-section-number">0.4</span> Modifying text</h2>
+<p>To clean this figure up for a publication we need to change some of the text
+elements. The x-axis is too cluttered, and the y axis should read
+“Life expectancy”, rather than the column name in the data frame.</p>
+<p>We can do this by adding a couple of different layers. The <strong>theme</strong> layer
+controls the axis text, and overall text size. Labels for the axes, plot
+title and any legend can be set using the <code>labs</code> function. Legend titles
+are set using the same names we used in the <code>aes</code> specification. Thus below
+the colour legend title is set using <code>colour = "Continent"</code>, while the title
+of a fill legend would be set using <code>fill = "MyTitle"</code>.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> asia_oceania, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">colour =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>country) <span class="op">+</span></a>
+<a class="sourceLine" id="cb22-3" title="3"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb22-4" title="4">    <span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>,              <span class="co"># x axis title</span></a>
+<a class="sourceLine" id="cb22-5" title="5">    <span class="dt">y =</span> <span class="st">&quot;Life expectancy&quot;</span>,   <span class="co"># y axis title</span></a>
+<a class="sourceLine" id="cb22-6" title="6">    <span class="dt">title =</span> <span class="st">&quot;Figure 1&quot;</span>,      <span class="co"># main title of figure</span></a>
+<a class="sourceLine" id="cb22-7" title="7">    <span class="dt">colour =</span> <span class="st">&quot;Continent&quot;</span>      <span class="co"># title of legend</span></a>
+<a class="sourceLine" id="cb22-8" title="8">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb22-9" title="9"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb22-10" title="10">        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>))</a></code></pre></div>
+<p><img src="fig/rmd-08-theme-1.png" width="816" style="display: block; margin: auto;" /></p>
+<blockquote>
+<h2 id="tip-1"><span class="header-section-number">0.4</span> Tip</h2>
+<p>Note that we apply a “theme” definition to rotate
+the x-axis labels to maintain readability. Nearly everything in
+ggplot2 is customizable.</p>
+</blockquote>
+</div>
+<div id="exporting-the-plot" class="section level2">
+<h2><span class="header-section-number">0.5</span> Exporting the plot</h2>
+<p>The <code>ggsave()</code> function allows you to export a plot created with ggplot. You can specify the dimension and resolution of your plot by adjusting the appropriate arguments (<code>width</code>, <code>height</code> and <code>dpi</code>) to create high quality graphics for publication. In order to save the plot from above, we first assign it to a variable <code>lifeExp_plot</code>, then tell <code>ggsave</code> to save that plot in <code>png</code> format to a directory called <code>results</code>. (Make sure you have a <code>results/</code> folder in your working directory.)</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">lifeExp_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> asia_oceania, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">colour =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>country) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-3" title="3"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb23-4" title="4">    <span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>,              <span class="co"># x axis title</span></a>
+<a class="sourceLine" id="cb23-5" title="5">    <span class="dt">y =</span> <span class="st">&quot;Life expectancy&quot;</span>,   <span class="co"># y axis title</span></a>
+<a class="sourceLine" id="cb23-6" title="6">    <span class="dt">title =</span> <span class="st">&quot;Figure 1&quot;</span>,      <span class="co"># main title of figure</span></a>
+<a class="sourceLine" id="cb23-7" title="7">    <span class="dt">colour =</span> <span class="st">&quot;Continent&quot;</span>      <span class="co"># title of legend</span></a>
+<a class="sourceLine" id="cb23-8" title="8">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-9" title="9"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb23-10" title="10">        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>))</a>
+<a class="sourceLine" id="cb23-11" title="11"></a>
+<a class="sourceLine" id="cb23-12" title="12"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;results/lifeExp.png&quot;</span>, <span class="dt">plot =</span> lifeExp_plot, <span class="dt">width =</span> <span class="dv">18</span>, <span class="dt">height =</span> <span class="dv">16</span>, <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>)</a>
+<a class="sourceLine" id="cb23-13" title="13"></a>
+<a class="sourceLine" id="cb23-14" title="14"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;results/lifeExp_widetv.png&quot;</span>, <span class="dt">plot =</span> lifeExp_plot, <span class="dt">width =</span> <span class="fl">13.33</span>, <span class="dt">height =</span>  <span class="fl">7.5</span>)</a></code></pre></div>
+<p>There are two nice things about <code>ggsave</code>. First, it defaults to the last plot, so if you omit the <code>plot</code> argument it will automatically save the last plot you created with <code>ggplot</code>. Secondly, it tries to determine the format you want to save your plot in from the file extension you provide for the filename (for example <code>.png</code> or <code>.pdf</code>). If you need to, you can specify the format explicitly in the <code>device</code> argument.</p>
+<p>This is a taste of what you can do with ggplot2. RStudio provides a
+really useful <a href="http://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">cheat sheet</a> of the different layers available, and more
+extensive documentation is available on the <a href="http://docs.ggplot2.org/current/">ggplot2 website</a>.
+Finally, if you have no idea how to change something, a quick Google search will
+usually send you to a relevant question and answer on Stack Overflow with reusable
+code to modify!</p>
+
+</div>
+<div id="the-readr-package" class="section level2">
+<h2><span class="header-section-number">0.6</span> The <code>readr</code> package</h2>
+<p>Bringing data into R is one of the first places where new users encounter difficulties.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">library</span>(<span class="st">&quot;readr&quot;</span>)</a>
+<a class="sourceLine" id="cb25-2" title="2">gapminder &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/gapminder_data.csv&quot;</span>)</a></code></pre></div>
+<pre><code>Parsed with column specification:
+cols(
+  country = col_character(),
+  year = col_double(),
+  pop = col_double(),
+  continent = col_character(),
+  lifeExp = col_double(),
+  gdpPercap = col_double()
+)</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">gapminder</a></code></pre></div>
+<pre><code># A tibble: 1,704 x 6
+   country      year      pop continent lifeExp gdpPercap
+   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Afghanistan  1952  8425333 Asia         28.8      779.
+ 2 Afghanistan  1957  9240934 Asia         30.3      821.
+ 3 Afghanistan  1962 10267083 Asia         32.0      853.
+ 4 Afghanistan  1967 11537966 Asia         34.0      836.
+ 5 Afghanistan  1972 13079460 Asia         36.1      740.
+ 6 Afghanistan  1977 14880372 Asia         38.4      786.
+ 7 Afghanistan  1982 12881816 Asia         39.9      978.
+ 8 Afghanistan  1987 13867957 Asia         40.8      852.
+ 9 Afghanistan  1992 16317921 Asia         41.7      649.
+10 Afghanistan  1997 22227415 Asia         41.8      635.
+# ... with 1,694 more rows</code></pre>
+<p>Manipulation of dataframes means many things to many researchers, we often
+select certain observations (rows) or variables (columns), we often group the
+data by a certain variable(s), or we even calculate summary statistics. We can
+do this operations using the normal base R operations:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">mean</span>(gapminder<span class="op">$</span>gdpPercap)</a></code></pre></div>
+<pre><code>[1] 7215.327</code></pre>
+<p>The question here is how might you take averages (or any other summary statistic)
+by some group you might be interested in.</p>
+</div>
+<div id="the-dplyr-package" class="section level2">
+<h2><span class="header-section-number">0.7</span> The <code>dplyr</code> package</h2>
+<p>Luckily, the <a href="https://cran.r-project.org/package=dplyr"><code>dplyr</code></a>
+package provides a number of very useful functions for manipulating dataframes
+in a way that will reduce the above repetition, reduce the probability of making
+errors, and probably even save you some typing. As an added bonus, you might
+even find the <code>dplyr</code> grammar easier to read.</p>
+<p>Here we’re going to cover 5 of the most commonly used functions as well as using
+pipes (<code>%&gt;%</code>) to combine them.</p>
+<ol style="list-style-type: decimal">
+<li><code>select()</code></li>
+<li><code>filter()</code></li>
+<li><code>group_by()</code></li>
+<li><code>summarize()</code></li>
+<li><code>mutate()</code></li>
+</ol>
+<p>If you have have not installed this package earlier, please do so:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>)</a></code></pre></div>
+<p>Now let’s load the package:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</a></code></pre></div>
+</div>
+<div id="using-select" class="section level2">
+<h2><span class="header-section-number">0.8</span> Using select()</h2>
+<p>If, for example, we wanted to move forward with only a few of the variables in
+our dataframe we could use the <code>select()</code> function. This will keep only the
+variables you select.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">year_country_gdp &lt;-<span class="st"> </span><span class="kw">select</span>(gapminder, year, country, gdpPercap)</a></code></pre></div>
+<p><img src="fig/13-dplyr-fig1.png" /></p>
+</div>
+<div id="using-filter" class="section level2">
+<h2><span class="header-section-number">0.9</span> Using filter()</h2>
+<p>To select on some subset of rows:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">filter</span>(gapminder, continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>)</a></code></pre></div>
+<pre><code># A tibble: 360 x 6
+   country  year     pop continent lifeExp gdpPercap
+   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Albania  1952 1282697 Europe       55.2     1601.
+ 2 Albania  1957 1476505 Europe       59.3     1942.
+ 3 Albania  1962 1728137 Europe       64.8     2313.
+ 4 Albania  1967 1984060 Europe       66.2     2760.
+ 5 Albania  1972 2263554 Europe       67.7     3313.
+ 6 Albania  1977 2509048 Europe       68.9     3533.
+ 7 Albania  1982 2780097 Europe       70.4     3631.
+ 8 Albania  1987 3075321 Europe       72       3739.
+ 9 Albania  1992 3326498 Europe       71.6     2497.
+10 Albania  1997 3428038 Europe       73.0     3193.
+# ... with 350 more rows</code></pre>
+<p>If we open up <code>year_country_gdp</code> we’ll see that it only contains the year,
+country and gdpPercap. Above we used ‘normal’ grammar, but the strengths of
+<code>dplyr</code> lie in combining several functions using pipes. I’ve found this useful:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="co">## https://twitter.com/WeAreRLadies/status/1172576445794803713 by https://twitter.com/Shel_Kariuki</span></a>
+<a class="sourceLine" id="cb36-2" title="2"></a>
+<a class="sourceLine" id="cb36-3" title="3">I work up <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb36-4" title="4"><span class="st">  </span>showered <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb36-5" title="5"><span class="st">  </span>dressed <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb36-6" title="6"><span class="st">  </span>had coffee <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb36-7" title="7"><span class="st">  </span>came to R workshop</a></code></pre></div>
+<p>Since the pipes grammar is unlike anything we’ve seen in R before,
+let’s repeat what we’ve done above using pipes.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">year_country_gdp &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(year, country, gdpPercap)</a></code></pre></div>
+<p>To help you understand why we wrote that in that way, let’s walk through it step
+by step. First we summon the gapminder dataframe and pass it on, using the pipe
+symbol <code>%&gt;%</code>, to the next step, which is the <code>select()</code> function. In this case
+we don’t specify which data object we use in the <code>select()</code> function since in
+gets that from the previous pipe. <strong>Fun Fact</strong>: There is a good chance you have
+encountered pipes before in the shell. In R, a pipe symbol is <code>%&gt;%</code> while in the
+shell it is <code>|</code> but the concept is the same!</p>
+</div>
+<div id="using-filter-with-pipes" class="section level2">
+<h2><span class="header-section-number">0.10</span> Using filter() with pipes</h2>
+<p>If we now wanted to move forward with the above, but only with European
+countries, we can combine <code>select</code> and <code>filter</code></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">year_country_gdp_euro &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb38-2" title="2"><span class="st">    </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Europe&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb38-3" title="3"><span class="st">    </span><span class="kw">select</span>(year, country, gdpPercap)</a></code></pre></div>
+<blockquote>
+<h2 id="challenge-1-1"><span class="header-section-number">0.10</span> Challenge 1</h2>
+<p>Write a single command (which can span multiple lines and includes pipes) that
+will produce a dataframe that has the African values for <code>lifeExp</code>, <code>country</code>
+and <code>year</code>, but not for other Continents. How many rows does your dataframe
+have and why?</p>
+<blockquote>
+<h2 id="solution-to-challenge-1-1"><span class="header-section-number">0.10</span> Solution to Challenge 1</h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">year_country_lifeExp_Africa &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb39-2" title="2"><span class="st">                           </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Africa&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb39-3" title="3"><span class="st">                           </span><span class="kw">select</span>(year, country, lifeExp)</a></code></pre></div>
+</blockquote>
+</blockquote>
+<p>As with last time, first we pass the gapminder dataframe to the <code>filter()</code>
+function, then we pass the filtered version of the gapminder dataframe to the
+<code>select()</code> function. <strong>Note:</strong> The order of operations is very important in this
+case. If we used ‘select’ first, filter would not be able to find the variable
+continent since we would have removed it in the previous step.</p>
+</div>
+<div id="using-group_by-and-summarize" class="section level2">
+<h2><span class="header-section-number">0.11</span> Using group_by() and summarize()</h2>
+<p>Now, we were supposed to be reducing the error prone repetitiveness of what can
+be done with base R, but up to now we haven’t done that since we would have to
+repeat the above for each continent. Instead of <code>filter()</code>, which will only pass
+observations that meet your criteria (in the above: <code>continent=="Europe"</code>), we
+can use <code>group_by()</code>, which will essentially use every unique criteria that you
+could have used in filter.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">gapminder</a></code></pre></div>
+<pre><code># A tibble: 1,704 x 6
+   country      year      pop continent lifeExp gdpPercap
+   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Afghanistan  1952  8425333 Asia         28.8      779.
+ 2 Afghanistan  1957  9240934 Asia         30.3      821.
+ 3 Afghanistan  1962 10267083 Asia         32.0      853.
+ 4 Afghanistan  1967 11537966 Asia         34.0      836.
+ 5 Afghanistan  1972 13079460 Asia         36.1      740.
+ 6 Afghanistan  1977 14880372 Asia         38.4      786.
+ 7 Afghanistan  1982 12881816 Asia         39.9      978.
+ 8 Afghanistan  1987 13867957 Asia         40.8      852.
+ 9 Afghanistan  1992 16317921 Asia         41.7      649.
+10 Afghanistan  1997 22227415 Asia         41.8      635.
+# ... with 1,694 more rows</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(continent)</a></code></pre></div>
+<pre><code># A tibble: 1,704 x 6
+# Groups:   continent [5]
+   country      year      pop continent lifeExp gdpPercap
+   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Afghanistan  1952  8425333 Asia         28.8      779.
+ 2 Afghanistan  1957  9240934 Asia         30.3      821.
+ 3 Afghanistan  1962 10267083 Asia         32.0      853.
+ 4 Afghanistan  1967 11537966 Asia         34.0      836.
+ 5 Afghanistan  1972 13079460 Asia         36.1      740.
+ 6 Afghanistan  1977 14880372 Asia         38.4      786.
+ 7 Afghanistan  1982 12881816 Asia         39.9      978.
+ 8 Afghanistan  1987 13867957 Asia         40.8      852.
+ 9 Afghanistan  1992 16317921 Asia         41.7      649.
+10 Afghanistan  1997 22227415 Asia         41.8      635.
+# ... with 1,694 more rows</code></pre>
+<p>You will notice that the structure of the dataframe where we used <code>group_by()</code>
+(<code>grouped_df</code>) is not the same as the original <code>gapminder</code> (<code>data.frame</code>). A
+<code>grouped_df</code> can be thought of as a <code>list</code> where each item in the <code>list</code>is a
+<code>data.frame</code> which contains only the rows that correspond to the a particular
+value <code>continent</code> (at least in the example above).</p>
+<p><img src="fig/13-dplyr-fig2.png" /></p>
+</div>
+<div id="using-summarize" class="section level2">
+<h2><span class="header-section-number">0.12</span> Using summarize()</h2>
+<p>The above was a bit on the uneventful side but <code>group_by()</code> is much more
+exciting in conjunction with <code>summarize()</code>. This will allow us to create new
+variable(s) by using functions that repeat for each of the continent-specific
+data frames. That is to say, using the <code>group_by()</code> function, we split our
+original dataframe into multiple pieces, then we can run functions
+(e.g. <code>mean()</code> or <code>sd()</code>) within <code>summarize()</code>.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">gdp_bycontinents &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb44-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb44-3" title="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap))</a></code></pre></div>
+<p><img src="fig/13-dplyr-fig3.png" /></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1">continent mean_gdpPercap</a>
+<a class="sourceLine" id="cb45-2" title="2">     <span class="op">&lt;</span>fctr<span class="op">&gt;</span><span class="st">          </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb45-3" title="3"><span class="dv">1</span>    Africa       <span class="fl">2193.755</span></a>
+<a class="sourceLine" id="cb45-4" title="4"><span class="dv">2</span>  Americas       <span class="fl">7136.110</span></a>
+<a class="sourceLine" id="cb45-5" title="5"><span class="dv">3</span>      Asia       <span class="fl">7902.150</span></a>
+<a class="sourceLine" id="cb45-6" title="6"><span class="dv">4</span>    Europe      <span class="fl">14469.476</span></a>
+<a class="sourceLine" id="cb45-7" title="7"><span class="dv">5</span>   Oceania      <span class="fl">18621.609</span></a></code></pre></div>
+<p>That allowed us to calculate the mean gdpPercap for each continent, but it gets
+even better.</p>
+<blockquote>
+<h2 id="challenge-2-1"><span class="header-section-number">0.12</span> Challenge 2</h2>
+<p>Calculate the average life expectancy per country. Which has the longest average life
+expectancy and which has the shortest average life expectancy?</p>
+<blockquote>
+<h2 id="solution-to-challenge-2-1"><span class="header-section-number">0.12</span> Solution to Challenge 2</h2>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1">lifeExp_bycountry &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb46-2" title="2"><span class="st">   </span><span class="kw">group_by</span>(country) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb46-3" title="3"><span class="st">   </span><span class="kw">summarize</span>(<span class="dt">mean_lifeExp =</span> <span class="kw">mean</span>(lifeExp))</a>
+<a class="sourceLine" id="cb46-4" title="4">lifeExp_bycountry <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb46-5" title="5"><span class="st">   </span><span class="kw">filter</span>(mean_lifeExp <span class="op">==</span><span class="st"> </span><span class="kw">min</span>(mean_lifeExp) <span class="op">|</span><span class="st"> </span>mean_lifeExp <span class="op">==</span><span class="st"> </span><span class="kw">max</span>(mean_lifeExp))</a></code></pre></div>
+<pre><code># A tibble: 2 x 2
+ country      mean_lifeExp
+ &lt;chr&gt;               &lt;dbl&gt;
+1 Iceland              76.5
+2 Sierra Leone         36.8</code></pre>
+<p>Another way to do this is to use the <code>dplyr</code> function <code>arrange()</code>, which
+arranges the rows in a data frame according to the order of one or more
+variables from the data frame. It has similar syntax to other functions from
+the <code>dplyr</code> package. You can use <code>desc()</code> inside <code>arrange()</code> to sort in
+descending order.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">lifeExp_bycountry <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="st">   </span><span class="kw">arrange</span>(mean_lifeExp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-3" title="3"><span class="st">   </span><span class="kw">head</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code># A tibble: 1 x 2
+ country      mean_lifeExp
+ &lt;chr&gt;               &lt;dbl&gt;
+1 Sierra Leone         36.8</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">lifeExp_bycountry <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-2" title="2"><span class="st">   </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_lifeExp)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb50-3" title="3"><span class="st">   </span><span class="kw">head</span>(<span class="dv">1</span>)</a></code></pre></div>
+<pre><code># A tibble: 1 x 2
+ country mean_lifeExp
+ &lt;chr&gt;          &lt;dbl&gt;
+1 Iceland         76.5</code></pre>
+</blockquote>
+</blockquote>
+<p>The function <code>group_by()</code> allows us to group by multiple variables. Let’s group by <code>year</code> and <code>continent</code>.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">gdp_bycontinents_byyear &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-3" title="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap))</a></code></pre></div>
+<p>That is already quite powerful, but it gets even better! You’re not limited to defining 1 new variable in <code>summarize()</code>.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">gdp_pop_bycontinents_byyear &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb53-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb53-3" title="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb53-4" title="4">              <span class="dt">sd_gdpPercap =</span> <span class="kw">sd</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb53-5" title="5">              <span class="dt">mean_pop =</span> <span class="kw">mean</span>(pop),</a>
+<a class="sourceLine" id="cb53-6" title="6">              <span class="dt">sd_pop =</span> <span class="kw">sd</span>(pop))</a></code></pre></div>
+</div>
+<div id="count-and-n" class="section level2">
+<h2><span class="header-section-number">0.13</span> count() and n()</h2>
+<p>A very common operation is to count the number of observations for each
+group. The <code>dplyr</code> package comes with two related functions that help with this.</p>
+<p>For instance, if we wanted to check the number of countries included in the
+dataset for the year 2002, we can use the <code>count()</code> function. It takes the name
+of one or more columns that contain the groups we are interested in, and we can
+optionally sort the results in descending order by adding <code>sort=TRUE</code>:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-2" title="2"><span class="st">    </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2002</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-3" title="3"><span class="st">    </span><span class="kw">count</span>(continent, <span class="dt">sort =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code># A tibble: 5 x 2
+  continent     n
+  &lt;chr&gt;     &lt;int&gt;
+1 Africa       52
+2 Asia         33
+3 Europe       30
+4 Americas     25
+5 Oceania       2</code></pre>
+<p>If we need to use the number of observations in calculations, the <code>n()</code> function
+is useful. It will return the total number of observations in the current group rather than counting the number of observations in each group within a specific column. For instance, if we wanted to get the standard error of the life expectency per continent:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1">gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb56-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb56-3" title="3"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">se_le =</span> <span class="kw">sd</span>(lifeExp)<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">n</span>()))</a></code></pre></div>
+<pre><code># A tibble: 5 x 2
+  continent se_le
+  &lt;chr&gt;     &lt;dbl&gt;
+1 Africa    0.366
+2 Americas  0.540
+3 Asia      0.596
+4 Europe    0.286
+5 Oceania   0.775</code></pre>
+<p>You can also chain together several summary operations; in this case calculating the <code>minimum</code>, <code>maximum</code>, <code>mean</code> and <code>se</code> of each continent’s per-country life-expectancy:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb58-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb58-3" title="3"><span class="st">    </span><span class="kw">summarize</span>(</a>
+<a class="sourceLine" id="cb58-4" title="4">      <span class="dt">mean_le =</span> <span class="kw">mean</span>(lifeExp),</a>
+<a class="sourceLine" id="cb58-5" title="5">      <span class="dt">min_le =</span> <span class="kw">min</span>(lifeExp),</a>
+<a class="sourceLine" id="cb58-6" title="6">      <span class="dt">max_le =</span> <span class="kw">max</span>(lifeExp),</a>
+<a class="sourceLine" id="cb58-7" title="7">      <span class="dt">se_le =</span> <span class="kw">sd</span>(lifeExp)<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">n</span>()))</a></code></pre></div>
+<pre><code># A tibble: 5 x 5
+  continent mean_le min_le max_le se_le
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 Africa       48.9   23.6   76.4 0.366
+2 Americas     64.7   37.6   80.7 0.540
+3 Asia         60.1   28.8   82.6 0.596
+4 Europe       71.9   43.6   81.8 0.286
+5 Oceania      74.3   69.1   81.2 0.775</code></pre>
+</div>
+<div id="using-mutate" class="section level2">
+<h2><span class="header-section-number">0.14</span> Using mutate()</h2>
+<p>We can also create new variables prior to (or even after) summarizing information using <code>mutate()</code>.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">gdp_pop_bycontinents_byyear &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb60-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">gdp_billion =</span> gdpPercap<span class="op">*</span>pop<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">9</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb60-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(continent,year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb60-4" title="4"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb60-5" title="5">              <span class="dt">sd_gdpPercap =</span> <span class="kw">sd</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb60-6" title="6">              <span class="dt">mean_pop =</span> <span class="kw">mean</span>(pop),</a>
+<a class="sourceLine" id="cb60-7" title="7">              <span class="dt">sd_pop =</span> <span class="kw">sd</span>(pop),</a>
+<a class="sourceLine" id="cb60-8" title="8">              <span class="dt">mean_gdp_billion =</span> <span class="kw">mean</span>(gdp_billion),</a>
+<a class="sourceLine" id="cb60-9" title="9">              <span class="dt">sd_gdp_billion =</span> <span class="kw">sd</span>(gdp_billion))</a></code></pre></div>
+</div>
+<div id="connect-mutate-with-logical-filtering-ifelse" class="section level2">
+<h2><span class="header-section-number">0.15</span> Connect mutate with logical filtering: ifelse</h2>
+<p>When creating new variables, we can hook this with a logical condition. A simple combination of
+<code>mutate()</code> and <code>ifelse()</code> facilitates filtering right where it is needed: in the moment of creating something new.
+This easy-to-read statement is a fast and powerful way of discarding certain data (even though the overall dimension
+of the data frame will not change) or for updating values depending on this given condition.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1"><span class="co">## keeping all data but &quot;filtering&quot; after a certain condition</span></a>
+<a class="sourceLine" id="cb61-2" title="2"><span class="co"># calculate GDP only for people with a life expectation above 25</span></a>
+<a class="sourceLine" id="cb61-3" title="3">gdp_pop_bycontinents_byyear_above25 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb61-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">gdp_billion =</span> <span class="kw">ifelse</span>(lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">25</span>, gdpPercap <span class="op">*</span><span class="st"> </span>pop <span class="op">/</span><span class="st"> </span><span class="dv">10</span><span class="op">^</span><span class="dv">9</span>, <span class="ot">NA</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb61-5" title="5"><span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb61-6" title="6"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb61-7" title="7">              <span class="dt">sd_gdpPercap =</span> <span class="kw">sd</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb61-8" title="8">              <span class="dt">mean_pop =</span> <span class="kw">mean</span>(pop),</a>
+<a class="sourceLine" id="cb61-9" title="9">              <span class="dt">sd_pop =</span> <span class="kw">sd</span>(pop),</a>
+<a class="sourceLine" id="cb61-10" title="10">              <span class="dt">mean_gdp_billion =</span> <span class="kw">mean</span>(gdp_billion),</a>
+<a class="sourceLine" id="cb61-11" title="11">              <span class="dt">sd_gdp_billion =</span> <span class="kw">sd</span>(gdp_billion))</a>
+<a class="sourceLine" id="cb61-12" title="12"></a>
+<a class="sourceLine" id="cb61-13" title="13"><span class="co">## updating only if certain condition is fullfilled</span></a>
+<a class="sourceLine" id="cb61-14" title="14"><span class="co"># for life expectations above 40 years, the gpd to be expected in the future is scaled</span></a>
+<a class="sourceLine" id="cb61-15" title="15">gdp_future_bycontinents_byyear_high_lifeExp &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb61-16" title="16"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">gdp_futureExpectation =</span> <span class="kw">ifelse</span>(lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">40</span>, gdpPercap <span class="op">*</span><span class="st"> </span><span class="fl">1.5</span>, gdpPercap)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb61-17" title="17"><span class="st">    </span><span class="kw">group_by</span>(continent, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb61-18" title="18"><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">mean_gdpPercap =</span> <span class="kw">mean</span>(gdpPercap),</a>
+<a class="sourceLine" id="cb61-19" title="19">              <span class="dt">mean_gdpPercap_expected =</span> <span class="kw">mean</span>(gdp_futureExpectation))</a></code></pre></div>
+</div>
+<div id="combining-dplyr-and-ggplot2" class="section level2">
+<h2><span class="header-section-number">0.16</span> Combining <code>dplyr</code> and <code>ggplot2</code></h2>
+<p>First install and load ggplot2:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1"><span class="kw">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</a></code></pre></div>
+<p>In the plotting lesson we looked at how to make a multi-panel figure by adding
+a layer of facet panels using <code>ggplot2</code>. Here is the code we used (with some
+extra comments):</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="co"># Get the start letter of each country</span></a>
+<a class="sourceLine" id="cb64-2" title="2">starts.with &lt;-<span class="st"> </span><span class="kw">substr</span>(gapminder<span class="op">$</span>country, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb64-3" title="3"><span class="co"># Filter countries that start with &quot;A&quot; or &quot;Z&quot;</span></a>
+<a class="sourceLine" id="cb64-4" title="4">az.countries &lt;-<span class="st"> </span>gapminder[starts.with <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;Z&quot;</span>), ]</a>
+<a class="sourceLine" id="cb64-5" title="5"><span class="co"># Make the plot</span></a>
+<a class="sourceLine" id="cb64-6" title="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> az.countries, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">color =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb64-7" title="7"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>country)</a></code></pre></div>
+<p><img src="fig/rmd-6-unnamed-chunk-27-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>This code makes the right plot but it also creates some variables (<code>starts.with</code>
+and <code>az.countries</code>) that we might not have any other uses for. Just as we used
+<code>%&gt;%</code> to pipe data along a chain of <code>dplyr</code> functions we can use it to pass data
+to <code>ggplot()</code>. Because <code>%&gt;%</code> replaces the first argument in a function we don’t
+need to specify the <code>data =</code> argument in the <code>ggplot()</code> function. By combining
+<code>dplyr</code> and <code>ggplot2</code> functions we can make the same figure without creating any
+new variables or modifying the data.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1">gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb65-2" title="2"><span class="st">   </span><span class="co"># Get the start letter of each country</span></a>
+<a class="sourceLine" id="cb65-3" title="3"><span class="st">   </span><span class="kw">mutate</span>(<span class="dt">startsWith =</span> <span class="kw">substr</span>(country, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">1</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb65-4" title="4"><span class="st">   </span><span class="co"># Filter countries that start with &quot;A&quot; or &quot;Z&quot;</span></a>
+<a class="sourceLine" id="cb65-5" title="5"><span class="st">   </span><span class="kw">filter</span>(startsWith <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;Z&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb65-6" title="6"><span class="st">   </span><span class="co"># Make the plot</span></a>
+<a class="sourceLine" id="cb65-7" title="7"><span class="st">   </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">color =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-8" title="8"><span class="st">   </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb65-9" title="9"><span class="st">   </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>country)</a></code></pre></div>
+<p><img src="fig/rmd-6-unnamed-chunk-28-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p>Using <code>dplyr</code> functions also helps us simplify things, for example we could
+combine the first two steps:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1">gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb66-2" title="2"><span class="st">    </span><span class="co"># Filter countries that start with &quot;A&quot; or &quot;Z&quot;</span></a>
+<a class="sourceLine" id="cb66-3" title="3"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">substr</span>(country, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">1</span>) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;Z&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb66-4" title="4"><span class="st">    </span><span class="co"># Make the plot</span></a>
+<a class="sourceLine" id="cb66-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">color =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb66-6" title="6"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb66-7" title="7"><span class="st">    </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>country)</a></code></pre></div>
+<p><img src="fig/rmd-6-unnamed-chunk-29-1.png" width="816" style="display: block; margin: auto;" /></p>
+<blockquote>
+<h2 id="advanced-challenge"><span class="header-section-number">0.16</span> Advanced Challenge</h2>
+<p>Calculate the average life expectancy in 2002 of 2 randomly selected countries
+for each continent. Then arrange the continent names in reverse order.
+<strong>Hint:</strong> Use the <code>dplyr</code> functions <code>arrange()</code> and <code>sample_n()</code>, they have
+similar syntax to other dplyr functions.</p>
+<blockquote>
+<h2 id="solution-to-advanced-challenge"><span class="header-section-number">0.16</span> Solution to Advanced Challenge</h2>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1">lifeExp_2countries_bycontinents &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb67-2" title="2"><span class="st">   </span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2002</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb67-3" title="3"><span class="st">   </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb67-4" title="4"><span class="st">   </span><span class="kw">sample_n</span>(<span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb67-5" title="5"><span class="st">   </span><span class="kw">summarize</span>(<span class="dt">mean_lifeExp=</span><span class="kw">mean</span>(lifeExp)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb67-6" title="6"><span class="st">   </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_lifeExp))</a></code></pre></div>
+</blockquote>
+</blockquote>
+</div>
+<div id="other-great-resources" class="section level2">
+<h2><span class="header-section-number">0.17</span> Other great resources</h2>
+<ul>
+<li><a href="http://r4ds.had.co.nz/">R for Data Science</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">Data Wrangling Cheat sheet</a></li>
+<li><a href="https://dplyr.tidyverse.org/">Introduction to dplyr</a></li>
+<li><a href="https://www.rstudio.com/resources/webinars/data-wrangling-with-r-and-rstudio/">Data wrangling with R and RStudio</a></li>
+</ul>
+
+<p>Researchers often want to manipulate their data from the ‘wide’ to the ‘long’
+format, or vice-versa. The ‘long’ format is where:</p>
+<ul>
+<li>each column is a variable</li>
+<li>each row is an observation</li>
+</ul>
+<p>In the ‘long’ format, you usually have 1 column for the observed variable and
+the other columns are ID variables.</p>
+<p>For the ‘wide’ format each row is often a site/subject/patient and you have
+multiple observation variables containing the same type of data. These can be
+either repeated observations over time, or observation of multiple variables (or
+a mix of both). You may find data input may be simpler or some other
+applications may prefer the ‘wide’ format. However, many of <code>R</code>‘s functions have
+been designed assuming you have ’long’ format data. This tutorial will help you
+efficiently transform your data regardless of original format.</p>
+<p><img src="fig/14-tidyr-fig1.png" /></p>
+<p>These data formats mainly affect readability. For humans, the wide format is
+often more intuitive since we can often see more of the data on the screen due
+to its shape. However, the long format is more machine readable and is closer
+to the formatting of databases. The ID variables in our dataframes are similar to
+the fields in a database and observed variables are like the database values.</p>
+</div>
+<div id="getting-started" class="section level2">
+<h2><span class="header-section-number">0.18</span> Getting started</h2>
+<p>First install the packages if you haven’t already done so (you probably
+installed dplyr in the previous lesson):</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyr&quot;</span>)</a>
+<a class="sourceLine" id="cb68-2" title="2"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</a>
+<a class="sourceLine" id="cb68-3" title="3"><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>)</a></code></pre></div>
+<p>Load the packages</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1"><span class="kw">library</span>(<span class="st">&quot;tidyr&quot;</span>)</a>
+<a class="sourceLine" id="cb69-2" title="2"><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</a>
+<a class="sourceLine" id="cb69-3" title="3"><span class="kw">library</span>(<span class="st">&quot;readr&quot;</span>)</a></code></pre></div>
+<p>First, lets look at the structure of our original gapminder dataframe:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1">gapminder &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/gapminder_data.csv&quot;</span>)</a></code></pre></div>
+<pre><code>Parsed with column specification:
+cols(
+  country = col_character(),
+  year = col_double(),
+  pop = col_double(),
+  continent = col_character(),
+  lifeExp = col_double(),
+  gdpPercap = col_double()
+)</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1">gapminder</a></code></pre></div>
+<pre><code># A tibble: 1,704 x 6
+   country      year      pop continent lifeExp gdpPercap
+   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Afghanistan  1952  8425333 Asia         28.8      779.
+ 2 Afghanistan  1957  9240934 Asia         30.3      821.
+ 3 Afghanistan  1962 10267083 Asia         32.0      853.
+ 4 Afghanistan  1967 11537966 Asia         34.0      836.
+ 5 Afghanistan  1972 13079460 Asia         36.1      740.
+ 6 Afghanistan  1977 14880372 Asia         38.4      786.
+ 7 Afghanistan  1982 12881816 Asia         39.9      978.
+ 8 Afghanistan  1987 13867957 Asia         40.8      852.
+ 9 Afghanistan  1992 16317921 Asia         41.7      649.
+10 Afghanistan  1997 22227415 Asia         41.8      635.
+# ... with 1,694 more rows</code></pre>
+<blockquote>
+<h2 id="challenge-1-2"><span class="header-section-number">0.18</span> Challenge 1</h2>
+<p>Is gapminder a purely long, purely wide, or some intermediate format?</p>
+<blockquote>
+<h2 id="solution-to-challenge-1-2"><span class="header-section-number">0.18</span> Solution to Challenge 1</h2>
+<p>The original gapminder data.frame is in an intermediate format. It is not
+purely long since it had multiple observation variables
+(<code>pop</code>,<code>lifeExp</code>,<code>gdpPercap</code>).</p>
+</blockquote>
+</blockquote>
+<p>Sometimes, as with the gapminder dataset, we have multiple types of observed
+data. It is somewhere in between the purely ‘long’ and ‘wide’ data formats. We
+have 3 “ID variables” (<code>continent</code>, <code>country</code>, <code>year</code>) and 3 “Observation
+variables” (<code>pop</code>,<code>lifeExp</code>,<code>gdpPercap</code>). This intermediate format can be
+preferred despite not having ALL observations in 1 column given that all 3
+observation variables have different units. There are few operations that would
+need us to stretch out this dataframe any longer (i.e. 4 ID variables and 1
+Observation variable).</p>
+<p>While using many of the functions in R, which are often vector based, you
+usually do not want to do mathematical operations on values with different
+units. For example, using the purely long format, a single mean for all of the
+values of population, life expectancy, and GDP would not be meaningful since it
+would return the mean of values with 3 incompatible units. The solution is that
+we first manipulate the data either by grouping (see the lesson on <code>dplyr</code>), or
+we change the structure of the dataframe. <strong>Note:</strong> Some plotting functions in
+R actually work better in the wide format data.</p>
+</div>
+<div id="convert-long-format-with-gather" class="section level2">
+<h2><span class="header-section-number">0.19</span> Convert long format with gather()</h2>
+<p>Here we have used piping syntax which is similar to what we were doing in the
+previous lesson with dplyr. In fact, these are compatible and you can use a mix
+of tidyr and dplyr functions by piping them together</p>
+<p>Inside <code>gather()</code> we first name the new column for the new ID variable and then
+the value column taking the <code>country</code>, <code>year</code> and <code>continent</code> variables out
+of the gathering process:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1">gapminder_long &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb74-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> vars, <span class="dt">value =</span> value, <span class="op">-</span>country, <span class="op">-</span>year, <span class="op">-</span>continent)</a></code></pre></div>
+<p>Inside <code>spread()</code> we have the opposite situation where we take the <code>vars</code> column and spread
+it over to separate columns with <code>value</code> filling those cells:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1">gapminder_wide &lt;-<span class="st"> </span>gapminder_long <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">spread</span>(<span class="dt">key =</span> vars, <span class="dt">value =</span> value)</a></code></pre></div>
+</div>
+<div id="advantage-to-plotting-and-tables" class="section level2">
+<h2><span class="header-section-number">0.20</span> Advantage to plotting and tables</h2>
+<p>Reshaping your data from wide to long provides considerable flexibility for
+presenting your results. Combining some <code>dplyr</code> grouping code with tidyr
+we can produce a nice table:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb76-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> vars, <span class="dt">value =</span> value, <span class="op">-</span>country, <span class="op">-</span>year, <span class="op">-</span>continent) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb76-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(continent, vars) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb76-4" title="4"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">total_pop =</span> <span class="kw">sum</span>(value)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb76-5" title="5"><span class="st">    </span><span class="kw">spread</span>(<span class="dt">key =</span> continent, <span class="dt">value =</span> total_pop)</a></code></pre></div>
+<pre><code># A tibble: 3 x 6
+  vars           Africa    Americas         Asia      Europe    Oceania
+  &lt;chr&gt;           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+1 gdpPercap    1368903.    2140833.     3129252.    5209011.    446919.
+2 lifeExp        30492.      19398.       23786.      25885.      1784.
+3 pop       6187585961  7351438499  30507333902. 6181115304  212992136 </code></pre>
+<p>Similarly, gathering can provide considerable more flexibility when plotting by grouping
+variables we might want to facet:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb78-2" title="2"></a>
+<a class="sourceLine" id="cb78-3" title="3"><span class="kw">ggplot</span>(gapminder_long, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> value, <span class="dt">colour =</span> country)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb78-4" title="4"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb78-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">colour =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb78-6" title="6"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>vars, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>, <span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
+<p><img src="fig/rmd-7-unnamed-chunk-8-1.png" width="816" style="display: block; margin: auto;" /></p>
+</div>
+<div id="other-great-resources-1" class="section level2">
+<h2><span class="header-section-number">0.21</span> Other great resources</h2>
+<ul>
+<li><a href="http://r4ds.had.co.nz/index.html">R for Data Science</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">Data Wrangling Cheat sheet</a></li>
+<li><a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">Introduction to tidyr</a></li>
+<li><a href="https://www.rstudio.com/resources/webinars/data-wrangling-with-r-and-rstudio/">Data wrangling with R and RStudio</a></li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

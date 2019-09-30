@@ -1,0 +1,7 @@
+book_filename: "ds-cop-intro-to-r"
+chapter_name: "Chapter "
+repo: https://github.com/bcgov/ds-cop-intro-to-r
+output_dir: docs
+rmd_files: ["index.Rmd","05-plot-ggplot2.Rmd", "06-dplyr.Rmd", "07-tidyr.Rmd"]
+clean: [packages.bib, bookdown.bbl]
+new_session: yes
