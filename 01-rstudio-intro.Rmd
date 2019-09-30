@@ -495,10 +495,17 @@ rm(list <- ls())
 
 ## R Packages
 
-It is possible to add functions to R by 
-obtaining a package written by someone else. As of this writing, there
-are over 10,000 packages available on CRAN (the comprehensive R archive
-network). R and RStudio have functionality for managing packages:
+Think of packages like apps on your smart phone. Your phone can do a lot of
+things right out of the box, but you can get apps to make some existing
+functionality better (like a better timer), or allow you to do new and amazing
+things with your phone (like play Cwazy Cupcakes).
+
+Similarly, R comes with many functions built in, but it is possible to add
+functions to R by obtaining a package written by someone else. As of this
+writing, there are over 10,000 packages available on CRAN (the comprehensive R
+archive network).
+
+R and RStudio have functionality for managing packages:
 
 * You can see what packages are installed by typing
   `installed.packages()`
