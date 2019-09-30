@@ -16,11 +16,12 @@ keypoints:
 source: Rmd
 ---
 
-```{r, include=FALSE}
+```{r setup, include=FALSE}
 source("../bin/chunk-options.R")
 knitr_fig_path("08-")
 # Silently load in the data so the rest of the lesson works
-gapminder <- read.csv("data/gapminder_data.csv", header = TRUE)
+library(readr)
+gapminder <- read_csv("../data/gapminder_data.csv")
 ```
 
 Plotting our data is one of the best ways to
@@ -48,7 +49,16 @@ The key to understanding ggplot2 is thinking about a figure in layers.
 This idea may be familiar to you if you have used image editing programs like Photoshop, Illustrator, or
 Inkscape.
 
-Let's start off with an example:
+Let's start off by loading our gapminder data:
+
+```{r load-data, message=FALSE}
+library(readr)
+gapminder <- read_csv("../data/gapminder_data.csv")
+gapminder
+```
+
+
+And jump right in my making an example ggplot2 plot:
 
 ```{r lifeExp-vs-gdpPercap-scatter, message=FALSE}
 library("ggplot2")
