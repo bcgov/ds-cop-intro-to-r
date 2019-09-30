@@ -26,8 +26,13 @@ knitr_fig_path("13-")
 
 Bringing data into R is one of the first places where new users encounter difficulties. 
 
+```{r, eval=FALSE}
+install.packages("readr")
+```
+
+
 ```{r}
-library(readr)
+library("readr")
 gapminder <- read_csv("../data/gapminder_data.csv")
 
 str(gapminder)
@@ -40,9 +45,9 @@ data by a certain variable(s), or we even calculate summary statistics. We can
 do these operations using the normal base R operations:
 
 ```{r}
-mean(gapminder[gapminder$continent == "Africa", "gdpPercap"])
-mean(gapminder[gapminder$continent == "Americas", "gdpPercap"])
-mean(gapminder[gapminder$continent == "Asia", "gdpPercap"])
+mean(gapminder[gapminder$continent == "Africa",]$gdpPercap)
+mean(gapminder[gapminder$continent == "Americas",]$gdpPercap)
+mean(gapminder[gapminder$continent == "Asia",]$gdpPercap)
 ```
 
 But this isn't very *nice* because there is a fair bit of repetition. Repeating
@@ -150,8 +155,7 @@ year_country_gdp_euro <- gapminder %>%
 > >                            filter(continent == "Africa") %>%
 > >                            select(year, country, lifeExp)
 > > ```
-> {: .solution}
-{: .challenge}
+> 
 
 As with last time, first we pass the gapminder dataframe to the `filter()`
 function, then we pass the filtered version of the gapminder dataframe to the
@@ -238,8 +242,7 @@ even better.
 > >    arrange(desc(mean_lifeExp)) %>%
 > >    head(1)
 > >```
-> {: .solution}
-{: .challenge}
+> 
 
 The function `group_by()` allows us to group by multiple variables. Let's group by `year` and `continent`.
 
@@ -418,8 +421,7 @@ gapminder %>%
 > >    summarize(mean_lifeExp=mean(lifeExp)) %>%
 > >    arrange(desc(mean_lifeExp))
 > >```
-> {: .solution}
-{: .challenge}
+> 
 
 ## Other great resources
 
