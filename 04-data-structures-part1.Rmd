@@ -20,7 +20,7 @@ source: Rmd
 ---
 
 ```{r, include=FALSE}
-source("../bin/chunk-options.R")
+source("bin/chunk-options.R")
 knitr_fig_path("04-")
 ```
 
@@ -94,7 +94,7 @@ paste("My cat is", cats$coat)
 
 But what about
 
-```{r}
+```{r error=TRUE}
 cats$weight + cats$coat
 ```
 
@@ -397,7 +397,7 @@ data.frame needs something a bit more flexible than a vector to put all the
 columns together into a familiar table.  In other words, a `data.frame` is a
 special list in which all the vectors must have the same length.
 
-In our `cats` example, we have an integer, a double and a logical variable. As
+In our `cats` example, we have a character, a double and a logical variable. As
 we have seen already, each column of data.frame is a vector.
 
 ```{r}
