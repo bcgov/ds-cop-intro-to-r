@@ -55,7 +55,7 @@ Different functions might have different sections, but these are the main ones y
 > available. It would be prohibitive, if not impossible to remember the
 > correct usage for every function you use. Luckily, the help files
 > mean you don't have to!
-{: .callout}
+
 
 ## Special Operators
 
@@ -106,8 +106,7 @@ fields. This can be a good starting point.
 > > same type. In the first case, the elements are numeric, in the
 > > second, they are characters, and in the third they are characters:
 > > the numeric values are "coerced" to be characters.
-> {: .solution}
-{: .challenge}
+
 
 > ## Challenge 2
 >
@@ -138,8 +137,7 @@ fields. This can be a good starting point.
 > > (For more information,
 > > scroll to the bottom of the `?paste` help page and look at the
 > > examples, or try `example('paste')`.)
-> {: .solution}
-{: .challenge}
+
 
 > ## Challenge 3
 > Use help to find a function (and its associated parameters) that you could
@@ -157,7 +155,6 @@ fields. This can be a good starting point.
 > > separator for `read.table()`, although you may have to change
 > > the `comment.char` argument as well if your data file contains
 > > hash (#) characters
-> {: .solution}
-{: .challenge}
+
 
 
