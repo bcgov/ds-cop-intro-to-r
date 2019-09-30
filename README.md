@@ -54,7 +54,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### License
 
-[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
+[![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/). This work is derived from work that is copyrighted by [Software Carpentry](http://software-carpentry.org/). In particular, these lessons draw heavily from the [R for Reproducible Scientific Analysis](http://swcarpentry.github.io/r-novice-gapminder/) lesson. 
 
 ```
 Copyright 2019 Province of British Columbia
