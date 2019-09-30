@@ -13,7 +13,7 @@ source: Rmd
 ---
 
 ```{r, include=FALSE}
-source("../bin/chunk-options.R")
+source("bin/chunk-options.R")
 knitr_fig_path("03-")
 ```
 
@@ -157,6 +157,4 @@ fields. This can be a good starting point.
 > > separator for `read.table()`, although you may have to change
 > > the `comment.char` argument as well if your data file contains
 > > hash (#) characters
-
-
 
