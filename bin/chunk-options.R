@@ -28,7 +28,7 @@ knitr_fig_path <- function(prefix) {
 ## `fig.process` option.
 
 opts_chunk$set(tidy = FALSE, results = "markup", comment = NA,
-               fig.align = "center", fig.path = "../fig/rmd-",
+               fig.align = "center", fig.path = "fig/rmd-",
                #fig.process = fix_fig_path,
                fig.width = 8.5, fig.height = 8.5,
                fig.retina = 2)
