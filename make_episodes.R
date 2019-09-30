@@ -18,6 +18,4 @@ if(!dir.exists("docs")){
   dir.create("docs", showWarnings = FALSE)
 }
 
-lapply(rmd_episodes[6:7], function(x) {
-  rmarkdown::render(x, output_dir = "docs", output_format = "html_document")
-})
+bookdown::render_book("index.Rmd")
