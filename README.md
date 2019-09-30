@@ -47,7 +47,7 @@ https://github.com/swcarpentry/r-novice-gapminder,
 #### @Connect 2019 Data Science Training Event, Wednesday October 2nd
 
 - _Instructors_: [Sam Albers](https://github.com/boshek), [Stephanie Hazlitt](https://github.com/stephhazlitt) & [Andy Teucher](https://github.com/ateucher)
-- _Etherpad_: <insert link>
+- _Etherpad_: <https://pad.carpentries.org/ds-cop-intro-to-r>
 
 
 ### Getting Help or Reporting an Issue
