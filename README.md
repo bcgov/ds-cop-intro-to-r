@@ -31,13 +31,22 @@ The goal of this 1-day workshop is to teach new-to-programming data professional
 (4) Data Structures  
 (5) Making Publication Quality Plots with `ggplot2`  
 (6) Data Manipulation with `dplyr`  
-(7) Data Manipulation with `tidy` (_tentative_)  
+(7) Data Manipulation with `tidyr` (_tentative_)  
 (8) Seeking Help from Others with `reprex`  
+
 
 Most of the above lesson material is sourced from the Software Carpentry Foundation (now The Carpenties) [R for Reproducible Scientific Analysis](http://swcarpentry.github.io/r-novice-gapminder/) lesson material: Thomas Wright and Naupaka Zimmerman (eds): _Software Carpentry: R for
 Reproducible Scientific Analysis_.  Version 2016.06, June 2016,
 https://github.com/swcarpentry/r-novice-gapminder,
 10.5281/zenodo.57520.
+
+
+### Course Offerings
+
+#### @Connect 2019 Data Science Training Event, Wednesday October 2nd
+
+- _Instructors_: [Sam Albers](https://github.com/boshek), [Stephanie Hazlitt](https://github.com/stephhazlitt) & [Andy Teucher](https://github.com/ateucher)
+- _Etherpad_: <insert link>
 
 
 ### Getting Help or Reporting an Issue
