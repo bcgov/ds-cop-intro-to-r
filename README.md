@@ -48,6 +48,7 @@ https://github.com/swcarpentry/r-novice-gapminder,
 
 - _Instructors_: [Sam Albers](https://github.com/boshek), [Stephanie Hazlitt](https://github.com/stephhazlitt) & [Andy Teucher](https://github.com/ateucher)
 - _Etherpad_: <https://pad.carpentries.org/ds-cop-intro-to-r>
+- Suggested pre-reading: [Good Enough Practices for Scientific Computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf)
 
 
 ### Getting Help or Reporting an Issue
