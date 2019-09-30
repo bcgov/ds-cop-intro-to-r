@@ -19,7 +19,7 @@ source: Rmd
 
 ```{r, include=FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("6-")
+knitr_fig_path("fig/13-")
 ```
 
 ## The `readr` package
@@ -171,7 +171,7 @@ could have used in filter.
 ```{r}
 gapminder
 
-gapminder %>% group_by(continent)
+gapminder %>% group_by(continent))
 ```
 You will notice that the structure of the dataframe where we used `group_by()`
 (`grouped_df`) is not the same as the original `gapminder` (`data.frame`). A
