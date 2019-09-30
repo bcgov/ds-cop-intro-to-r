@@ -20,9 +20,24 @@ source: Rmd
 ```{r, include=FALSE}
 source("../bin/chunk-options.R")
 knitr_fig_path("13-")
-# Silently load in the data so the rest of the lesson works
-gapminder <- read.csv("data/gapminder_data.csv", header=TRUE)
 ```
+
+## The `readr` package
+
+Bringing data into R is one of the first places where new users encounter difficulties. 
+
+```{r, eval=FALSE}
+install.packages("readr")
+```
+
+
+```{r}
+library("readr")
+gapminder <- read_csv("../data/gapminder_data.csv")
+
+str(gapminder)
+```
+
 
 Manipulation of dataframes means many things to many researchers, we often
 select certain observations (rows) or variables (columns), we often group the
@@ -30,9 +45,9 @@ data by a certain variable(s), or we even calculate summary statistics. We can
 do these operations using the normal base R operations:
 
 ```{r}
-mean(gapminder[gapminder$continent == "Africa", "gdpPercap"])
-mean(gapminder[gapminder$continent == "Americas", "gdpPercap"])
-mean(gapminder[gapminder$continent == "Asia", "gdpPercap"])
+mean(gapminder[gapminder$continent == "Africa",]$gdpPercap)
+mean(gapminder[gapminder$continent == "Americas",]$gdpPercap)
+mean(gapminder[gapminder$continent == "Asia",]$gdpPercap)
 ```
 
 But this isn't very *nice* because there is a fair bit of repetition. Repeating
@@ -75,16 +90,34 @@ our dataframe we could use the `select()` function. This will keep only the
 variables you select.
 
 ```{r}
-year_country_gdp <- select(gapminder,year,country,gdpPercap)
+year_country_gdp <- select(gapminder, year, country, gdpPercap)
 ```
 
 ![](../fig/13-dplyr-fig1.png)
 
+## Using filter()
+
+To select on some subset of rows:
+```{r}
+filter(gapminder, continent == "Europe")
+```
+
 If we open up `year_country_gdp` we'll see that it only contains the year,
 country and gdpPercap. Above we used 'normal' grammar, but the strengths of
-`dplyr` lie in combining several functions using pipes. Since the pipes grammar
-is unlike anything we've seen in R before, let's repeat what we've done above
-using pipes.
+`dplyr` lie in combining several functions using pipes. I've found this useful:
+
+```{r, eval=FALSE}
+## https://twitter.com/WeAreRLadies/status/1172576445794803713 by https://twitter.com/Shel_Kariuki
+
+I work up %>% 
+  showered %>% 
+  dressed %>% 
+  had coffee %>% 
+  came to R workshop
+```
+
+Since the pipes grammar is unlike anything we've seen in R before, 
+let's repeat what we've done above using pipes.
 
 ```{r}
 year_country_gdp <- gapminder %>% select(year, country, gdpPercap)
@@ -96,9 +129,9 @@ symbol `%>%`, to the next step, which is the `select()` function. In this case
 we don't specify which data object we use in the `select()` function since in
 gets that from the previous pipe. **Fun Fact**: There is a good chance you have
 encountered pipes before in the shell. In R, a pipe symbol is `%>%` while in the
-shell it is `|` but the concept is the same!
+shell it is `|` but the concept is the same! 
 
-## Using filter()
+## Using filter() with pipes
 
 If we now wanted to move forward with the above, but only with European
 countries, we can combine `select` and `filter`
@@ -122,8 +155,7 @@ year_country_gdp_euro <- gapminder %>%
 > >                            filter(continent == "Africa") %>%
 > >                            select(year, country, lifeExp)
 > > ```
-> {: .solution}
-{: .challenge}
+> 
 
 As with last time, first we pass the gapminder dataframe to the `filter()`
 function, then we pass the filtered version of the gapminder dataframe to the
@@ -141,9 +173,9 @@ can use `group_by()`, which will essentially use every unique criteria that you
 could have used in filter.
 
 ```{r}
-str(gapminder)
+gapminder
 
-str(gapminder %>% group_by(continent))
+gapminder %>% group_by(continent)
 ```
 You will notice that the structure of the dataframe where we used `group_by()`
 (`grouped_df`) is not the same as the original `gapminder` (`data.frame`). A
@@ -210,8 +242,7 @@ even better.
 > >    arrange(desc(mean_lifeExp)) %>%
 > >    head(1)
 > >```
-> {: .solution}
-{: .challenge}
+> 
 
 The function `group_by()` allows us to group by multiple variables. Let's group by `year` and `continent`.
 
@@ -390,8 +421,7 @@ gapminder %>%
 > >    summarize(mean_lifeExp=mean(lifeExp)) %>%
 > >    arrange(desc(mean_lifeExp))
 > >```
-> {: .solution}
-{: .challenge}
+> 
 
 ## Other great resources
 
