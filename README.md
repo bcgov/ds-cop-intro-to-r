@@ -3,12 +3,13 @@
 
 # Introduction to Data Science Using R
 
+
 A repository to house materials for a 1-day course introducing participants to data science using [R](https://www.r-project.org/).
 
-The goal of this 1-day workshop is to teach _new-to-programming_ data professionals to import data, clean up and summarize a data set, and make some static data visualizations using the program R. R is a popular statistical computing language, commonly used in many scientific disciplines for statistical analysis, generating production-quality graphics, and automating data workflow tasks. The workshop content will follow best practices for using R for data analysis, giving attendees a foundation in the fundamentals of R and scientific computing.
+
+The goal of this 1-day workshop is to teach new-to-programming data professionals to import data, clean up and summarize a data set, and make some static data visualizations using the program R. R is a popular statistical computing language, commonly used in many scientific disciplines for statistical analysis, generating production-quality graphics, and automating data workflow tasks. The workshop content will follow best practices for using R for data analysis, giving attendees a foundation in the fundamentals of R and scientific computing.
 
 
-<!--
 ### Learning Objectives
 
 - An introduction to R & RStudio
@@ -20,35 +21,23 @@ The goal of this 1-day workshop is to teach _new-to-programming_ data profession
 - How to manipulate a data frame
 - How to make and save plots
 - How to get help using reproducible example
--->
 
 
 ### Lessons
 
-(1) Introduction to R & RStudio (~55 minutes)  
-(2) Project Management with RStudio (~30 minutes)  
-(3) Seeking Help in R  (~15 minutes)  
-(4) Data Structures  (~55 minutes)  
-(5) Making Publication Quality Plots with `ggplot2` (~80 minutes)  
-(6) Data Manipulation with `dplyr` (~55 minutes)  
-(7) Data Manipulation with `tidyr` (~20 minutes)    
-(8) Seeking Help from Others with `reprex` (~20 minutes)  
-
-https://bcgov.github.io/ds-cop-intro-to-r/ds-cop-intro-to-r.html
+(1) Introduction to R & RStudio (55 minutes)
+(2) Project Management with RStudio (30 minutes)
+(3) Seeking Help in R  (20 minutes)
+(4) Data Structures  (55 minutes)
+(5) Making Publication Quality Plots with `ggplot2` (80 minutes)
+(6) Data Manipulation with `dplyr`  (55 minutes)
+(7) Data Manipulation with `tidy` (_tentative_) (20 minutes)   
+(8) Seeking Help from Others with `reprex`  
 
 Most of the above lesson material is sourced from the Software Carpentry Foundation (now The Carpenties) [R for Reproducible Scientific Analysis](http://swcarpentry.github.io/r-novice-gapminder/) lesson material: Thomas Wright and Naupaka Zimmerman (eds): _Software Carpentry: R for
 Reproducible Scientific Analysis_.  Version 2016.06, June 2016,
 https://github.com/swcarpentry/r-novice-gapminder,
 10.5281/zenodo.57520.
-
-
-### Course Offerings
-
-#### @Connect 2019 Data Science Training Event, Wednesday October 2nd
-
-- _Instructors_: [Sam Albers](https://github.com/boshek), [Stephanie Hazlitt](https://github.com/stephhazlitt) & [Andy Teucher](https://github.com/ateucher)
-- _Etherpad_: <https://pad.carpentries.org/ds-cop-intro-to-r>
-- Suggested pre-reading: [Good Enough Practices for Scientific Computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf)
 
 
 ### Getting Help or Reporting an Issue
