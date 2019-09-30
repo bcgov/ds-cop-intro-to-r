@@ -13,31 +13,7 @@ keypoints:
 source: Rmd
 ---
 
-```{r, include=FALSE}
-source("bin/chunk-options.R")
-knitr_fig_path("7-")
 
-library(readr)
-# Silently load in the data so the rest of the lesson works
-gapminder <- read_csv("data/gapminder_data.csv")
-
-# To create gapminder_wide.csv:
-# library("dplyr")
-# library("tidyr")
-#
-# #transform the data to the wide format
-# gap_wide <- gapminder %>% gather(obs_type,obs_values,-continent,-country,-year) %>%
-#     unite(ID_var,continent,country,sep = "_") %>%
-#     unite(var_names,obs_type,year,sep = "_") %>%
-#     spread(var_names,obs_values) %>%
-#     separate(ID_var,into = c('continent','country'),sep = '_')
-#
-# #write our the .csv so students can use it
-# write.csv(gap_wide_betterID,"data/gapminder_wide.csv",row.names = FALSE)
-
-#load the "student" data
-gap_wide <- read_csv("data/gapminder_wide.csv")
-```
 
 Researchers often want to manipulate their data from the 'wide' to the 'long'
 format, or vice-versa. The 'long' format is where:
@@ -70,7 +46,8 @@ the fields in a database and observed variables are like the database values.
 First install the packages if you haven't already done so (you probably
 installed dplyr in the previous lesson):
 
-```{r,eval=FALSE}
+
+```r
 install.packages("tidyr")
 install.packages("dplyr")
 install.packages("readr")
@@ -78,7 +55,8 @@ install.packages("readr")
 
 Load the packages
 
-```{r,message=FALSE}
+
+```r
 library("tidyr")
 library("dplyr")
 library("readr")
@@ -86,10 +64,42 @@ library("readr")
 
 First, lets look at the structure of our original gapminder dataframe:
 
-```{r}
-gapminder <- read_csv("data/gapminder_data.csv")
 
+```r
+gapminder <- read_csv("data/gapminder_data.csv")
+```
+
+```
+Parsed with column specification:
+cols(
+  country = col_character(),
+  year = col_double(),
+  pop = col_double(),
+  continent = col_character(),
+  lifeExp = col_double(),
+  gdpPercap = col_double()
+)
+```
+
+```r
 gapminder
+```
+
+```
+# A tibble: 1,704 x 6
+   country      year      pop continent lifeExp gdpPercap
+   <chr>       <dbl>    <dbl> <chr>       <dbl>     <dbl>
+ 1 Afghanistan  1952  8425333 Asia         28.8      779.
+ 2 Afghanistan  1957  9240934 Asia         30.3      821.
+ 3 Afghanistan  1962 10267083 Asia         32.0      853.
+ 4 Afghanistan  1967 11537966 Asia         34.0      836.
+ 5 Afghanistan  1972 13079460 Asia         36.1      740.
+ 6 Afghanistan  1977 14880372 Asia         38.4      786.
+ 7 Afghanistan  1982 12881816 Asia         39.9      978.
+ 8 Afghanistan  1987 13867957 Asia         40.8      852.
+ 9 Afghanistan  1992 16317921 Asia         41.7      649.
+10 Afghanistan  1997 22227415 Asia         41.8      635.
+# ... with 1,694 more rows
 ```
 
 > ## Challenge 1
@@ -130,14 +140,16 @@ of tidyr and dplyr functions by piping them together
 Inside `gather()` we first name the new column for the new ID variable and then
 the value column taking the `country`, `year` and `continent` variables out
 of the gathering process:
-```{r}
+
+```r
 gapminder_long <- gapminder %>% 
     gather(key = vars, value = value, -country, -year, -continent)
 ```
 
 Inside `spread()` we have the opposite situation where we take the `vars` column and spread
 it over to separate columns with `value` filling those cells:
-```{r}
+
+```r
 gapminder_wide <- gapminder_long %>% spread(key = vars, value = value)
 ```
 
@@ -145,7 +157,8 @@ gapminder_wide <- gapminder_long %>% spread(key = vars, value = value)
 Reshaping your data from wide to long provides considerable flexibility for 
 presenting your results. Combining some `dplyr` grouping code with tidyr 
 we can produce a nice table:
-```{r}
+
+```r
 gapminder %>% 
     gather(key = vars, value = value, -country, -year, -continent) %>% 
     group_by(continent, vars) %>% 
@@ -153,9 +166,19 @@ gapminder %>%
     spread(key = continent, value = total_pop)
 ```
 
+```
+# A tibble: 3 x 6
+  vars           Africa    Americas         Asia      Europe    Oceania
+  <chr>           <dbl>       <dbl>        <dbl>       <dbl>      <dbl>
+1 gdpPercap    1368903.    2140833.     3129252.    5209011.    446919.
+2 lifeExp        30492.      19398.       23786.      25885.      1784.
+3 pop       6187585961  7351438499  30507333902. 6181115304  212992136 
+```
+
 Similarly, gathering can provide considerable more flexibility when plotting by grouping 
 variables we might want to facet:
-```{r}
+
+```r
 library(ggplot2)
 
 ggplot(gapminder_long, aes(x = year, y = value, colour = country)) +
@@ -163,6 +186,8 @@ ggplot(gapminder_long, aes(x = year, y = value, colour = country)) +
     guides(colour = FALSE) +
     facet_wrap(~vars, scales = "free_y", ncol = 1)
 ```
+
+<img src="fig/rmd-7-unnamed-chunk-8-1.png" width="816" style="display: block; margin: auto;" />
 
 
 ## Other great resources
