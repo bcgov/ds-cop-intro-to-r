@@ -9,7 +9,7 @@ A repository to house materials for a 1-day course introducing participants to d
 
 The goal of this 1-day workshop is to teach new-to-programming data professionals to import data, clean up and summarize a data set, and make some static data visualizations using the program R. R is a popular statistical computing language, commonly used in many scientific disciplines for statistical analysis, generating production-quality graphics, and automating data workflow tasks. The workshop content will follow best practices for using R for data analysis, giving attendees a foundation in the fundamentals of R and scientific computing.
 
-
+<!--
 ### Learning Objectives
 
 - An introduction to R & RStudio
@@ -21,7 +21,7 @@ The goal of this 1-day workshop is to teach new-to-programming data professional
 - How to manipulate a data frame
 - How to make and save plots
 - How to get help using reproducible example
-
+-->
 
 ### Lessons
 
