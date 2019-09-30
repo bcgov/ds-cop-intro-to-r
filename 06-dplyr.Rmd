@@ -18,8 +18,8 @@ source: Rmd
 ---
 
 ```{r, include=FALSE}
-source("../bin/chunk-options.R")
-knitr_fig_path("13-")
+source("bin/chunk-options.R")
+knitr_fig_path("6-")
 ```
 
 ## The `readr` package
@@ -33,26 +33,23 @@ install.packages("readr")
 
 ```{r}
 library("readr")
-gapminder <- read_csv("../data/gapminder_data.csv")
+gapminder <- read_csv("data/gapminder_data.csv")
 
-str(gapminder)
+gapminder
 ```
 
 
 Manipulation of dataframes means many things to many researchers, we often
 select certain observations (rows) or variables (columns), we often group the
 data by a certain variable(s), or we even calculate summary statistics. We can
-do these operations using the normal base R operations:
+do this operations using the normal base R operations:
 
 ```{r}
-mean(gapminder[gapminder$continent == "Africa",]$gdpPercap)
-mean(gapminder[gapminder$continent == "Americas",]$gdpPercap)
-mean(gapminder[gapminder$continent == "Asia",]$gdpPercap)
+mean(gapminder$gdpPercap)
 ```
 
-But this isn't very *nice* because there is a fair bit of repetition. Repeating
-yourself will cost you time, both now and later, and potentially introduce some
-nasty bugs.
+The question here is how might you take averages (or any other summary statistic) 
+by some group you might be interested in.
 
 ## The `dplyr` package
 
@@ -93,7 +90,7 @@ variables you select.
 year_country_gdp <- select(gapminder, year, country, gdpPercap)
 ```
 
-![](../fig/13-dplyr-fig1.png)
+![](fig/13-dplyr-fig1.png)
 
 ## Using filter()
 
@@ -183,7 +180,7 @@ You will notice that the structure of the dataframe where we used `group_by()`
 `data.frame` which contains only the rows that correspond to the a particular
 value `continent` (at least in the example above).
 
-![](../fig/13-dplyr-fig2.png)
+![](fig/13-dplyr-fig2.png)
 
 ## Using summarize()
 
@@ -200,7 +197,7 @@ gdp_bycontinents <- gapminder %>%
     summarize(mean_gdpPercap = mean(gdpPercap))
 ```
 
-![](../fig/13-dplyr-fig3.png)
+![](fig/13-dplyr-fig3.png)
 
 ```{r,eval=FALSE}
 continent mean_gdpPercap
