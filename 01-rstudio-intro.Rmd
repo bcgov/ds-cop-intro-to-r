@@ -27,7 +27,7 @@ source: Rmd
 ---
 
 ```{r, include=FALSE}
-source("../bin/chunk-options.R")
+source("bin/chunk-options.R")
 knitr_fig_path("01-")
 ```
 
@@ -74,12 +74,12 @@ When you first open RStudio, you will be greeted by three panels:
   * Environment/History (tabbed in upper right)
   * Files/Plots/Packages/Help/Viewer (tabbed in lower right)
 
-![RStudio layout](../fig/01-rstudio.png)
+![RStudio layout](fig/01-rstudio.png)
 
 Once you open files, such as R scripts, an editor panel will also open
 in the top left.
 
-![RStudio layout with .R file open](../fig/01-rstudio-script.png)
+![RStudio layout with .R file open](fig/01-rstudio-script.png)
 
 
 ## Work flow within RStudio
@@ -495,10 +495,17 @@ rm(list <- ls())
 
 ## R Packages
 
-It is possible to add functions to R by 
-obtaining a package written by someone else. As of this writing, there
-are over 10,000 packages available on CRAN (the comprehensive R archive
-network). R and RStudio have functionality for managing packages:
+Think of packages like apps on your smart phone. Your phone can do a lot of
+things right out of the box, but you can get apps to make some existing
+functionality better (like a better timer), or allow you to do new and amazing
+things with your phone (like play Cwazy Cupcakes).
+
+Similarly, R comes with many functions built in, but it is possible to add
+functions to R by obtaining a package written by someone else. As of this
+writing, there are over 10,000 packages available on CRAN (the comprehensive R
+archive network).
+
+R and RStudio have functionality for managing packages:
 
 * You can see what packages are installed by typing
   `installed.packages()`
