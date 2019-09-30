@@ -1,5 +1,5 @@
 ---
-title: "Seeking Help"
+title: "Seeking Help in R"
 teaching: 10
 exercises: 10
 questions:
@@ -7,7 +7,6 @@ questions:
 objectives:
 - "To be able read R help files for functions and special operators."
 - "To be able to use CRAN task views to identify packages to solve a problem."
-- "To be able to seek help from your peers."
 keypoints:
 - "Use `help()` to get online help in R."
 source: Rmd
@@ -56,7 +55,7 @@ Different functions might have different sections, but these are the main ones y
 > available. It would be prohibitive, if not impossible to remember the
 > correct usage for every function you use. Luckily, the help files
 > mean you don't have to!
-{: .callout}
+
 
 ## Special Operators
 
@@ -91,30 +90,6 @@ If you don't know what function or package you need to use
 is a specially maintained list of packages grouped into
 fields. This can be a good starting point.
 
-## When your code doesn't work: seeking help from your peers
-
-If you're having trouble using a function, 9 times out of 10,
-the answers you are seeking have already been answered on
-[Stack Overflow](http://stackoverflow.com/). You can search using
-the `[r]` tag.
-
-If you can't find the answer, there are a few useful functions to
-help you ask a question from your peers:
-
-```{r, eval=FALSE}
-?dput
-```
-
-Will dump the data you're working with into a format so that it can
-be copy and pasted by anyone else into their R session.
-
-```{r}
-sessionInfo()
-```
-
-Will print out your current version of R, as well as any packages you
-have loaded. This can be useful for others to help reproduce and debug
-your issue.
 
 > ## Challenge 1
 >
@@ -131,8 +106,7 @@ your issue.
 > > same type. In the first case, the elements are numeric, in the
 > > second, they are characters, and in the third they are characters:
 > > the numeric values are "coerced" to be characters.
-> {: .solution}
-{: .challenge}
+
 
 > ## Challenge 2
 >
@@ -163,8 +137,7 @@ your issue.
 > > (For more information,
 > > scroll to the bottom of the `?paste` help page and look at the
 > > examples, or try `example('paste')`.)
-> {: .solution}
-{: .challenge}
+
 
 > ## Challenge 3
 > Use help to find a function (and its associated parameters) that you could
@@ -174,7 +147,9 @@ your issue.
 > colleagues, because different countries have different conventions for the
 > decimal point (i.e. comma vs period).
 > hint: use `??csv` to lookup csv related functions.
+>
 > > ## Solution to Challenge 3
+> >
 > >
 > > The standard R function for reading tab-delimited files with a period
 > > decimal separator is read.delim(). You can also do this with
@@ -182,11 +157,6 @@ your issue.
 > > separator for `read.table()`, although you may have to change
 > > the `comment.char` argument as well if your data file contains
 > > hash (#) characters
-> {: .solution}
-{: .challenge}
 
-## Other ports of call
 
-* [Quick R](http://www.statmethods.net/)
-* [RStudio cheat sheets](http://www.rstudio.com/resources/cheatsheets/)
-* [Cookbook for R](http://www.cookbook-r.com/)
+
