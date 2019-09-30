@@ -1,6 +1,23 @@
-rmd_epispodes <- list.files(pattern = ".Rmd$", full.names = TRUE)
-dir.create("docs", showWarnings = FALSE)
+# Copyright 2019 Province of British Columbia
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and limitations under the License.
 
-lapply(rmd_epispodes[1:3], function(foobar) {
-  rmarkdown::render(foobar, output_dir = "docs", output_format = "html_document")
+
+
+rmd_episodes <- list.files(pattern = ".Rmd$", full.names = TRUE)
+
+if(!dir.exists("docs")){
+  dir.create("docs", showWarnings = FALSE)
+}
+
+lapply(rmd_episodes[6:7], function(x) {
+  rmarkdown::render(x, output_dir = "docs", output_format = "html_document")
 })
