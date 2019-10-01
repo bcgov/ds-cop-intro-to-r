@@ -235,8 +235,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>R, and every package, provide help files for functions. The general syntax to search for help on any
 function, “function_name”, from a specific function that is in a package loaded into your
 namespace (your interactive R session):</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="seeking-help-in-r.html#cb71-1"></a>?function_name</span>
-<span id="cb71-2"><a href="seeking-help-in-r.html#cb71-2"></a><span class="kw">help</span>(function_name)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="seeking-help-in-r.html#cb72-1"></a>?function_name</span>
+<span id="cb72-2"><a href="seeking-help-in-r.html#cb72-2"></a><span class="kw">help</span>(function_name)</span></code></pre></div>
 <p>This will load up a help page in RStudio (or as plain text in R by itself).</p>
 <p>Each help page is broken down into sections:</p>
 <ul>
@@ -267,7 +267,7 @@ mean you don’t have to!</p>
 <div id="special-operators" class="section level2">
 <h2><span class="header-section-number">3.2</span> Special Operators</h2>
 <p>To seek help on special operators, use quotes:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="seeking-help-in-r.html#cb72-1"></a>?<span class="st">&quot;&lt;-&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="seeking-help-in-r.html#cb73-1"></a>?<span class="st">&quot;&lt;-&quot;</span></span></code></pre></div>
 </div>
 <div id="getting-help-on-packages" class="section level2">
 <h2><span class="header-section-number">3.3</span> Getting help on packages</h2>
@@ -281,7 +281,7 @@ Without any arguments, <code>vignette()</code> will list all vignettes for all i
 <div id="when-you-kind-of-remember-the-function" class="section level2">
 <h2><span class="header-section-number">3.4</span> When you kind of remember the function</h2>
 <p>If you’re not sure what package a function is in, or how it’s specifically spelled you can do a fuzzy search:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="seeking-help-in-r.html#cb73-1"></a>??function_name</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="seeking-help-in-r.html#cb74-1"></a>??function_name</span></code></pre></div>
 </div>
 <div id="when-you-have-no-idea-where-to-begin" class="section level2">
 <h2><span class="header-section-number">3.5</span> When you have no idea where to begin</h2>
@@ -293,10 +293,10 @@ fields. This can be a good starting point.</p>
 <h2 id="challenge-1-1"><span class="header-section-number">3.5</span> Challenge 1</h2>
 <p>Look at the help for the <code>sum</code> function. What are two ways you can pass numbers
 into the function so the are added together:</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="seeking-help-in-r.html#cb74-1"></a>?sum</span>
-<span id="cb74-2"><a href="seeking-help-in-r.html#cb74-2"></a><span class="kw">sum</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb74-3"><a href="seeking-help-in-r.html#cb74-3"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb74-4"><a href="seeking-help-in-r.html#cb74-4"></a><span class="kw">sum</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="seeking-help-in-r.html#cb75-1"></a>?sum</span>
+<span id="cb75-2"><a href="seeking-help-in-r.html#cb75-2"></a><span class="kw">sum</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb75-3"><a href="seeking-help-in-r.html#cb75-3"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb75-4"><a href="seeking-help-in-r.html#cb75-4"></a><span class="kw">sum</span>(x)</span></code></pre></div>
 </blockquote>
 <blockquote>
 <h2 id="challenge-2-1"><span class="header-section-number">3.5</span> Challenge 2</h2>
@@ -305,8 +305,8 @@ What is the difference between the <code>sep</code> and <code>collapse</code> ar
 <blockquote>
 <h2 id="solution-to-challenge-2-1"><span class="header-section-number">3.5</span> Solution to Challenge 2</h2>
 <p>To look at the help for the <code>paste()</code> function, use:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="seeking-help-in-r.html#cb75-1"></a><span class="kw">help</span>(<span class="st">&quot;paste&quot;</span>)</span>
-<span id="cb75-2"><a href="seeking-help-in-r.html#cb75-2"></a>?paste</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="seeking-help-in-r.html#cb76-1"></a><span class="kw">help</span>(<span class="st">&quot;paste&quot;</span>)</span>
+<span id="cb76-2"><a href="seeking-help-in-r.html#cb76-2"></a>?paste</span></code></pre></div>
 <p>The difference between <code>sep</code> and <code>collapse</code> is a little
 tricky. The <code>paste</code> function accepts any number of arguments, each of which
 can be a vector of any length. The <code>sep</code> argument specifies the string
@@ -315,13 +315,13 @@ vector as long as the longest argument supplied to <code>paste</code>. In contra
 <code>collapse</code> specifies that after concatenation the elements are <em>collapsed</em>
 together using the given separator, the result being a single string.
 e.g. </p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="seeking-help-in-r.html#cb76-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="seeking-help-in-r.html#cb77-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;a c&quot; &quot;b c&quot;</code></pre>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="seeking-help-in-r.html#cb78-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="seeking-help-in-r.html#cb79-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;a,c&quot; &quot;b,c&quot;</code></pre>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="seeking-help-in-r.html#cb80-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="seeking-help-in-r.html#cb81-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;a c|b c&quot;</code></pre>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="seeking-help-in-r.html#cb82-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="seeking-help-in-r.html#cb83-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;a,c|b,c&quot;</code></pre>
 <p>(For more information,
 scroll to the bottom of the <code>?paste</code> help page and look at the
