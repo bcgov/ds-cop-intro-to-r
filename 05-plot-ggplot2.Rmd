@@ -63,6 +63,7 @@ gapminder
 And jump right into in me making an example ggplot2 plot:
 
 ```{r lifeExp-vs-gdpPercap-scatter, message=FALSE}
+# install.packages("ggplot2")
 library("ggplot2")
 ggplot(data = gapminder, mapping = aes(x = gdpPercap, y = lifeExp)) +
   geom_point()
