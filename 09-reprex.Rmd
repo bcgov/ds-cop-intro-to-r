@@ -13,7 +13,7 @@ keypoints:
 source: Rmd
 ---
 
-## When Your Code Doesn't Work: Seeking Help from your Peers
+# When Your Code Doesn't Work: Seeking Help from your Peers
 
 If you're having trouble using a function or package, or getting the syntax correct, 9 times out of 10 the answers you are seeking have already been asked and answered on-line:
 
@@ -76,7 +76,7 @@ your issue.
 
 _demo_
 
-```{r reprex-demo1}
+```{r reprex-demo1, error=TRUE}
 library(readr)
 library(dplyr)
 library(ggplot2)
@@ -103,7 +103,7 @@ We need to invest a bit of time making the buggy code shareable -- the easier it
 
 If the data is shareable (e.g. available in the B.C. Data Catalogue with appropriate licence, publicly available) then we can use `dput()`:
 
-```{r reprex-demo2}
+```{r reprex-demo2, error=TRUE}
 library(readr)
 library(dplyr)
 library(ggplot2)
@@ -128,7 +128,7 @@ cats %>%
 
 If the data is _*not*_ shareable, you can use some built in data:
 
-```{r reprex-demo}
+```{r reprex-demo, error=TRUE}
 library(readr)
 library(dplyr)
 library(ggplot2)
@@ -141,7 +141,7 @@ cats %>%
 ?datasets #built in datasets
 ?starwars #ships with dplyr
 
-View(starwars)
+# View(starwars)
 
 starwars %>% 
   select(name, height) %>% 
