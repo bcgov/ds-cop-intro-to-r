@@ -91,7 +91,7 @@ We can do other operations on the columns:
 ```{r}
 ## Say we discovered that the scale weighs two Kg light:
 cats$weight + 2
-paste("My cat is", cats$coat)
+paste("My", cats$coat, "cat weighs", cats$weight + 2)
 ```
 
 But what about
@@ -162,6 +162,17 @@ condition that *everything in the vector must be the same basic data type*.
 class(my_vector)
 ```
 
+This command indicates the basic data type found in this vector - in this case `numeric`. 
+
+We can use the logical operators that we learned earlier with vectors:
+
+```{r}
+my_vector > 4
+```
+
+Vectors can be any data type that we've already learned about. Let's make a 
+character vector:
+
 ```{r}
 my_other_vector <- c("Harry", "Ron", "Hermione", "Ginny")
 my_other_vector
@@ -171,8 +182,11 @@ my_other_vector
 class(my_other_vector)
 ```
 
-This command indicates the basic data type
-found in this vector - in this case `numeric`. If we similarly do
+```{r}
+my_other_vector == "Harry"
+```
+
+If we similarly do
 
 ```{r}
 class(cats$weight)
@@ -260,8 +274,7 @@ We can ask a few questions about vectors:
 
 ```{r}
 sequence_example <- seq(10)
-head(sequence_example, n=2)
-tail(sequence_example, n=4)
+sequence_example
 length(sequence_example)
 class(sequence_example)
 typeof(sequence_example)
