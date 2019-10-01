@@ -96,11 +96,9 @@ filter(gapminder, continent == "Europe")
 
 If we open up `year_country_gdp` we'll see that it only contains the year,
 country and gdpPercap. Above we used 'normal' grammar, but the strengths of
-`dplyr` lie in combining several functions using pipes. I've found this useful:
+`dplyr` lie in combining several functions using pipes. This [description](https://twitter.com/WeAreRLadies/status/1172576445794803713) is very useful:
 
 ```{r, eval=FALSE}
-## https://twitter.com/WeAreRLadies/status/1172576445794803713 by https://twitter.com/Shel_Kariuki
-
 I work up %>% 
   showered %>% 
   dressed %>% 
@@ -355,37 +353,33 @@ a layer of facet panels using `ggplot2`. Here is the code we used (with some
 extra comments):
 
 ```{r}
-# Get the start letter of each country
-starts.with <- substr(gapminder$country, start = 1, stop = 1)
-# Filter countries that start with "A" or "Z"
-az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
+# Filter countries that start with "A"
+a_countries <- gapminder %>% 
+  filter(country %in% c("Afghanistan", "Albania", "Algeria", "Angola", "Argentina", "Australia", "Austria"))
+
 # Make the plot
-ggplot(data = az.countries, aes(x = year, y = lifeExp, color = continent)) +
+ggplot(data = a_countries, aes(x = year, y = lifeExp, color = continent)) +
   geom_line() + facet_wrap( ~ country)
 ```
 
-This code makes the right plot but it also creates some variables (`starts.with`
-and `az.countries`) that we might not have any other uses for. Just as we used
+
+This code makes the right plot but it also provides a way to chain operations. Just as we used
 `%>%` to pipe data along a chain of `dplyr` functions we can use it to pass data
 to `ggplot()`. Because `%>%` replaces the first argument in a function we don't
 need to specify the `data =` argument in the `ggplot()` function. By combining
-`dplyr` and `ggplot2` functions we can make the same figure without creating any
-new variables or modifying the data.
+`dplyr` and `ggplot2` functions we can alter this figure for only those continents in Europe.
 
 ```{r}
 gapminder %>%
-   # Get the start letter of each country
-   mutate(startsWith = substr(country, start = 1, stop = 1)) %>%
-   # Filter countries that start with "A" or "Z"
-   filter(startsWith %in% c("A", "Z")) %>%
-   # Make the plot
-   ggplot(aes(x = year, y = lifeExp, color = continent)) +
-   geom_line() +
-   facet_wrap( ~ country)
+  filter(country %in% c("Afghanistan", "Albania", "Algeria", "Angola", "Argentina", "Australia", "Austria")) %>% 
+  filter(continent == "Europe") %>% 
+  ggplot(aes(x = year, y = lifeExp, color = continent)) +
+  geom_line() +
+  facet_wrap( ~ country)
 ```
 
-Using `dplyr` functions also helps us simplify things, for example we could
-combine the first two steps:
+Using `dplyr` functions also helps us do calculations on the fly, for example if we were interested in 
+converting `lifeExp` :
 
 ```{r}
 gapminder %>%
