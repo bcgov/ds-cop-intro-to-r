@@ -50,9 +50,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -61,14 +61,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -77,9 +79,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -175,7 +177,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#adding-columns-and-rows-in-data-frames"><i class="fa fa-check"></i><b>6.1</b> Adding columns and rows in data frames</a></li>
 <li class="chapter" data-level="6.2" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#factors-1"><i class="fa fa-check"></i><b>6.2</b> Factors</a></li>
 <li class="chapter" data-level="6.3" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#realistic-example"><i class="fa fa-check"></i><b>6.3</b> Realistic example</a></li>
-<li class="chapter" data-level="6.4" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#basic-subsetting"><i class="fa fa-check"></i><b>6.4</b> Basic subsetting</a></li>
+<li class="chapter" data-level="6.4" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#basic-subsetting"><i class="fa fa-check"></i><b>6.4</b> Basic subsetting</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#selecting-rows"><i class="fa fa-check"></i><b>6.4.1</b> Selecting rows</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="creating-publication-quality-graphics-with-ggplot2.html"><a href="creating-publication-quality-graphics-with-ggplot2.html"><i class="fa fa-check"></i><b>7</b> Creating Publication-Quality Graphics with ggplot2</a><ul>
 <li class="chapter" data-level="7.1" data-path="creating-publication-quality-graphics-with-ggplot2.html"><a href="creating-publication-quality-graphics-with-ggplot2.html#layers"><i class="fa fa-check"></i><b>7.1</b> Layers</a></li>
@@ -202,6 +206,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="dataframe-manipulation-with-tidyr.html"><a href="dataframe-manipulation-with-tidyr.html#convert-long-format-with-gather"><i class="fa fa-check"></i><b>9.2</b> Convert long format with gather()</a></li>
 <li class="chapter" data-level="9.3" data-path="dataframe-manipulation-with-tidyr.html"><a href="dataframe-manipulation-with-tidyr.html#advantage-to-plotting-and-tables"><i class="fa fa-check"></i><b>9.3</b> Advantage to plotting and tables</a></li>
 <li class="chapter" data-level="9.4" data-path="dataframe-manipulation-with-tidyr.html"><a href="dataframe-manipulation-with-tidyr.html#other-great-resources-1"><i class="fa fa-check"></i><b>9.4</b> Other great resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><i class="fa fa-check"></i><b>10</b> When Your Code Doesn’t Work: Seeking Help from your Peers</a><ul>
+<li class="chapter" data-level="10.1" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#help-people-help-you"><i class="fa fa-check"></i><b>10.1</b> Help People Help You</a></li>
+<li class="chapter" data-level="10.2" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#a-reproducible-example-or-a-reprex"><i class="fa fa-check"></i><b>10.2</b> A Reproducible Example or a “reprex”</a></li>
+<li class="chapter" data-level="10.3" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#other-helpful-resources"><i class="fa fa-check"></i><b>10.3</b> Other Helpful Resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -230,8 +239,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>R, and every package, provide help files for functions. The general syntax to search for help on any
 function, “function_name”, from a specific function that is in a package loaded into your
 namespace (your interactive R session):</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1">?function_name</a>
-<a class="sourceLine" id="cb67-2" title="2"><span class="kw">help</span>(function_name)</a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="seeking-help-in-r.html#cb67-1"></a>?function_name</span>
+<span id="cb67-2"><a href="seeking-help-in-r.html#cb67-2"></a><span class="kw">help</span>(function_name)</span></code></pre></div>
 <p>This will load up a help page in RStudio (or as plain text in R by itself).</p>
 <p>Each help page is broken down into sections:</p>
 <ul>
@@ -262,7 +271,7 @@ mean you don’t have to!</p>
 <div id="special-operators" class="section level2">
 <h2><span class="header-section-number">4.2</span> Special Operators</h2>
 <p>To seek help on special operators, use quotes:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">?<span class="st">&quot;&lt;-&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="seeking-help-in-r.html#cb68-1"></a>?<span class="st">&quot;&lt;-&quot;</span></span></code></pre></div>
 </div>
 <div id="getting-help-on-packages" class="section level2">
 <h2><span class="header-section-number">4.3</span> Getting help on packages</h2>
@@ -276,7 +285,7 @@ Without any arguments, <code>vignette()</code> will list all vignettes for all i
 <div id="when-you-kind-of-remember-the-function" class="section level2">
 <h2><span class="header-section-number">4.4</span> When you kind of remember the function</h2>
 <p>If you’re not sure what package a function is in, or how it’s specifically spelled you can do a fuzzy search:</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1">??function_name</a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="seeking-help-in-r.html#cb69-1"></a>??function_name</span></code></pre></div>
 </div>
 <div id="when-you-have-no-idea-where-to-begin" class="section level2">
 <h2><span class="header-section-number">4.5</span> When you have no idea where to begin</h2>
@@ -288,9 +297,9 @@ fields. This can be a good starting point.</p>
 <h2 id="challenge-1-2"><span class="header-section-number">4.5</span> Challenge 1</h2>
 <p>Look at the help for the <code>c</code> function. What kind of vector do you
 expect you will create if you evaluate the following:</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb70-2" title="2"><span class="kw">c</span>(<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>)</a>
-<a class="sourceLine" id="cb70-3" title="3"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">&#39;f&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="seeking-help-in-r.html#cb70-1"></a><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb70-2"><a href="seeking-help-in-r.html#cb70-2"></a><span class="kw">c</span>(<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>)</span>
+<span id="cb70-3"><a href="seeking-help-in-r.html#cb70-3"></a><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">&#39;f&#39;</span>)</span></code></pre></div>
 <blockquote>
 <h2 id="solution-to-challenge-1-1"><span class="header-section-number">4.5</span> Solution to Challenge 1</h2>
 <p>The <code>c()</code> function creates a vector, in which all elements are the
@@ -306,8 +315,8 @@ What is the difference between the <code>sep</code> and <code>collapse</code> ar
 <blockquote>
 <h2 id="solution-to-challenge-2-1"><span class="header-section-number">4.5</span> Solution to Challenge 2</h2>
 <p>To look at the help for the <code>paste()</code> function, use:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1"><span class="kw">help</span>(<span class="st">&quot;paste&quot;</span>)</a>
-<a class="sourceLine" id="cb71-2" title="2">?paste</a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="seeking-help-in-r.html#cb71-1"></a><span class="kw">help</span>(<span class="st">&quot;paste&quot;</span>)</span>
+<span id="cb71-2"><a href="seeking-help-in-r.html#cb71-2"></a>?paste</span></code></pre></div>
 <p>The difference between <code>sep</code> and <code>collapse</code> is a little
 tricky. The <code>paste</code> function accepts any number of arguments, each of which
 can be a vector of any length. The <code>sep</code> argument specifies the string
@@ -316,13 +325,13 @@ vector as long as the longest argument supplied to <code>paste</code>. In contra
 <code>collapse</code> specifies that after concatenation the elements are <em>collapsed</em>
 together using the given separator, the result being a single string.
 e.g. </p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="seeking-help-in-r.html#cb72-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;a c&quot; &quot;b c&quot;</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="seeking-help-in-r.html#cb74-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;a,c&quot; &quot;b,c&quot;</code></pre>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="seeking-help-in-r.html#cb76-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;a c|b c&quot;</code></pre>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="seeking-help-in-r.html#cb78-1"></a><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;a,c|b,c&quot;</code></pre>
 <p>(For more information,
 scroll to the bottom of the <code>?paste</code> help page and look at the

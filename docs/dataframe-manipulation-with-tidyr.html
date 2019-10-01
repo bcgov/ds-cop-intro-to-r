@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="dataframe-manipulation-with-dplyr.html"/>
-
+<link rel="next" href="when-your-code-doesnt-work-seeking-help-from-your-peers.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,9 +50,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -61,14 +61,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -77,9 +79,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -175,7 +177,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#adding-columns-and-rows-in-data-frames"><i class="fa fa-check"></i><b>6.1</b> Adding columns and rows in data frames</a></li>
 <li class="chapter" data-level="6.2" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#factors-1"><i class="fa fa-check"></i><b>6.2</b> Factors</a></li>
 <li class="chapter" data-level="6.3" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#realistic-example"><i class="fa fa-check"></i><b>6.3</b> Realistic example</a></li>
-<li class="chapter" data-level="6.4" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#basic-subsetting"><i class="fa fa-check"></i><b>6.4</b> Basic subsetting</a></li>
+<li class="chapter" data-level="6.4" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#basic-subsetting"><i class="fa fa-check"></i><b>6.4</b> Basic subsetting</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="exploring-data-frames.html"><a href="exploring-data-frames.html#selecting-rows"><i class="fa fa-check"></i><b>6.4.1</b> Selecting rows</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="creating-publication-quality-graphics-with-ggplot2.html"><a href="creating-publication-quality-graphics-with-ggplot2.html"><i class="fa fa-check"></i><b>7</b> Creating Publication-Quality Graphics with ggplot2</a><ul>
 <li class="chapter" data-level="7.1" data-path="creating-publication-quality-graphics-with-ggplot2.html"><a href="creating-publication-quality-graphics-with-ggplot2.html#layers"><i class="fa fa-check"></i><b>7.1</b> Layers</a></li>
@@ -202,6 +206,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="dataframe-manipulation-with-tidyr.html"><a href="dataframe-manipulation-with-tidyr.html#convert-long-format-with-gather"><i class="fa fa-check"></i><b>9.2</b> Convert long format with gather()</a></li>
 <li class="chapter" data-level="9.3" data-path="dataframe-manipulation-with-tidyr.html"><a href="dataframe-manipulation-with-tidyr.html#advantage-to-plotting-and-tables"><i class="fa fa-check"></i><b>9.3</b> Advantage to plotting and tables</a></li>
 <li class="chapter" data-level="9.4" data-path="dataframe-manipulation-with-tidyr.html"><a href="dataframe-manipulation-with-tidyr.html#other-great-resources-1"><i class="fa fa-check"></i><b>9.4</b> Other great resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><i class="fa fa-check"></i><b>10</b> When Your Code Doesn’t Work: Seeking Help from your Peers</a><ul>
+<li class="chapter" data-level="10.1" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#help-people-help-you"><i class="fa fa-check"></i><b>10.1</b> Help People Help You</a></li>
+<li class="chapter" data-level="10.2" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#a-reproducible-example-or-a-reprex"><i class="fa fa-check"></i><b>10.2</b> A Reproducible Example or a “reprex”</a></li>
+<li class="chapter" data-level="10.3" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#other-helpful-resources"><i class="fa fa-check"></i><b>10.3</b> Other Helpful Resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -250,15 +259,15 @@ the fields in a database and observed variables are like the database values.</p
 <h2><span class="header-section-number">9.1</span> Getting started</h2>
 <p>First install the packages if you haven’t already done so (you probably
 installed dplyr in the previous lesson):</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyr&quot;</span>)</a>
-<a class="sourceLine" id="cb338-2" title="2"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</a>
-<a class="sourceLine" id="cb338-3" title="3"><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="dataframe-manipulation-with-tidyr.html#cb363-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;tidyr&quot;</span>)</span>
+<span id="cb363-2"><a href="dataframe-manipulation-with-tidyr.html#cb363-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb363-3"><a href="dataframe-manipulation-with-tidyr.html#cb363-3"></a><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>)</span></code></pre></div>
 <p>Load the packages</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" title="1"><span class="kw">library</span>(<span class="st">&quot;tidyr&quot;</span>)</a>
-<a class="sourceLine" id="cb339-2" title="2"><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</a>
-<a class="sourceLine" id="cb339-3" title="3"><span class="kw">library</span>(<span class="st">&quot;readr&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="dataframe-manipulation-with-tidyr.html#cb364-1"></a><span class="kw">library</span>(<span class="st">&quot;tidyr&quot;</span>)</span>
+<span id="cb364-2"><a href="dataframe-manipulation-with-tidyr.html#cb364-2"></a><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb364-3"><a href="dataframe-manipulation-with-tidyr.html#cb364-3"></a><span class="kw">library</span>(<span class="st">&quot;readr&quot;</span>)</span></code></pre></div>
 <p>First, lets look at the structure of our original gapminder dataframe:</p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" title="1">gapminder &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/gapminder_data.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="dataframe-manipulation-with-tidyr.html#cb365-1"></a>gapminder &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/gapminder_data.csv&quot;</span>)</span></code></pre></div>
 <pre><code>Parsed with column specification:
 cols(
   country = col_character(),
@@ -268,7 +277,7 @@ cols(
   lifeExp = col_double(),
   gdpPercap = col_double()
 )</code></pre>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" title="1">gapminder</a></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="dataframe-manipulation-with-tidyr.html#cb367-1"></a>gapminder</span></code></pre></div>
 <pre><code># A tibble: 1,704 x 6
    country      year      pop continent lifeExp gdpPercap
    &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
@@ -282,7 +291,7 @@ cols(
  8 Afghanistan  1987 13867957 Asia         40.8      852.
  9 Afghanistan  1992 16317921 Asia         41.7      649.
 10 Afghanistan  1997 22227415 Asia         41.8      635.
-# ... with 1,694 more rows</code></pre>
+# … with 1,694 more rows</code></pre>
 <blockquote>
 <h2 id="challenge-1-7"><span class="header-section-number">9.1</span> Challenge 1</h2>
 <p>Is gapminder a purely long, purely wide, or some intermediate format?</p>
@@ -318,22 +327,22 @@ of tidyr and dplyr functions by piping them together</p>
 <p>Inside <code>gather()</code> we first name the new column for the new ID variable and then
 the value column taking the <code>country</code>, <code>year</code> and <code>continent</code> variables out
 of the gathering process:</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" title="1">gapminder_long &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb344-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> vars, <span class="dt">value =</span> value, <span class="op">-</span>country, <span class="op">-</span>year, <span class="op">-</span>continent)</a></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="dataframe-manipulation-with-tidyr.html#cb369-1"></a>gapminder_long &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb369-2"><a href="dataframe-manipulation-with-tidyr.html#cb369-2"></a><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> vars, <span class="dt">value =</span> value, <span class="op">-</span>country, <span class="op">-</span>year, <span class="op">-</span>continent)</span></code></pre></div>
 <p>Inside <code>spread()</code> we have the opposite situation where we take the <code>vars</code> column and spread
 it over to separate columns with <code>value</code> filling those cells:</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" title="1">gapminder_wide &lt;-<span class="st"> </span>gapminder_long <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">spread</span>(<span class="dt">key =</span> vars, <span class="dt">value =</span> value)</a></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="dataframe-manipulation-with-tidyr.html#cb370-1"></a>gapminder_wide &lt;-<span class="st"> </span>gapminder_long <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">spread</span>(<span class="dt">key =</span> vars, <span class="dt">value =</span> value)</span></code></pre></div>
 </div>
 <div id="advantage-to-plotting-and-tables" class="section level2">
 <h2><span class="header-section-number">9.3</span> Advantage to plotting and tables</h2>
 <p>Reshaping your data from wide to long provides considerable flexibility for
 presenting your results. Combining some <code>dplyr</code> grouping code with tidyr
 we can produce a nice table:</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" title="1">gapminder <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb346-2" title="2"><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> vars, <span class="dt">value =</span> value, <span class="op">-</span>country, <span class="op">-</span>year, <span class="op">-</span>continent) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb346-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(continent, vars) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb346-4" title="4"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">total_pop =</span> <span class="kw">sum</span>(value)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb346-5" title="5"><span class="st">    </span><span class="kw">spread</span>(<span class="dt">key =</span> continent, <span class="dt">value =</span> total_pop)</a></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="dataframe-manipulation-with-tidyr.html#cb371-1"></a>gapminder <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb371-2"><a href="dataframe-manipulation-with-tidyr.html#cb371-2"></a><span class="st">    </span><span class="kw">gather</span>(<span class="dt">key =</span> vars, <span class="dt">value =</span> value, <span class="op">-</span>country, <span class="op">-</span>year, <span class="op">-</span>continent) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb371-3"><a href="dataframe-manipulation-with-tidyr.html#cb371-3"></a><span class="st">    </span><span class="kw">group_by</span>(continent, vars) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb371-4"><a href="dataframe-manipulation-with-tidyr.html#cb371-4"></a><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">total_pop =</span> <span class="kw">sum</span>(value)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb371-5"><a href="dataframe-manipulation-with-tidyr.html#cb371-5"></a><span class="st">    </span><span class="kw">spread</span>(<span class="dt">key =</span> continent, <span class="dt">value =</span> total_pop)</span></code></pre></div>
 <pre><code># A tibble: 3 x 6
   vars           Africa    Americas         Asia      Europe    Oceania
   &lt;chr&gt;           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;
@@ -342,13 +351,13 @@ we can produce a nice table:</p>
 3 pop       6187585961  7351438499  30507333902. 6181115304  212992136 </code></pre>
 <p>Similarly, gathering can provide considerable more flexibility when plotting by grouping
 variables we might want to facet:</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" title="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb348-2" title="2"></a>
-<a class="sourceLine" id="cb348-3" title="3"><span class="kw">ggplot</span>(gapminder_long, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> value, <span class="dt">colour =</span> country)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb348-4" title="4"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb348-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">colour =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb348-6" title="6"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>vars, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>, <span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="fig/rmd-7-unnamed-chunk-147-1.png" width="816" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="dataframe-manipulation-with-tidyr.html#cb373-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb373-2"><a href="dataframe-manipulation-with-tidyr.html#cb373-2"></a></span>
+<span id="cb373-3"><a href="dataframe-manipulation-with-tidyr.html#cb373-3"></a><span class="kw">ggplot</span>(gapminder_long, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> value, <span class="dt">colour =</span> country)) <span class="op">+</span></span>
+<span id="cb373-4"><a href="dataframe-manipulation-with-tidyr.html#cb373-4"></a><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
+<span id="cb373-5"><a href="dataframe-manipulation-with-tidyr.html#cb373-5"></a><span class="st">    </span><span class="kw">guides</span>(<span class="dt">colour =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb373-6"><a href="dataframe-manipulation-with-tidyr.html#cb373-6"></a><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>vars, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>, <span class="dt">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="fig/rmd-7-unnamed-chunk-173-1.png" width="816" style="display: block; margin: auto;" /></p>
 </div>
 <div id="other-great-resources-1" class="section level2">
 <h2><span class="header-section-number">9.4</span> Other great resources</h2>
@@ -366,8 +375,8 @@ variables we might want to facet:</p>
           </div>
         </div>
       </div>
-<a href="dataframe-manipulation-with-dplyr.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="dataframe-manipulation-with-dplyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
