@@ -9,31 +9,31 @@ A repository to house materials for a 1-day course introducing participants to d
 
 The goal of this 1-day workshop is to teach new-to-programming data professionals to import data, clean up and summarize a data set, and make some static data visualizations using the program R. R is a popular statistical computing language, commonly used in many scientific disciplines for statistical analysis, generating production-quality graphics, and automating data workflow tasks. The workshop content will follow best practices for using R for data analysis, giving attendees a foundation in the fundamentals of R and scientific computing.
 
-
+<!--
 ### Learning Objectives
 
-- An introduction to R & RStudio
-- How to set up a project using RStudio
-- An introduction to basic R syntax and the tidyverse
-- How to get help in R
-- How to import and export tabular data in common formats
-- How to look at data in R & RStudio
-- How to manipulate a data frame
-- How to make and save plots
+- An introduction to R & RStudio  
+- How to set up a project using RStudio  
+- An introduction to basic R syntax and the tidyverse  
+- How to get help in R  
+- How to import and export tabular data in common formats  
+- How to look at data in R & RStudio  
+- How to manipulate a data frame  
+- How to make and save plots  
 - How to get help using reproducible example
-
+-->
 
 ### Lessons
 
 Please see: https://bcgov.github.io/ds-cop-intro-to-r/
 
-(1) Introduction to R & RStudio (55 minutes)
-(2) Project Management with RStudio (30 minutes)
-(3) Seeking Help in R  (20 minutes)
-(4) Data Structures  (55 minutes)
-(5) Making Publication Quality Plots with `ggplot2` (80 minutes)
-(6) Data Manipulation with `dplyr`  (55 minutes)
-(7) Data Manipulation with `tidy` (_tentative_) (20 minutes)   
+(1) Introduction to R & RStudio (55 minutes)  
+(2) Project Management with RStudio (30 minutes)  
+(3) Seeking Help in R  (20 minutes)  
+(4) Data Structures  (55 minutes)  
+(5) Making Publication Quality Plots with `ggplot2` (80 minutes)  
+(6) Data Manipulation with `dplyr`  (55 minutes)  
+(7) Data Manipulation with `tidy` (_tentative_) (20 minutes)    
 (8) Seeking Help from Others with `reprex`  
 
 Most of the above lesson material is sourced from the Software Carpentry Foundation (now The Carpenties) [R for Reproducible Scientific Analysis](http://swcarpentry.github.io/r-novice-gapminder/) lesson material: Thomas Wright and Naupaka Zimmerman (eds): _Software Carpentry: R for

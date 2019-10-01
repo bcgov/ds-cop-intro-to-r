@@ -5,7 +5,7 @@ exercises: 10
 questions:
 - "How can I manage my projects in R?"
 objectives:
-- Create self-contained projects in RStudio
+- "Create self-contained projects in RStudio"
 keypoints:
 - "Use RStudio to create and manage projects with consistent layout."
 - "Treat raw data as read-only."
