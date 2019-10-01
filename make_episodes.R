@@ -11,11 +11,4 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 
-
-rmd_episodes <- list.files(pattern = ".Rmd$", full.names = TRUE)
-
-if(!dir.exists("docs")){
-  dir.create("docs", showWarnings = FALSE)
-}
-
 bookdown::render_book("index.Rmd")
