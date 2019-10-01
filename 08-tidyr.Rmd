@@ -16,27 +16,6 @@ source: Rmd
 ```{r, include=FALSE}
 source("bin/chunk-options.R")
 knitr_fig_path("7-")
-
-library(readr)
-# Silently load in the data so the rest of the lesson works
-gapminder <- read_csv("data/gapminder_data.csv")
-
-# To create gapminder_wide.csv:
-# library("dplyr")
-# library("tidyr")
-#
-# #transform the data to the wide format
-# gap_wide <- gapminder %>% gather(obs_type,obs_values,-continent,-country,-year) %>%
-#     unite(ID_var,continent,country,sep = "_") %>%
-#     unite(var_names,obs_type,year,sep = "_") %>%
-#     spread(var_names,obs_values) %>%
-#     separate(ID_var,into = c('continent','country'),sep = '_')
-#
-# #write our the .csv so students can use it
-# write.csv(gap_wide_betterID,"data/gapminder_wide.csv",row.names = FALSE)
-
-#load the "student" data
-gap_wide <- read_csv("data/gapminder_wide.csv")
 ```
 
 # Dataframe Manipulation with tidyr
@@ -156,13 +135,14 @@ gapminder %>%
 ```
 
 Similarly, gathering can provide considerable more flexibility when plotting by grouping 
-variables we might want to facet:
+variables we might want to facet as well as using some additional dplyr content:
 ```{r}
 library(ggplot2)
 
-ggplot(gapminder_long, aes(x = year, y = value, colour = country)) +
+gapminder_long %>%
+    filter(continent == "Oceania") %>% 
+    ggplot(aes(x = year, y = value, colour = country)) +
     geom_line() +
-    guides(colour = FALSE) +
     facet_wrap(~vars, scales = "free_y", ncol = 1)
 ```
 
