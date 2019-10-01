@@ -52,14 +52,15 @@ periodically check for updates to that package:
 install.packages("readr")
 ```
 
-Everytime we want to use that package, you must load into your R sessions, by 
+Everytime we want to use that package, you must load it into your R session, by 
 using the `library` function:
 
 ```{r}
 library(readr)
 ```
 
-We can load this into R via the following:
+Now we can load this data into R via the following using the `read_csv` function, 
+and assign it to an object called `cats`:
 
 ```{r}
 cats <- read_csv(file = "data/feline-data.csv")
@@ -71,7 +72,10 @@ file where the columns of data are separated by punctuation characters such as
 CSV files (csv = comma-separated values). There is a base version of this called
 `read.csv`, but the `readr` version (`read_csv`) is a bit more user-friendly, and 
 uses more sensible defaults. Tabs and commas are the most common
-punctuation characters used to separate or delimit data points in csv files. 
+punctuation characters used to separate or delimit data points in text files.
+
+The object that is created by `read_csv` is called a "data.frame" - a rectangular
+table-like object with rows and columns.
 
 We can begin exploring our dataset right away, first by looking at the whole thing:
 
@@ -91,7 +95,7 @@ We can do other operations on the columns:
 ```{r}
 ## Say we discovered that the scale weighs two Kg light:
 cats$weight + 2
-paste("My", cats$coat, "cat weighs", cats$weight + 2)
+paste("My", cats$coat, "cat weighs", cats$weight + 2, "kilograms")
 ```
 
 But what about
@@ -115,7 +119,7 @@ typeof(cats$weight)
 
 There are 4 main types: 
 
-- `double` (decimal numbers), 
+- `double`/`numeric` (decimal numbers), 
 - `integer` (counting numbers),
 - `logical` (True/False),
 - `character` (free text)
@@ -229,7 +233,7 @@ another_coercion_vector <- c(0, TRUE)
 another_coercion_vector
 ```
 
-The coercion rules go: `logical` -> `integer` -> `numeric` -> `complex` ->
+The coercion rules go: `logical` -> `integer` -> `double`/`numeric` -> `complex` ->
 `character`, where -> can be read as *are transformed into*. You can try to
 force coercion against this flow using the `as.` functions:
 
@@ -260,40 +264,6 @@ cats$likes_string
 cats$likes_string <- as.logical(cats$likes_string)
 cats$likes_string
 ```
-
-You can also make series of numbers:
-
-```{r}
-mySeries <- 1:10
-mySeries
-seq(10)
-seq(1,10, by=0.1)
-```
-
-We can ask a few questions about vectors:
-
-```{r}
-sequence_example <- seq(10)
-sequence_example
-length(sequence_example)
-class(sequence_example)
-typeof(sequence_example)
-```
-
-> ## Challenge 1
->
-> Start by making a vector with the numbers 1 through 26.
-> Multiply the vector by 2, and give the resulting vector
-> names A through Z (hint: there is a built in vector called `LETTERS`)
->
-> > ## Solution to Challenge 1
-> >
-> > ```{r}
-> > x <- 1:26
-> > x <- x * 2
-> > names(x) <- LETTERS
-> > ```
-
 
 ## Data Frames
 
@@ -342,20 +312,23 @@ typeof(coats)
 typeof(CATegories)
 ```
 
-> ## Challenge 2
+> ## Challenge 1
 >
-> Is there a factor in our `cats` data.frame? what is its name?
-> Try using `?read.csv` to figure out how to keep text columns as character
+> The default behaviour of `read.csv` is to convert all character columns to 
+> factors, which is one of the biggest reasons we prefer `read_csv` from the 
+> `readr` package. 
+> Look at the help for `?read.csv` to figure out how to keep text columns as character
 > vectors instead of factors; then write a command or two to show that the factor
 > in `cats` is actually a character vector when loaded in this way.
 >
-> > ## Solution to Challenge 2
+> > ## Solution to Challenge 1
 > >
 > > One solution is use the argument `stringAsFactors`:
 > >
 > > ```{r, eval = FALSE}
-> > cats <- read.csv(file="data/feline-data.csv", stringsAsFactors=FALSE)
+> > cats <- read.csv(file="data/feline-data.csv")
 > > str(cats$coat)
+> > cats <- read.csv(file="data/feline-data.csv", stringsAsFactors=FALSE)
 > > ```
 > >
 > > Another solution is use the argument `colClasses`
