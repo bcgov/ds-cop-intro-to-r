@@ -36,7 +36,7 @@ We already learned that the columns of a data frame are vectors, so that our
 data are consistent in type throughout the columns. As such, if we want to add a
 new column, we can start by making a new vector:
 
-```{r, echo = FALSE}
+```{r}
 library(readr)
 cats <- read_csv("data/feline-data.csv")
 ```
