@@ -1,5 +1,5 @@
 ---
-title: Creating Publication-Quality Graphics with ggplot2
+title: "Creating Publication-Quality Graphics with ggplot2"
 teaching: 60
 exercises: 20
 questions:
@@ -23,6 +23,8 @@ knitr_fig_path("08-")
 library(readr)
 gapminder <- read_csv("data/gapminder_data.csv")
 ```
+
+# Creating Publication-Quality Graphics with ggplot2
 
 Plotting our data is one of the best ways to
 quickly explore it and the various relationships

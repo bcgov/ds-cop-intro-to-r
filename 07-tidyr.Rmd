@@ -1,5 +1,5 @@
 ---
-title: Dataframe Manipulation with tidyr
+title: "Dataframe Manipulation with tidyr"
 teaching: 20
 exercises: 15
 questions:
@@ -38,6 +38,8 @@ gapminder <- read_csv("data/gapminder_data.csv")
 #load the "student" data
 gap_wide <- read_csv("data/gapminder_wide.csv")
 ```
+
+# Dataframe Manipulation with tidyr
 
 Researchers often want to manipulate their data from the 'wide' to the 'long'
 format, or vice-versa. The 'long' format is where:

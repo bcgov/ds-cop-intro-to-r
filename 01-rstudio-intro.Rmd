@@ -31,6 +31,7 @@ source("bin/chunk-options.R")
 knitr_fig_path("01-")
 ```
 
+# Introduction to R and RStudio
 
 ## Motivation
 
@@ -562,7 +563,7 @@ R and RStudio have functionality for managing packages:
 > > ## Solution to challenge 3
 > >
 > > One way of answering this question in R is to use the `>` to set up the following:
-> > ```{r ch3-sol}
+> > ```{r ch3-sola}
 > > mass > age
 > >```
 > > This should yield a boolean value of TRUE since `r mass` is greater than `r age`.
