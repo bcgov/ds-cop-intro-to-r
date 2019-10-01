@@ -40,22 +40,25 @@ Whan starting a conversation about code, there are a few things that when includ
 [`reprex`](https://reprex.tidyverse.org/index.html): An R package to help prepare a reproducible example --- or reprex --- for posting to GitHub issues, StackOverflow, RocketChat snippets, or email and so on.
 
 
-```{r reprex-demo1, error=TRUE}
+```{r reprex-demo1, error=TRUE, message=FALSE}
 # install.packages("reprex")
-library(reprex)
 
+# load libraries we need
+library(reprex)
 library(readr)
 library(dplyr)
 library(ggplot2)
 
+# read in data
 cats <- read_csv(file = "data/feline-data.csv")
 
+# munge data and make bar plot
 cats %>% 
   select(coat, weight) %>% 
   ggplot(aes(x = coat, y = weight)) +  
   geom_col()
 
-# Make bar chart - this does not work?
+# error in syntax - this does not work
 cats %>% 
   select(coat, weight) %>% 
   ggplot(aes(x = coat, y = weight)) %>%   
@@ -71,11 +74,8 @@ We need to invest a bit of time making the buggy code shareable -- the easier it
 
 If the data is shareable (e.g. available in the B.C. Data Catalogue with appropriate licence, publicly available) then we can use `dput()`:
 
-```{r reprex-demo2, error=TRUE}
-library(readr)
-library(dplyr)
-library(ggplot2)
-
+```{r reprex-demo2, error=TRUE, message=FALSE}
+# use dput to make data set with code
 dput(cats)
 
 cats <- structure(list(coat = c("calico", "black", "tabby"), weight = c(2.1, 
@@ -87,7 +87,7 @@ cats <- structure(list(coat = c("calico", "black", "tabby"), weight = c(2.1,
     "collector"))), default = structure(list(), class = c("collector_guess", 
     "collector")), skip = 1), class = "col_spec"))
 
-
+# error in syntax - this does not work
 cats %>% 
   select(coat, weight) %>% 
   ggplot(aes(x = coat, y = weight)) %>%  
@@ -99,21 +99,21 @@ be copy and pasted by anyone else into their R session.
 
 If the data is _*not*_ shareable, you can use some built in data and re-create the issue:
 
-```{r reprex-demo, error=TRUE}
-library(readr)
-library(dplyr)
-library(ggplot2)
-
-# ?datasets #built in datasets
-# ?starwars #ships with dplyr
+```{r reprex-demo, error=TRUE, message=FALSE}
+# ?datasets # built in datasets
+# ?starwars # ships with dplyr
 
 # View(starwars)
 
+# error in syntax - this does not work
 starwars %>% 
   select(name, height) %>% 
   ggplot(aes(x = name, y = height)) %>%  
   geom_col()
 ```
+
+Once the code is ready for sharing, select the code and use `reprex_selection()` or the clickable RStudio `Addin` to copy the formatted code to the clipboard for sharing on-line (_demonstrated_).
+
 
 Sometimes it is useful to share information about your computing environment as well:
 
