@@ -37,7 +37,7 @@ gapminder
 Manipulation of dataframes means many things to many researchers, we often
 select certain observations (rows) or variables (columns), we often group the
 data by a certain variable(s), or we even calculate summary statistics. We can
-do this operations using the normal base R operations:
+do these types of operations using the normal base R operations:
 
 ```{r}
 mean(gapminder$gdpPercap)
@@ -94,9 +94,9 @@ To select on some subset of rows:
 filter(gapminder, continent == "Europe")
 ```
 
-If we open up `year_country_gdp` we'll see that it only contains the year,
-country and gdpPercap. Above we used 'normal' grammar, but the strengths of
-`dplyr` lie in combining several functions using pipes. This [description](https://twitter.com/WeAreRLadies/status/1172576445794803713) is very useful:
+Above we used 'normal' grammar, but the strengths of `dplyr` lie in combining 
+several functions using pipes. This 
+[description](https://twitter.com/WeAreRLadies/status/1172576445794803713) is very useful:
 
 ```{r, eval=FALSE}
 I work up %>% 

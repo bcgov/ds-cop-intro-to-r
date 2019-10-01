@@ -206,10 +206,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3" data-path="dataframe-manipulation-with-tidyr.html"><a href="dataframe-manipulation-with-tidyr.html#advantage-to-plotting-and-tables"><i class="fa fa-check"></i><b>9.3</b> Advantage to plotting and tables</a></li>
 <li class="chapter" data-level="9.4" data-path="dataframe-manipulation-with-tidyr.html"><a href="dataframe-manipulation-with-tidyr.html#other-great-resources-1"><i class="fa fa-check"></i><b>9.4</b> Other great resources</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><i class="fa fa-check"></i><b>10</b> When Your Code Doesn’t Work: Seeking Help from your Peers</a><ul>
-<li class="chapter" data-level="10.1" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#help-people-help-you"><i class="fa fa-check"></i><b>10.1</b> Help People Help You</a></li>
-<li class="chapter" data-level="10.2" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#a-reproducible-example-or-a-reprex"><i class="fa fa-check"></i><b>10.2</b> A Reproducible Example or a “reprex”</a></li>
-<li class="chapter" data-level="10.3" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#other-helpful-resources"><i class="fa fa-check"></i><b>10.3</b> Other Helpful Resources</a></li>
+<li class="chapter" data-level="10" data-path="seeking-help-from-others-with-reprex.html"><a href="seeking-help-from-others-with-reprex.html"><i class="fa fa-check"></i><b>10</b> Seeking Help from Others with reprex</a><ul>
+<li class="chapter" data-level="10.1" data-path="seeking-help-from-others-with-reprex.html"><a href="seeking-help-from-others-with-reprex.html#help-people-help-you---reprex"><i class="fa fa-check"></i><b>10.1</b> Help People Help You - reprex</a></li>
+<li class="chapter" data-level="10.2" data-path="seeking-help-from-others-with-reprex.html"><a href="seeking-help-from-others-with-reprex.html#other-helpful-resources"><i class="fa fa-check"></i><b>10.2</b> Other Helpful Resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -263,7 +262,7 @@ cols(
 <p>Manipulation of dataframes means many things to many researchers, we often
 select certain observations (rows) or variables (columns), we often group the
 data by a certain variable(s), or we even calculate summary statistics. We can
-do this operations using the normal base R operations:</p>
+do these types of operations using the normal base R operations:</p>
 <div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="dataframe-manipulation-with-dplyr.html#cb328-1"></a><span class="kw">mean</span>(gapminder<span class="op">$</span>gdpPercap)</span></code></pre></div>
 <pre><code>[1] 7215.327</code></pre>
 <p>The question here is how might you take averages (or any other summary statistic)
@@ -315,9 +314,9 @@ variables you select.</p>
  9 Albania  1992 3326498 Europe       71.6     2497.
 10 Albania  1997 3428038 Europe       73.0     3193.
 # … with 350 more rows</code></pre>
-<p>If we open up <code>year_country_gdp</code> we’ll see that it only contains the year,
-country and gdpPercap. Above we used ‘normal’ grammar, but the strengths of
-<code>dplyr</code> lie in combining several functions using pipes. This <a href="https://twitter.com/WeAreRLadies/status/1172576445794803713">description</a> is very useful:</p>
+<p>Above we used ‘normal’ grammar, but the strengths of <code>dplyr</code> lie in combining
+several functions using pipes. This
+<a href="https://twitter.com/WeAreRLadies/status/1172576445794803713">description</a> is very useful:</p>
 <div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="dataframe-manipulation-with-dplyr.html#cb335-1"></a>I work up <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb335-2"><a href="dataframe-manipulation-with-dplyr.html#cb335-2"></a><span class="st">  </span>showered <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb335-3"><a href="dataframe-manipulation-with-dplyr.html#cb335-3"></a><span class="st">  </span>dressed <span class="op">%&gt;%</span><span class="st"> </span></span>
@@ -579,7 +578,7 @@ extra comments):</p>
 <span id="cb363-5"><a href="dataframe-manipulation-with-dplyr.html#cb363-5"></a><span class="co"># Make the plot</span></span>
 <span id="cb363-6"><a href="dataframe-manipulation-with-dplyr.html#cb363-6"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> a_countries, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">color =</span> continent)) <span class="op">+</span></span>
 <span id="cb363-7"><a href="dataframe-manipulation-with-dplyr.html#cb363-7"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>country)</span></code></pre></div>
-<p><img src="fig/rmd-6-unnamed-chunk-149-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p><img src="fig/rmd-6-unnamed-chunk-147-1.png" width="816" style="display: block; margin: auto;" /></p>
 <p>This code makes the right plot but it also provides a way to chain operations. Just as we used
 <code>%&gt;%</code> to pipe data along a chain of <code>dplyr</code> functions we can use it to pass data
 to <code>ggplot()</code>. Because <code>%&gt;%</code> replaces the first argument in a function we don’t
@@ -591,7 +590,7 @@ need to specify the <code>data =</code> argument in the <code>ggplot()</code> fu
 <span id="cb364-4"><a href="dataframe-manipulation-with-dplyr.html#cb364-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lifeExp, <span class="dt">color =</span> continent)) <span class="op">+</span></span>
 <span id="cb364-5"><a href="dataframe-manipulation-with-dplyr.html#cb364-5"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
 <span id="cb364-6"><a href="dataframe-manipulation-with-dplyr.html#cb364-6"></a><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>country)</span></code></pre></div>
-<p><img src="fig/rmd-6-unnamed-chunk-150-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p><img src="fig/rmd-6-unnamed-chunk-148-1.png" width="816" style="display: block; margin: auto;" /></p>
 <p>Using <code>dplyr</code> functions also helps us do calculations on the fly, for example if we were interested in
 converting <code>lifeExp</code> which is in years to days:</p>
 <div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="dataframe-manipulation-with-dplyr.html#cb365-1"></a>gapminder <span class="op">%&gt;%</span></span>
@@ -601,7 +600,7 @@ converting <code>lifeExp</code> which is in years to days:</p>
 <span id="cb365-5"><a href="dataframe-manipulation-with-dplyr.html#cb365-5"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> num_days, <span class="dt">color =</span> continent)) <span class="op">+</span></span>
 <span id="cb365-6"><a href="dataframe-manipulation-with-dplyr.html#cb365-6"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
 <span id="cb365-7"><a href="dataframe-manipulation-with-dplyr.html#cb365-7"></a><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>country)</span></code></pre></div>
-<p><img src="fig/rmd-6-unnamed-chunk-151-1.png" width="816" style="display: block; margin: auto;" /></p>
+<p><img src="fig/rmd-6-unnamed-chunk-149-1.png" width="816" style="display: block; margin: auto;" /></p>
 <blockquote>
 <h2 id="advanced-challenge"><span class="header-section-number">8.10</span> Advanced Challenge</h2>
 <p>Calculate the average life expectancy in 2002 of 2 randomly selected countries
