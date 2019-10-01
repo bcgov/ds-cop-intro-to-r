@@ -138,8 +138,8 @@ cats %>%
   ggplot(aes(x = coat, y = weight)) %>%  
   geom_col()
 
-?datasets #built in datasets
-?starwars #ships with dplyr
+# ?datasets #built in datasets
+# ?starwars #ships with dplyr
 
 # View(starwars)
 
