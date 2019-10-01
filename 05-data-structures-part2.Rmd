@@ -30,25 +30,18 @@ data types and data structures in R. Everything you do will be a manipulation of
 those tools. But most of the time, the star of the show is the data frame—the table that we created by loading information from a csv file. In this lesson, we'll learn a few more things
 about working with data frames.
 
-## Adding columns and rows in data frames
-
-We already learned that the columns of a data frame are vectors, so that our
-data are consistent in type throughout the columns. As such, if we want to add a
-new column, we can start by making a new vector:
-
 ```{r}
 library(readr)
 cats <- read_csv("data/feline-data.csv")
 ```
 
-We can find the size of our data with a few handy functions:
+We can find the size and various other attributes of our data with a few handy functions:
 
 ```{r}
 nrow(cats)
 ncol(cats)
 dim(cats)
 ```
-
 
 ```{r}
 names(cats)
@@ -65,22 +58,7 @@ A really nice feature of RStudio is that it allows us to view our data in a
 very readable and familiar way. Go ahead and click on the name of the `cats`
 data frame in the environment pane.
 
-Note that this is a read-only view, it's not editable (Which is a good thing!) 
-
-## Factors
-
-Remember we can convert a character to a factor:
-
-```{r}
-cats$coat <- factor(cats$coat)
-```
-
-Now if we run `summary` on `cats` again, it will look a little different:
-
-```{r}
-summary(cats)
-str(cats)
-```
+Note that this is a read-only view, it's not editable (which is a good thing!)
 
 
 For an object containing the data type `factor`, each different value represents what is called a `level`. In our case, the `factor` "coat" has 3 levels: "black", "calico", and "tabby". 
