@@ -379,16 +379,16 @@ gapminder %>%
 ```
 
 Using `dplyr` functions also helps us do calculations on the fly, for example if we were interested in 
-converting `lifeExp` :
+converting `lifeExp` which is in years to days:
 
 ```{r}
 gapminder %>%
-    # Filter countries that start with "A" or "Z"
-	filter(substr(country, start = 1, stop = 1) %in% c("A", "Z")) %>%
-	# Make the plot
-	ggplot(aes(x = year, y = lifeExp, color = continent)) +
-	geom_line() +
-	facet_wrap( ~ country)
+  filter(country %in% c("Afghanistan", "Albania", "Algeria", "Angola", "Argentina", "Australia", "Austria")) %>% 
+  filter(continent == "Europe") %>% 
+  mutate(num_days = lifeExp*365) %>% 
+  ggplot(aes(x = year, y = num_days, color = continent)) +
+  geom_line() +
+  facet_wrap( ~ country)
 ```
 
 > ## Advanced Challenge
