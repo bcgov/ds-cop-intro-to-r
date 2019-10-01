@@ -207,10 +207,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3" data-path="dataframe-manipulation-with-tidyr.html"><a href="dataframe-manipulation-with-tidyr.html#advantage-to-plotting-and-tables"><i class="fa fa-check"></i><b>9.3</b> Advantage to plotting and tables</a></li>
 <li class="chapter" data-level="9.4" data-path="dataframe-manipulation-with-tidyr.html"><a href="dataframe-manipulation-with-tidyr.html#other-great-resources-1"><i class="fa fa-check"></i><b>9.4</b> Other great resources</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><i class="fa fa-check"></i><b>10</b> When Your Code Doesn’t Work: Seeking Help from your Peers</a><ul>
-<li class="chapter" data-level="10.1" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#help-people-help-you"><i class="fa fa-check"></i><b>10.1</b> Help People Help You</a></li>
-<li class="chapter" data-level="10.2" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#a-reproducible-example-or-a-reprex"><i class="fa fa-check"></i><b>10.2</b> A Reproducible Example or a “reprex”</a></li>
-<li class="chapter" data-level="10.3" data-path="when-your-code-doesnt-work-seeking-help-from-your-peers.html"><a href="when-your-code-doesnt-work-seeking-help-from-your-peers.html#other-helpful-resources"><i class="fa fa-check"></i><b>10.3</b> Other Helpful Resources</a></li>
+<li class="chapter" data-level="10" data-path="seeking-help-from-others-with-reprex.html"><a href="seeking-help-from-others-with-reprex.html"><i class="fa fa-check"></i><b>10</b> Seeking Help from Others with reprex</a><ul>
+<li class="chapter" data-level="10.1" data-path="seeking-help-from-others-with-reprex.html"><a href="seeking-help-from-others-with-reprex.html#help-people-help-you---reprex"><i class="fa fa-check"></i><b>10.1</b> Help People Help You - reprex</a></li>
+<li class="chapter" data-level="10.2" data-path="seeking-help-from-others-with-reprex.html"><a href="seeking-help-from-others-with-reprex.html#other-helpful-resources"><i class="fa fa-check"></i><b>10.2</b> Other Helpful Resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -534,9 +533,51 @@ upcoming lesson.</p>
 <p><code>ls</code> will list all of the variables and functions stored in the global environment
 (your working R session):</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="introduction-to-r-and-rstudio.html#cb52-1"></a><span class="kw">ls</span>()</span></code></pre></div>
-<pre><code>[1] &quot;cats&quot;             &quot;fix_fig_path&quot;     &quot;gapminder&quot;       
-[4] &quot;knitr_fig_path&quot;   &quot;rmd_episodes&quot;     &quot;sequence_example&quot;
-[7] &quot;x&quot;                &quot;y&quot;               </code></pre>
+<pre><code> [1] &quot;a_countries&quot;                                
+ [2] &quot;another_coercion_vector&quot;                    
+ [3] &quot;another_list&quot;                               
+ [4] &quot;answer&quot;                                     
+ [5] &quot;asia_oceania&quot;                               
+ [6] &quot;can_mex&quot;                                    
+ [7] &quot;cat_data&quot;                                   
+ [8] &quot;CATegories&quot;                                 
+ [9] &quot;cats&quot;                                       
+[10] &quot;character_coerced_to_numeric&quot;               
+[11] &quot;character_vector_example&quot;                   
+[12] &quot;coats&quot;                                      
+[13] &quot;coercion_vector&quot;                            
+[14] &quot;dataStructures&quot;                             
+[15] &quot;dataTypes&quot;                                  
+[16] &quot;factor_ordering_example&quot;                    
+[17] &quot;fix_fig_path&quot;                               
+[18] &quot;gap_wide&quot;                                   
+[19] &quot;gapminder&quot;                                  
+[20] &quot;gapminder_long&quot;                             
+[21] &quot;gapminder_wide&quot;                             
+[22] &quot;gdp_bycontinents&quot;                           
+[23] &quot;gdp_bycontinents_byyear&quot;                    
+[24] &quot;gdp_future_bycontinents_byyear_high_lifeExp&quot;
+[25] &quot;gdp_pop_bycontinents_byyear&quot;                
+[26] &quot;gdp_pop_bycontinents_byyear_above25&quot;        
+[27] &quot;knitr_fig_path&quot;                             
+[28] &quot;lifeExp_2countries_bycontinents&quot;            
+[29] &quot;lifeExp_bycountry&quot;                          
+[30] &quot;lifeExp_plot&quot;                               
+[31] &quot;list_example&quot;                               
+[32] &quot;matrix_example&quot;                             
+[33] &quot;my_other_vector&quot;                            
+[34] &quot;my_vector&quot;                                  
+[35] &quot;mydata&quot;                                     
+[36] &quot;mySeries&quot;                                   
+[37] &quot;numeric_coerced_to_logical&quot;                 
+[38] &quot;quiz_vector&quot;                                
+[39] &quot;romania&quot;                                    
+[40] &quot;sequence_example&quot;                           
+[41] &quot;x&quot;                                          
+[42] &quot;y&quot;                                          
+[43] &quot;year_country_gdp&quot;                           
+[44] &quot;year_country_gdp_euro&quot;                      
+[45] &quot;year_country_lifeExp_Africa&quot;                </code></pre>
 <blockquote>
 <h2 id="tip-hidden-objects"><span class="header-section-number">2.11</span> Tip: hidden objects</h2>
 <p>Like in the shell, <code>ls</code> will hide any variables or functions starting
@@ -578,7 +619,7 @@ needed to give the parentheses to tell R to call the function.</p>
     }
     else all.names
 }
-&lt;bytecode: 0x7fe973d621d0&gt;
+&lt;bytecode: 0x7fcf034ed170&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>You can use <code>rm</code> to delete objects you no longer need:</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="introduction-to-r-and-rstudio.html#cb56-1"></a><span class="kw">rm</span>(x)</span></code></pre></div>

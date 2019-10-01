@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to Data Science using R Workshop</title>
+  <title>Chapter 10 Seeking Help from Others with reprex | Introduction to Data Science using R Workshop</title>
   <meta name="description" content="This book contains materials for a 1 day Introduction to R workshop" />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to Data Science using R Workshop" />
+  <meta property="og:title" content="Chapter 10 Seeking Help from Others with reprex | Introduction to Data Science using R Workshop" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="bcgov/ds-cop-intro-to-r" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to Data Science using R Workshop" />
+  <meta name="twitter:title" content="Chapter 10 Seeking Help from Others with reprex | Introduction to Data Science using R Workshop" />
   
   <meta name="twitter:description" content="This book contains materials for a 1 day Introduction to R workshop" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="dataframe-manipulation-with-tidyr.html"/>
 
-<link rel="next" href="introduction-to-r-and-rstudio.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -231,28 +231,162 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to Data Science using R Workshop</h1>
-<p class="author"><em>Sam Albers, Stephanie Hazlitt &amp; Andy Teucher</em></p>
-<p class="date"><em>2019-10-01</em></p>
-</div>
-<div id="preface" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Preface</h1>
-<p>A repository to house materials for a 1-day course introducing participants to data science using <a href="https://www.r-project.org/">R</a>.</p>
-<p>The goal of this 1-day workshop is to teach new-to-programming data professionals to import data, clean up and summarize a data set, and make some static data visualizations using the program R. R is a popular statistical computing language, commonly used in many scientific disciplines for statistical analysis, generating production-quality graphics, and automating data workflow tasks. The workshop content will follow best practices for using R for data analysis, giving attendees a foundation in the fundamentals of R and scientific computing.</p>
-<p>Most of the above lesson material is sourced from the Software Carpentry Foundation (now The Carpenties) <a href="http://swcarpentry.github.io/r-novice-gapminder/">R for Reproducible Scientific Analysis</a> lesson material: Thomas Wright and Naupaka Zimmerman (eds): <em>Software Carpentry: R for
-Reproducible Scientific Analysis</em>. Version 2016.06, June 2016,
-<a href="https://github.com/swcarpentry/r-novice-gapminder" class="uri">https://github.com/swcarpentry/r-novice-gapminder</a>,
-10.5281/zenodo.57520.</p>
+<div id="seeking-help-from-others-with-reprex" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Seeking Help from Others with reprex</h1>
+<p>If you’re having trouble using a function or package, or getting the syntax correct, 9 times out of 10 the answers you are seeking have already been asked and answered on-line:</p>
+<ul>
+<li><a href="https://community.rstudio.com/">RStudio Community</a></li>
+<li><a href="http://stackoverflow.com/">Stack Overflow</a>. You can search using
+the <code>[r]</code> tag.</li>
+<li><a href="https://www.google.ca/">Google</a></li>
+</ul>
+<p>If you can’t find the answer on-line, there are some on-line forums to seek help from the bcgov R community:</p>
+<ul>
+<li><a href="https://www.yammer.com/gov.bc.ca">bcgov Yammer channels (e.g. R, Data Science CoP)</a></li>
+<li><a href="https://developer.gov.bc.ca/Community-and-Events/Steps-to-join-Pathfinder-Rocket.Chat#1-how-to-register-for-rocketchat">bcgov RocketChat #rstats channel</a></li>
+</ul>
+<div id="help-people-help-you---reprex" class="section level2">
+<h2><span class="header-section-number">10.1</span> Help People Help You - reprex</h2>
+<p>Whan starting a conversation about code, there are a few things that when included make that conversation more efficient and pleasant for everyone:</p>
+<ul>
+<li>some sample data (preferably provided <em>in</em> the code)</li>
+<li>some code (with comments, white-space, indents <code>==</code> make it easy to read)</li>
+<li>information about your computing environment, like your operating system, version of R, the packages you have loaded</li>
+</ul>
+<p><a href="https://reprex.tidyverse.org/index.html"><code>reprex</code></a>: An R package to help prepare a reproducible example — or reprex — for posting to GitHub issues, StackOverflow, RocketChat snippets, or email and so on.</p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="seeking-help-from-others-with-reprex.html#cb374-1"></a><span class="co"># install.packages(&quot;reprex&quot;)</span></span>
+<span id="cb374-2"><a href="seeking-help-from-others-with-reprex.html#cb374-2"></a></span>
+<span id="cb374-3"><a href="seeking-help-from-others-with-reprex.html#cb374-3"></a><span class="co"># load libraries we need</span></span>
+<span id="cb374-4"><a href="seeking-help-from-others-with-reprex.html#cb374-4"></a><span class="kw">library</span>(reprex)</span>
+<span id="cb374-5"><a href="seeking-help-from-others-with-reprex.html#cb374-5"></a><span class="kw">library</span>(readr)</span>
+<span id="cb374-6"><a href="seeking-help-from-others-with-reprex.html#cb374-6"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb374-7"><a href="seeking-help-from-others-with-reprex.html#cb374-7"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb374-8"><a href="seeking-help-from-others-with-reprex.html#cb374-8"></a></span>
+<span id="cb374-9"><a href="seeking-help-from-others-with-reprex.html#cb374-9"></a><span class="co"># read in data</span></span>
+<span id="cb374-10"><a href="seeking-help-from-others-with-reprex.html#cb374-10"></a>cats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/feline-data.csv&quot;</span>)</span>
+<span id="cb374-11"><a href="seeking-help-from-others-with-reprex.html#cb374-11"></a></span>
+<span id="cb374-12"><a href="seeking-help-from-others-with-reprex.html#cb374-12"></a><span class="co"># munge data and make bar plot</span></span>
+<span id="cb374-13"><a href="seeking-help-from-others-with-reprex.html#cb374-13"></a>cats <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb374-14"><a href="seeking-help-from-others-with-reprex.html#cb374-14"></a><span class="st">  </span><span class="kw">select</span>(coat, weight) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb374-15"><a href="seeking-help-from-others-with-reprex.html#cb374-15"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> coat, <span class="dt">y =</span> weight)) <span class="op">+</span><span class="st">  </span></span>
+<span id="cb374-16"><a href="seeking-help-from-others-with-reprex.html#cb374-16"></a><span class="st">  </span><span class="kw">geom_col</span>()</span></code></pre></div>
+<p><img src="fig/rmd-7-reprex-demo1-1.png" width="816" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="seeking-help-from-others-with-reprex.html#cb375-1"></a><span class="co"># error in syntax - this does not work</span></span>
+<span id="cb375-2"><a href="seeking-help-from-others-with-reprex.html#cb375-2"></a>cats <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb375-3"><a href="seeking-help-from-others-with-reprex.html#cb375-3"></a><span class="st">  </span><span class="kw">select</span>(coat, weight) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb375-4"><a href="seeking-help-from-others-with-reprex.html#cb375-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> coat, <span class="dt">y =</span> weight)) <span class="op">%&gt;%</span><span class="st">   </span></span>
+<span id="cb375-5"><a href="seeking-help-from-others-with-reprex.html#cb375-5"></a><span class="st">  </span><span class="kw">geom_col</span>()</span></code></pre></div>
+<pre><code>Error: `mapping` must be created by `aes()`
+Did you use %&gt;% instead of +?</code></pre>
+<p>You have read the error message but it was not helpful, you used <code>?ggplot2</code>, and looked on-line and I still cannot find an answer. Maybe someone in the bcgovR community knows?</p>
+<p>We need to invest a bit of time making the buggy code shareable – the easier it is for someone to run the code, the easier – and likely faster – someone might be able to provide some help.</p>
+<p><img src="fig/help-me-help-you.png" /></p>
+<p>If the data is shareable (e.g. available in the B.C. Data Catalogue with appropriate licence, publicly available) then we can use <code>dput()</code>:</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="seeking-help-from-others-with-reprex.html#cb377-1"></a><span class="co"># use dput to make data set with code</span></span>
+<span id="cb377-2"><a href="seeking-help-from-others-with-reprex.html#cb377-2"></a><span class="kw">dput</span>(cats)</span></code></pre></div>
+<pre><code>structure(list(coat = c(&quot;calico&quot;, &quot;black&quot;, &quot;tabby&quot;), weight = c(2.1, 
+5, 3.2), likes_string = c(1, 0, 1)), class = c(&quot;spec_tbl_df&quot;, 
+&quot;tbl_df&quot;, &quot;tbl&quot;, &quot;data.frame&quot;), row.names = c(NA, -3L), spec = structure(list(
+    cols = list(coat = structure(list(), class = c(&quot;collector_character&quot;, 
+    &quot;collector&quot;)), weight = structure(list(), class = c(&quot;collector_double&quot;, 
+    &quot;collector&quot;)), likes_string = structure(list(), class = c(&quot;collector_double&quot;, 
+    &quot;collector&quot;))), default = structure(list(), class = c(&quot;collector_guess&quot;, 
+    &quot;collector&quot;)), skip = 1), class = &quot;col_spec&quot;))</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="seeking-help-from-others-with-reprex.html#cb379-1"></a>cats &lt;-<span class="st"> </span><span class="kw">structure</span>(<span class="kw">list</span>(<span class="dt">coat =</span> <span class="kw">c</span>(<span class="st">&quot;calico&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;tabby&quot;</span>), <span class="dt">weight =</span> <span class="kw">c</span>(<span class="fl">2.1</span>, </span>
+<span id="cb379-2"><a href="seeking-help-from-others-with-reprex.html#cb379-2"></a><span class="dv">5</span>, <span class="fl">3.2</span>), <span class="dt">likes_string =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)), <span class="dt">class =</span> <span class="kw">c</span>(<span class="st">&quot;spec_tbl_df&quot;</span>, </span>
+<span id="cb379-3"><a href="seeking-help-from-others-with-reprex.html#cb379-3"></a><span class="st">&quot;tbl_df&quot;</span>, <span class="st">&quot;tbl&quot;</span>, <span class="st">&quot;data.frame&quot;</span>), <span class="dt">row.names =</span> <span class="kw">c</span>(<span class="ot">NA</span>, <span class="op">-</span>3L), <span class="dt">spec =</span> <span class="kw">structure</span>(<span class="kw">list</span>(</span>
+<span id="cb379-4"><a href="seeking-help-from-others-with-reprex.html#cb379-4"></a>    <span class="dt">cols =</span> <span class="kw">list</span>(<span class="dt">coat =</span> <span class="kw">structure</span>(<span class="kw">list</span>(), <span class="dt">class =</span> <span class="kw">c</span>(<span class="st">&quot;collector_character&quot;</span>, </span>
+<span id="cb379-5"><a href="seeking-help-from-others-with-reprex.html#cb379-5"></a>    <span class="st">&quot;collector&quot;</span>)), <span class="dt">weight =</span> <span class="kw">structure</span>(<span class="kw">list</span>(), <span class="dt">class =</span> <span class="kw">c</span>(<span class="st">&quot;collector_double&quot;</span>, </span>
+<span id="cb379-6"><a href="seeking-help-from-others-with-reprex.html#cb379-6"></a>    <span class="st">&quot;collector&quot;</span>)), <span class="dt">likes_string =</span> <span class="kw">structure</span>(<span class="kw">list</span>(), <span class="dt">class =</span> <span class="kw">c</span>(<span class="st">&quot;collector_double&quot;</span>, </span>
+<span id="cb379-7"><a href="seeking-help-from-others-with-reprex.html#cb379-7"></a>    <span class="st">&quot;collector&quot;</span>))), <span class="dt">default =</span> <span class="kw">structure</span>(<span class="kw">list</span>(), <span class="dt">class =</span> <span class="kw">c</span>(<span class="st">&quot;collector_guess&quot;</span>, </span>
+<span id="cb379-8"><a href="seeking-help-from-others-with-reprex.html#cb379-8"></a>    <span class="st">&quot;collector&quot;</span>)), <span class="dt">skip =</span> <span class="dv">1</span>), <span class="dt">class =</span> <span class="st">&quot;col_spec&quot;</span>))</span>
+<span id="cb379-9"><a href="seeking-help-from-others-with-reprex.html#cb379-9"></a></span>
+<span id="cb379-10"><a href="seeking-help-from-others-with-reprex.html#cb379-10"></a><span class="co"># error in syntax - this does not work</span></span>
+<span id="cb379-11"><a href="seeking-help-from-others-with-reprex.html#cb379-11"></a>cats <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb379-12"><a href="seeking-help-from-others-with-reprex.html#cb379-12"></a><span class="st">  </span><span class="kw">select</span>(coat, weight) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb379-13"><a href="seeking-help-from-others-with-reprex.html#cb379-13"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> coat, <span class="dt">y =</span> weight)) <span class="op">%&gt;%</span><span class="st">  </span></span>
+<span id="cb379-14"><a href="seeking-help-from-others-with-reprex.html#cb379-14"></a><span class="st">  </span><span class="kw">geom_col</span>()</span></code></pre></div>
+<pre><code>Error: `mapping` must be created by `aes()`
+Did you use %&gt;% instead of +?</code></pre>
+<p><code>dput()</code> will dump the data you’re working with into a format so that it can
+be copy and pasted by anyone else into their R session.</p>
+<p>If the data is <em><em>not</em></em> shareable, you can use some built in data and re-create the issue:</p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="seeking-help-from-others-with-reprex.html#cb381-1"></a><span class="co"># ?datasets # built in datasets</span></span>
+<span id="cb381-2"><a href="seeking-help-from-others-with-reprex.html#cb381-2"></a><span class="co"># ?starwars # ships with dplyr</span></span>
+<span id="cb381-3"><a href="seeking-help-from-others-with-reprex.html#cb381-3"></a></span>
+<span id="cb381-4"><a href="seeking-help-from-others-with-reprex.html#cb381-4"></a><span class="co"># View(starwars)</span></span>
+<span id="cb381-5"><a href="seeking-help-from-others-with-reprex.html#cb381-5"></a></span>
+<span id="cb381-6"><a href="seeking-help-from-others-with-reprex.html#cb381-6"></a><span class="co"># error in syntax - this does not work</span></span>
+<span id="cb381-7"><a href="seeking-help-from-others-with-reprex.html#cb381-7"></a>starwars <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb381-8"><a href="seeking-help-from-others-with-reprex.html#cb381-8"></a><span class="st">  </span><span class="kw">select</span>(name, height) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb381-9"><a href="seeking-help-from-others-with-reprex.html#cb381-9"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> name, <span class="dt">y =</span> height)) <span class="op">%&gt;%</span><span class="st">  </span></span>
+<span id="cb381-10"><a href="seeking-help-from-others-with-reprex.html#cb381-10"></a><span class="st">  </span><span class="kw">geom_col</span>()</span></code></pre></div>
+<pre><code>Error: `mapping` must be created by `aes()`
+Did you use %&gt;% instead of +?</code></pre>
+<p>Once the code is ready for sharing, select the code and use <code>reprex_selection()</code> or the clickable RStudio <code>Addin</code> to copy the formatted code to the clipboard for sharing on-line (<em>demonstrated</em>).</p>
+<p>Sometimes it is useful to share information about your computing environment as well:</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="seeking-help-from-others-with-reprex.html#cb383-1"></a><span class="kw">sessionInfo</span>()</span></code></pre></div>
+<pre><code>R version 3.6.1 (2019-07-05)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS Mojave 10.14.6
 
+Matrix products: default
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_CA.UTF-8/en_CA.UTF-8/en_CA.UTF-8/C/en_CA.UTF-8/en_CA.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] reprex_0.3.0   tidyr_1.0.0    knitr_1.25     ggplot2_3.2.1 
+[5] dplyr_0.8.3    readr_1.3.1    testthat_2.2.1 devtools_2.2.1
+[9] usethis_1.5.1 
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_0.2.5  xfun_0.9          remotes_2.1.0    
+ [4] purrr_0.3.2       colorspace_1.4-1  vctrs_0.2.0      
+ [7] htmltools_0.3.6   yaml_2.2.0        utf8_1.1.4       
+[10] rlang_0.4.0       pkgbuild_1.0.5    pillar_1.4.2     
+[13] glue_1.3.1        withr_2.1.2       sessioninfo_1.1.1
+[16] lifecycle_0.1.0   stringr_1.4.0     munsell_0.5.0    
+[19] gtable_0.3.0      memoise_1.1.0     evaluate_0.14    
+[22] labeling_0.3      callr_3.3.2       ps_1.3.0         
+[25] fansi_0.4.0       Rcpp_1.0.2        clipr_0.7.0      
+[28] backports_1.1.4   scales_1.0.0      desc_1.2.0       
+[31] pkgload_1.0.2     fs_1.3.1          hms_0.5.1        
+[34] packrat_0.5.0     digest_0.6.21     stringi_1.4.3    
+[37] bookdown_0.13     processx_3.4.1    rprojroot_1.3-2  
+[40] grid_3.6.1        cli_1.1.0         tools_3.6.1      
+[43] magrittr_1.5      lazyeval_0.2.2    tibble_2.1.3     
+[46] crayon_1.3.4      whisker_0.4       pkgconfig_2.0.3  
+[49] zeallot_0.1.0     ellipsis_0.3.0    praise_1.0.0     
+[52] rsconnect_0.8.15  prettyunits_1.0.2 assertthat_0.2.1 
+[55] rmarkdown_1.15    rstudioapi_0.10   R6_2.4.0         
+[58] compiler_3.6.1   </code></pre>
+<p><code>sessionInfo()</code> will print out your current version of R, as well as any packages you
+have loaded. This can be useful for others to help reproduce and debug
+your issue.</p>
+</div>
+<div id="other-helpful-resources" class="section level2">
+<h2><span class="header-section-number">10.2</span> Other Helpful Resources</h2>
+<ul>
+<li><a href="http://www.rstudio.com/resources/cheatsheets/">RStudio cheat sheets</a></li>
+<li><a href="http://www.statmethods.net/">Quick R</a></li>
+<li><a href="http://www.cookbook-r.com/">Cookbook for R</a></li>
+</ul>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="dataframe-manipulation-with-tidyr.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="introduction-to-r-and-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
