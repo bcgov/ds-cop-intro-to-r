@@ -13,7 +13,7 @@ keypoints:
 source: Rmd
 ---
 
-## When Your Code Doesn't Work: Seeking Help from your Peers
+# When Your Code Doesn't Work: Seeking Help from your Peers
 
 If you're having trouble using a function or package, or getting the syntax correct, 9 times out of 10 the answers you are seeking have already been asked and answered on-line:
 
@@ -23,7 +23,7 @@ the `[r]` tag.
 - [Google](https://www.google.ca/)
 
 If you can't find the answer, there are a few useful tools to
-help you ask a question from your peers.
+help you ask a question on-line or from your peers in bcgov.
 
 - [bcgov Yammer channels (e.g. R, Data Science CoP)](https://www.yammer.com/gov.bc.ca)
 - [bcgov RocketChat #rstats channel](https://developer.gov.bc.ca/Community-and-Events/Steps-to-join-Pathfinder-Rocket.Chat#1-how-to-register-for-rocketchat)
@@ -69,13 +69,14 @@ Will print out your current version of R, as well as any packages you
 have loaded. This can be useful for others to help reproduce and debug
 your issue.
 
+
 ## A Reproducible Example or a "reprex"
 
 [`reprex`](https://reprex.tidyverse.org/index.html): Prepare reprexes for posting to GitHub issues, StackOverflow, Slack snippets, or email and so on.
 
 _demo_
 
-```{r reprex-demo1}
+```{r reprex-demo1, error=TRUE}
 library(readr)
 library(dplyr)
 library(ggplot2)
@@ -94,12 +95,15 @@ cats %>%
   geom_col()
 ```
 
-I have used `?ggplot2` and looked on-line and cannot find an answer. Maybe someone in the bcgovR community knows? 
+You have read the error message but it was not helpful, you used `?ggplot2`, and looked on-line and I still cannot find an answer. Maybe someone in the bcgovR community knows? 
 
-We need to invest a bit of time making the buggy code shareable.
+We need to invest a bit of time making the buggy code shareable -- the easier it is for someone to run the code, the easier -- and likely faster -- someone might be able to provide some help. 
 
+![](fig/help-me-help-you.png)
 
-```{r reprex-demo2}
+If the data is shareable (e.g. available in the B.C. Data Catalogue with appropriate licence, publicly available) then we can use `dput()`:
+
+```{r reprex-demo2, error=TRUE}
 library(readr)
 library(dplyr)
 library(ggplot2)
@@ -121,21 +125,23 @@ cats %>%
   geom_col()
 ```
 
-```{r reprex-demo}
+
+If the data is _*not*_ shareable, you can use some built in data:
+
+```{r reprex-demo, error=TRUE}
 library(readr)
 library(dplyr)
 library(ggplot2)
-
-
-cats <- read_csv(file = "data/feline-data.csv")
-
-dput(cats)
 
 cats %>% 
   select(coat, weight) %>% 
   ggplot(aes(x = coat, y = weight)) %>%  
   geom_col()
 
+?datasets #built in datasets
+?starwars #ships with dplyr
+
+# View(starwars)
 
 starwars %>% 
   select(name, height) %>% 
@@ -143,6 +149,8 @@ starwars %>%
   geom_col()
 
 ```
+
+
 
 ## Other Helpful Resources
 
