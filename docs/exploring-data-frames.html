@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduction to Data Science using R Workshop</title>
+  <title>Chapter 6 Exploring Data Frames | Introduction to Data Science using R Workshop</title>
   <meta name="description" content="This book contains materials for a 1 day Introduction to R workshop" />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduction to Data Science using R Workshop" />
+  <meta property="og:title" content="Chapter 6 Exploring Data Frames | Introduction to Data Science using R Workshop" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="bcgov/ds-cop-intro-to-r" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduction to Data Science using R Workshop" />
+  <meta name="twitter:title" content="Chapter 6 Exploring Data Frames | Introduction to Data Science using R Workshop" />
   
   <meta name="twitter:description" content="This book contains materials for a 1 day Introduction to R workshop" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introduction-to-r-and-rstudio.html"/>
+<link rel="prev" href="data-structures.html"/>
+<link rel="next" href="creating-publication-quality-graphics-with-ggplot2.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -223,28 +223,247 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introduction to Data Science using R Workshop</h1>
-<p class="author"><em>Sam Albers, Stephanie Hazlitt &amp; Andy Teucher</em></p>
-<p class="date"><em>2019-10-01</em></p>
+<div id="exploring-data-frames" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Exploring Data Frames</h1>
+<p>At this point, you’ve seen it all: in the last lesson, we toured all the basic
+data types and data structures in R. Everything you do will be a manipulation of
+those tools. But most of the time, the star of the show is the data frame—the table that we created by loading information from a csv file. In this lesson, we’ll learn a few more things
+about working with data frames.</p>
+<div id="adding-columns-and-rows-in-data-frames" class="section level2">
+<h2><span class="header-section-number">6.1</span> Adding columns and rows in data frames</h2>
+<p>We already learned that the columns of a data frame are vectors, so that our
+data are consistent in type throughout the columns. As such, if we want to add a
+new column, we can start by making a new vector:</p>
+<pre><code>Parsed with column specification:
+cols(
+  coat = col_character(),
+  weight = col_double(),
+  likes_string = col_double()
+)</code></pre>
+<p>We can find the size of our data with a few handy functions:</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" title="1"><span class="kw">nrow</span>(cats)</a></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" title="1"><span class="kw">ncol</span>(cats)</a></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" title="1"><span class="kw">dim</span>(cats)</a></code></pre></div>
+<pre><code>[1] 3 3</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" title="1"><span class="kw">names</span>(cats)</a></code></pre></div>
+<pre><code>[1] &quot;coat&quot;         &quot;weight&quot;       &quot;likes_string&quot;</code></pre>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" title="1"><span class="kw">str</span>(cats)</a></code></pre></div>
+<pre><code>Classes &#39;spec_tbl_df&#39;, &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    3 obs. of  3 variables:
+ $ coat        : chr  &quot;calico&quot; &quot;black&quot; &quot;tabby&quot;
+ $ weight      : num  2.1 5 3.2
+ $ likes_string: num  1 0 1
+ - attr(*, &quot;spec&quot;)=
+  .. cols(
+  ..   coat = col_character(),
+  ..   weight = col_double(),
+  ..   likes_string = col_double()
+  .. )</code></pre>
+<p>A way to get a nice overall view of a data frame is to use the <code>summary</code> function. This function can be used on various objects in R. For data frames, <code>summary</code> yields a numeric, tabular, or descriptive summary of each column. Factor columns are summarized by the number of items in each level, numeric or integer columns by the descriptive statistics (quartiles and mean), and character columns by its length, class, and mode.</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" title="1"><span class="kw">summary</span>(cats)</a></code></pre></div>
+<pre><code>     coat               weight       likes_string   
+ Length:3           Min.   :2.100   Min.   :0.0000  
+ Class :character   1st Qu.:2.650   1st Qu.:0.5000  
+ Mode  :character   Median :3.200   Median :1.0000  
+                    Mean   :3.433   Mean   :0.6667  
+                    3rd Qu.:4.100   3rd Qu.:1.0000  
+                    Max.   :5.000   Max.   :1.0000  </code></pre>
+<p>A really nice feature of RStudio is that it allows us to view our data in a
+very readable and familiar way. Go ahead and click on the name of the <code>cats</code>
+data frame in the environment pane.</p>
+<p>Note that this is a read-only view, it’s not editable (Which is a good thing!)</p>
 </div>
-<div id="preface" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Preface</h1>
-<p>A repository to house materials for a 1-day course introducing participants to data science using <a href="https://www.r-project.org/">R</a>.</p>
-<p>The goal of this 1-day workshop is to teach new-to-programming data professionals to import data, clean up and summarize a data set, and make some static data visualizations using the program R. R is a popular statistical computing language, commonly used in many scientific disciplines for statistical analysis, generating production-quality graphics, and automating data workflow tasks. The workshop content will follow best practices for using R for data analysis, giving attendees a foundation in the fundamentals of R and scientific computing.</p>
-<p>Most of the above lesson material is sourced from the Software Carpentry Foundation (now The Carpenties) <a href="http://swcarpentry.github.io/r-novice-gapminder/">R for Reproducible Scientific Analysis</a> lesson material: Thomas Wright and Naupaka Zimmerman (eds): <em>Software Carpentry: R for
-Reproducible Scientific Analysis</em>. Version 2016.06, June 2016,
-<a href="https://github.com/swcarpentry/r-novice-gapminder" class="uri">https://github.com/swcarpentry/r-novice-gapminder</a>,
-10.5281/zenodo.57520.</p>
+<div id="factors-1" class="section level2">
+<h2><span class="header-section-number">6.2</span> Factors</h2>
+<p>Remember we can convert a character to a factor:</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" title="1">cats<span class="op">$</span>coat &lt;-<span class="st"> </span><span class="kw">factor</span>(cats<span class="op">$</span>coat)</a></code></pre></div>
+<p>Now if we run <code>summary</code> on <code>cats</code> again, it will look a little different:</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" title="1"><span class="kw">summary</span>(cats)</a></code></pre></div>
+<pre><code>     coat       weight       likes_string   
+ black :1   Min.   :2.100   Min.   :0.0000  
+ calico:1   1st Qu.:2.650   1st Qu.:0.5000  
+ tabby :1   Median :3.200   Median :1.0000  
+            Mean   :3.433   Mean   :0.6667  
+            3rd Qu.:4.100   3rd Qu.:1.0000  
+            Max.   :5.000   Max.   :1.0000  </code></pre>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" title="1"><span class="kw">str</span>(cats)</a></code></pre></div>
+<pre><code>Classes &#39;spec_tbl_df&#39;, &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    3 obs. of  3 variables:
+ $ coat        : Factor w/ 3 levels &quot;black&quot;,&quot;calico&quot;,..: 2 1 3
+ $ weight      : num  2.1 5 3.2
+ $ likes_string: num  1 0 1
+ - attr(*, &quot;spec&quot;)=
+  .. cols(
+  ..   coat = col_character(),
+  ..   weight = col_double(),
+  ..   likes_string = col_double()
+  .. )</code></pre>
+<p>For an object containing the data type <code>factor</code>, each different value represents what is called a <code>level</code>. In our case, the <code>factor</code> “coat” has 3 levels: “black”, “calico”, and “tabby”.</p>
+</div>
+<div id="realistic-example" class="section level2">
+<h2><span class="header-section-number">6.3</span> Realistic example</h2>
+<p>So far, you have seen the basics of manipulating data frames with our cat data;
+now let’s use those skills to digest a more realistic dataset. Let’s read in the
+<code>gapminder</code> dataset that we downloaded previously:</p>
+<blockquote>
+<h2 id="challenge-1-4"><span class="header-section-number">6.3</span> Challenge 1</h2>
+<p>Read in the gapminder dataset using read_csv and assign it to a data frame
+called <code>gapminder</code>:</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" title="1">gapminder &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/gapminder_data.csv&quot;</span>)</a></code></pre></div>
+<pre><code>Parsed with column specification:
+cols(
+  country = col_character(),
+  year = col_double(),
+  pop = col_double(),
+  continent = col_character(),
+  lifeExp = col_double(),
+  gdpPercap = col_double()
+)</code></pre>
+<p>Then tell me how many rows and columns <code>gapminder</code> has:</p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1"><span class="kw">str</span>(gapminder)</a></code></pre></div>
+<pre><code>Classes &#39;spec_tbl_df&#39;, &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:  1704 obs. of  6 variables:
+ $ country  : chr  &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; ...
+ $ year     : num  1952 1957 1962 1967 1972 ...
+ $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
+ $ continent: chr  &quot;Asia&quot; &quot;Asia&quot; &quot;Asia&quot; &quot;Asia&quot; ...
+ $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+ $ gdpPercap: num  779 821 853 836 740 ...
+ - attr(*, &quot;spec&quot;)=
+  .. cols(
+  ..   country = col_character(),
+  ..   year = col_double(),
+  ..   pop = col_double(),
+  ..   continent = col_character(),
+  ..   lifeExp = col_double(),
+  ..   gdpPercap = col_double()
+  .. )</code></pre>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1"><span class="kw">nrow</span>(gapminder)</a></code></pre></div>
+<pre><code>[1] 1704</code></pre>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1"><span class="kw">ncol</span>(gapminder)</a></code></pre></div>
+<pre><code>[1] 6</code></pre>
+<p>And tell me what kind of data is in the <code>pop</code> and <code>continent</code> columns</p>
+</blockquote>
+<p>Let’s investigate gapminder a bit; the first thing we should always do is check
+out what the data looks like with <code>str</code>:</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" title="1"><span class="kw">str</span>(gapminder)</a></code></pre></div>
+<pre><code>Classes &#39;spec_tbl_df&#39;, &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    1704 obs. of  6 variables:
+ $ country  : chr  &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; ...
+ $ year     : num  1952 1957 1962 1967 1972 ...
+ $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
+ $ continent: chr  &quot;Asia&quot; &quot;Asia&quot; &quot;Asia&quot; &quot;Asia&quot; ...
+ $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+ $ gdpPercap: num  779 821 853 836 740 ...
+ - attr(*, &quot;spec&quot;)=
+  .. cols(
+  ..   country = col_character(),
+  ..   year = col_double(),
+  ..   pop = col_double(),
+  ..   continent = col_character(),
+  ..   lifeExp = col_double(),
+  ..   gdpPercap = col_double()
+  .. )</code></pre>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" title="1"><span class="kw">summary</span>(gapminder<span class="op">$</span>country)</a></code></pre></div>
+<pre><code>   Length     Class      Mode 
+     1704 character character </code></pre>
+<blockquote>
+<h2 id="miscellaneous-tips"><span class="header-section-number">6.3</span> Miscellaneous Tips</h2>
+<ul>
+<li>Files can also be downloaded directly from the Internet into a local
+folder of your choice onto your computer using the <code>download.file</code> function.
+The <code>read.csv</code> function can then be executed to read the downloaded file from the download location, for example,</li>
+</ul>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1"><span class="kw">download.file</span>(<span class="st">&quot;https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_data.csv&quot;</span>, <span class="dt">destfile =</span> <span class="st">&quot;data/gapminder_data.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb260-2" title="2">gapminder &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/gapminder_data.csv&quot;</span>)</a></code></pre></div>
+<ul>
+<li>Alternatively, you can also read in files directly into R from the Internet by replacing the file paths with a web address in <code>read.csv</code>. One should note that in doing this no local copy of the csv file is first saved onto your computer. For example,</li>
+</ul>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" title="1">gapminder &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_data.csv&quot;</span>)</a></code></pre></div>
+<ul>
+<li>You can read directly from excel spreadsheets without
+converting them to plain text first by using the <a href="https://cran.r-project.org/package=readxl">readxl</a> package.</li>
+</ul>
+</blockquote>
+<p>We’ll also likely want to know what the titles of all the columns are, so we can
+ask for them later:</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" title="1"><span class="kw">names</span>(gapminder)</a></code></pre></div>
+<pre><code>[1] &quot;country&quot;   &quot;year&quot;      &quot;pop&quot;       &quot;continent&quot; &quot;lifeExp&quot;   &quot;gdpPercap&quot;</code></pre>
+<p>At this stage, it’s important to ask ourselves if the structure R is reporting
+matches our intuition or expectations; do the basic data types reported for each
+column make sense? If not, we need to sort any problems out now before they turn
+into bad surprises down the road, using what we’ve learned about how R
+interprets data, and the importance of <em>strict consistency</em> in how we record our
+data.</p>
+<p>Once we’re happy that the data types and structures seem reasonable, it’s time
+to start digging into our data proper. Check out the first few lines:</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" title="1"><span class="kw">head</span>(gapminder)</a></code></pre></div>
+<pre><code># A tibble: 6 x 6
+  country      year      pop continent lifeExp gdpPercap
+  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+1 Afghanistan  1952  8425333 Asia         28.8      779.
+2 Afghanistan  1957  9240934 Asia         30.3      821.
+3 Afghanistan  1962 10267083 Asia         32.0      853.
+4 Afghanistan  1967 11537966 Asia         34.0      836.
+5 Afghanistan  1972 13079460 Asia         36.1      740.
+6 Afghanistan  1977 14880372 Asia         38.4      786.</code></pre>
+<blockquote>
+<h2 id="challenge-2-3"><span class="header-section-number">6.3</span> Challenge 2</h2>
+<p>It’s good practice to also check the last few lines of your data and some in the middle. How would you do this?</p>
+<p>Searching for ones specifically in the middle isn’t too hard but we could simply ask for a few lines at random. How would you code this?</p>
+<blockquote>
+<h2 id="solution-to-challenge-3-3"><span class="header-section-number">6.3</span> Solution to Challenge 3</h2>
+<p>To check the last few lines it’s relatively simple as R already has a function for this:</p>
+<pre><code>tail(gapminder)
+tail(gapminder, n = 15)</code></pre>
+<p>What about a few arbitrary rows just for sanity (or insanity depending on your view)?
+## Tip: There are several ways to achieve this.
+The solution here presents one form of using nested functions, i.e. a function passed as an argument to another function. This might sound like a new concept, but you are already using it!
+Remember my_dataframe[rows, cols] will print to screen your data frame with the number of rows and columns you asked for (although you might have asked for a range or named columns for example). How would you get the last row if you don’t know how many rows your data frame has? R has a function for this. What about getting a (pseudorandom) sample? R also has a function for this.
+~~<sub>
+gapminder[sample(nrow(gapminder), 5), ]
+</sub>~~</p>
+</blockquote>
+</blockquote>
+<p>To make sure our analysis is reproducible, we should put the code
+into a script file so we can come back to it later.</p>
+<blockquote>
+<h2 id="challenge-3-3"><span class="header-section-number">6.3</span> Challenge 3</h2>
+<p>Go to file -&gt; new file -&gt; R script, and write an R script
+to load in the gapminder dataset. Put it in the <code>scripts/</code>
+directory.</p>
+<p>Run the script using the <code>source</code> function, using the file path
+as its argument (or by pressing the “source” button in RStudio).</p>
+<blockquote>
+<h2 id="solution-to-challenge-4-2"><span class="header-section-number">6.3</span> Solution to Challenge 4</h2>
+<p>The <code>source</code> function can be used to use a script within a script.
+Assume you would like to load the same type of file over and over
+again and therefore you need to specify the arguments to fit the
+needs of your file. Instead of writing the necessary argument again
+and again you could just write it once and save it as a script. Then,
+you can use <code>source("Your_Script_containing_the_load_function")</code> in a new
+script to use the function of that script without writing everything again.
+Check out <code>?source</code> to find out more.</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" title="1"><span class="kw">download.file</span>(<span class="st">&quot;https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_data.csv&quot;</span>, <span class="dt">destfile =</span> <span class="st">&quot;data/gapminder_data.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb267-2" title="2">gapminder &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/gapminder_data.csv&quot;</span>)</a></code></pre></div>
+<p>To run the script and load the data into the <code>gapminder</code> variable:</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" title="1"><span class="kw">source</span>(<span class="dt">file =</span> <span class="st">&quot;scripts/load-gapminder.R&quot;</span>)</a></code></pre></div>
+</blockquote>
+</blockquote>
+</div>
+<div id="basic-subsetting" class="section level2">
+<h2><span class="header-section-number">6.4</span> Basic subsetting</h2>
+<p>Data frames are two dimensions - rows and columns. We can access these using a
+specific notation with square brackets.</p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" title="1">my_data_frame[rows,columns]</a></code></pre></div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introduction-to-r-and-rstudio.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-structures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="creating-publication-quality-graphics-with-ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
