@@ -218,3 +218,11 @@ into a script file so we can come back to it later.
 
 ## Basic subsetting
 
+Data frames are two dimensions - rows and columns. We can access these using a 
+specific notation with square brackets.
+
+```{r, eval=FALSE}
+my_data_frame[rows,columns]
+```
+
+
