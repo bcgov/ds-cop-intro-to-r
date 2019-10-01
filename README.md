@@ -25,6 +25,8 @@ The goal of this 1-day workshop is to teach new-to-programming data professional
 
 ### Lessons
 
+Please see: https://bcgov.github.io/ds-cop-intro-to-r/
+
 (1) Introduction to R & RStudio (55 minutes)
 (2) Project Management with RStudio (30 minutes)
 (3) Seeking Help in R  (20 minutes)
