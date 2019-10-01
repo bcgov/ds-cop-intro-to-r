@@ -81,15 +81,20 @@ now let's use those skills to digest a more realistic dataset. Let's read in the
 > Then tell me how many rows and columns `gapminder` has:
 > 
 > ```{r}
-> str(gapminder)
+> dim(gapminder)
 > nrow(gapminder)
 > ncol(gapminder)
 > ```
 > 
 > And tell me what kind of data is in the `pop` and `continent` columns
+> 
+> ```{r}
+> str(gapminder)
+> summary(gapminder)
+> ```
 
-Let's investigate gapminder a bit; the first thing we should always do is check
-out what the data looks like with `str`:
+The first thing we should always do is check out what the data looks like with
+`str` or `summary`:
 
 ```{r}
 str(gapminder)
@@ -120,7 +125,7 @@ summary(gapminder$country)
 > converting them to plain text first by using the [readxl](https://cran.r-project.org/package=readxl) package.
 
 We'll also likely want to know what the titles of all the columns are, so we can
-ask for them later:
+ask for them:
 
 ```{r}
 names(gapminder)
@@ -195,7 +200,7 @@ into a script file so we can come back to it later.
 > > 
 > > ```{r eval = FALSE}
 > > download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_data.csv", destfile = "data/gapminder_data.csv")
-> > gapminder <- read.csv(file = "data/gapminder_data.csv")
+> > gapminder <- read_csv(file = "data/gapminder_data.csv")
 > > ```
 > > To run the script and load the data into the `gapminder` variable:
 > > ```{r eval = FALSE}
