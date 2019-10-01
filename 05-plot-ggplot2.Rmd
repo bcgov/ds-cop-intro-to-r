@@ -53,14 +53,14 @@ Inkscape.
 
 Let's start off by loading our gapminder data:
 
-```{r load-data, message=FALSE}
+```{r load-data}
 library(readr)
 gapminder <- read_csv("data/gapminder_data.csv")
 gapminder
 ```
 
 
-And jump right in my making an example ggplot2 plot:
+And jump right into in me making an example ggplot2 plot:
 
 ```{r lifeExp-vs-gdpPercap-scatter, message=FALSE}
 library("ggplot2")

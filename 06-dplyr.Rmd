@@ -24,14 +24,7 @@ knitr_fig_path("6-")
 
 # Dataframe Manipulation with dplyr
 
-## The `readr` package
-
-Bringing data into R is one of the first places where new users encounter difficulties. 
-
-```{r, eval=FALSE}
-install.packages("readr")
-```
-
+Remembering that we can use the `readr` package to read external data into R, for this lesson we are going to use the `gapminder` data:
 
 ```{r}
 library("readr")
@@ -112,7 +105,7 @@ I work up %>%
   showered %>% 
   dressed %>% 
   had coffee %>% 
-  came to R workshop
+  came to an R workshop
 ```
 
 Since the pipes grammar is unlike anything we've seen in R before, 
@@ -178,7 +171,7 @@ gapminder %>% group_by(continent)
 ```
 You will notice that the structure of the dataframe where we used `group_by()`
 (`grouped_df`) is not the same as the original `gapminder` (`data.frame`). A
-`grouped_df` can be thought of as a `list` where each item in the `list`is a
+`grouped_df` can be thought of as a `list` where each item in the `list` is a
 `data.frame` which contains only the rows that correspond to the a particular
 value `continent` (at least in the example above).
 
