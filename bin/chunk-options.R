@@ -33,6 +33,8 @@ opts_chunk$set(tidy = FALSE, results = "markup", comment = NA,
                fig.width = 8.5, fig.height = 8.5,
                fig.retina = 2)
 
+options(max.print = 100)
+
 # The hooks below add html tags to the code chunks and their output so that they
 # are properly formatted when the site is built.
 
