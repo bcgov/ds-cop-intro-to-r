@@ -13,7 +13,7 @@ keypoints:
 source: Rmd
 ---
 
-# Seeking Help from your Peers with reprex
+# Seeking Help from your Others with reprex
 
 If you're having trouble using a function or package, or getting the syntax correct, 9 times out of 10 the answers you are seeking have already been asked and answered on-line:
 
@@ -22,61 +22,28 @@ If you're having trouble using a function or package, or getting the syntax corr
 the `[r]` tag.
 - [Google](https://www.google.ca/)
 
-If you can't find the answer, there are a few useful tools to
-help you ask a question on-line or from your peers in bcgov.
+If you can't find the answer on-line, there are some on-line forums to seek help from the bcgov R community:
 
 - [bcgov Yammer channels (e.g. R, Data Science CoP)](https://www.yammer.com/gov.bc.ca)
 - [bcgov RocketChat #rstats channel](https://developer.gov.bc.ca/Community-and-Events/Steps-to-join-Pathfinder-Rocket.Chat#1-how-to-register-for-rocketchat)
 
 
-## Help People Help You
+## Help People Help You - reprex
 
 Whan starting a conversation about code, there are a few things that when included make that conversation more efficient and pleasant for everyone:
 
-- some sample data
-- the _not-working_ code (with comments, white-space, indents `==` make it easy to read)
+- some sample data (preferably provided _in_ the code)
+- some code (with comments, white-space, indents `==` make it easy to read)
 - information about your computing environment, like your operating system, version of R, the packages you have loaded
 
 
-```{r help-dput, eval=FALSE}
-?dput
-```
+[`reprex`](https://reprex.tidyverse.org/index.html): An R package to help prepare a reproducible example --- or reprex --- for posting to GitHub issues, StackOverflow, RocketChat snippets, or email and so on.
 
-Will dump the data you're working with into a format so that it can
-be copy and pasted by anyone else into their R session.
-
-```{r dput, eval=FALSE}
-library(readr)
-cats <- read_csv(file = "data/feline-data.csv")
-
-dput(cats)
-
-cats <- structure(list(coat = c("calico", "black", "tabby"), weight = c(2.1, 
-5, 3.2), likes_string = c(1, 0, 1)), class = c("spec_tbl_df", 
-"tbl_df", "tbl", "data.frame"), row.names = c(NA, -3L), spec = structure(list(
-    cols = list(coat = structure(list(), class = c("collector_character", 
-    "collector")), weight = structure(list(), class = c("collector_double", 
-    "collector")), likes_string = structure(list(), class = c("collector_double", 
-    "collector"))), default = structure(list(), class = c("collector_guess", 
-    "collector")), skip = 1), class = "col_spec"))
-```
-
-```{r}
-sessionInfo()
-```
-
-Will print out your current version of R, as well as any packages you
-have loaded. This can be useful for others to help reproduce and debug
-your issue.
-
-
-## A Reproducible Example or a "reprex"
-
-[`reprex`](https://reprex.tidyverse.org/index.html): Prepare reprexes for posting to GitHub issues, StackOverflow, Slack snippets, or email and so on.
-
-_demo_
 
 ```{r reprex-demo1, error=TRUE}
+# install.packages("reprex")
+library(reprex)
+
 library(readr)
 library(dplyr)
 library(ggplot2)
@@ -101,6 +68,7 @@ We need to invest a bit of time making the buggy code shareable -- the easier it
 
 ![](fig/help-me-help-you.png)
 
+
 If the data is shareable (e.g. available in the B.C. Data Catalogue with appropriate licence, publicly available) then we can use `dput()`:
 
 ```{r reprex-demo2, error=TRUE}
@@ -108,6 +76,7 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 
+dput(cats)
 
 cats <- structure(list(coat = c("calico", "black", "tabby"), weight = c(2.1, 
 5, 3.2), likes_string = c(1, 0, 1)), class = c("spec_tbl_df", 
@@ -125,18 +94,15 @@ cats %>%
   geom_col()
 ```
 
+`dput()` will dump the data you're working with into a format so that it can
+be copy and pasted by anyone else into their R session.
 
-If the data is _*not*_ shareable, you can use some built in data:
+If the data is _*not*_ shareable, you can use some built in data and re-create the issue:
 
 ```{r reprex-demo, error=TRUE}
 library(readr)
 library(dplyr)
 library(ggplot2)
-
-cats %>% 
-  select(coat, weight) %>% 
-  ggplot(aes(x = coat, y = weight)) %>%  
-  geom_col()
 
 # ?datasets #built in datasets
 # ?starwars #ships with dplyr
@@ -147,9 +113,17 @@ starwars %>%
   select(name, height) %>% 
   ggplot(aes(x = name, y = height)) %>%  
   geom_col()
-
 ```
 
+Sometimes it is useful to share information about your computing environment as well:
+
+```{r}
+sessionInfo()
+```
+
+`sessionInfo()` will print out your current version of R, as well as any packages you
+have loaded. This can be useful for others to help reproduce and debug
+your issue.
 
 
 ## Other Helpful Resources
