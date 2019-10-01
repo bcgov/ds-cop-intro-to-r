@@ -3,18 +3,17 @@ title: "Seeking Help from Others with reprex"
 teaching: 15
 exercises: 0
 questions:
-- "How can I write software that other people can use?"
+- "How can I get help with R from the R community?"
+- "How can I write code that future me or other people can use?"
 objectives:
+- "Describe best practices for getting help from the R community."
 - "Describe best practices for writing R and explain the justification for each."
 keypoints:
+- "To be able to seek help from your peers."
 - "Keep your project folder structured, organized and tidy."
 - "Document what and why, not how."
-- "Break programs into short single-purpose functions."
-- "Write re-runnable tests."
-- "Don't repeat yourself."
-- "Don't repeat yourself."
 - "Be consistent in naming, indentation, and other aspects of style."
-- "To be able to seek help from your peers."
+
 source: Rmd
 ---
 
