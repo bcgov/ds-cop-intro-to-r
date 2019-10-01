@@ -21,7 +21,7 @@ source: Rmd
 # Exploring Data Frames
 
 ```{r, include=FALSE}
-source("../bin/chunk-options.R")
+source("bin/chunk-options.R")
 knitr_fig_path("05-")
 ```
 
