@@ -19,6 +19,8 @@ source("bin/chunk-options.R")
 knitr_fig_path("02-")
 ```
 
+# Project Management With RStudio
+
 ## Introduction
 
 The scientific process is naturally incremental, and many projects

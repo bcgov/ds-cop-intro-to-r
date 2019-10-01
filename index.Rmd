@@ -8,3 +8,5 @@ documentclass: book
 github-repo: bcgov/ds-cop-intro-to-r
 description: "This book contains materials for a 1 day Introduction to R workshop"
 ---
+
+# Preface

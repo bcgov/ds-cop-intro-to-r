@@ -22,6 +22,8 @@ source("bin/chunk-options.R")
 knitr_fig_path("6-")
 ```
 
+# Dataframe Manipulation with dplyr
+
 ## The `readr` package
 
 Bringing data into R is one of the first places where new users encounter difficulties. 

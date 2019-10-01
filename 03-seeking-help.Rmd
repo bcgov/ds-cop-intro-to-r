@@ -17,6 +17,8 @@ source("bin/chunk-options.R")
 knitr_fig_path("03-")
 ```
 
+# Seeking Help in R
+
 ## Reading Help files
 
 R, and every package, provide help files for functions. The general syntax to search for help on any

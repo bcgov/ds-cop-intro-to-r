@@ -24,6 +24,8 @@ source("bin/chunk-options.R")
 knitr_fig_path("04-")
 ```
 
+# Data Structures
+
 One of R's most powerful features is its ability to deal with tabular data -
 such as you may already have in a spreadsheet or a CSV file. Let's start by
 looking at a toy dataset in your `data/` directory, called `feline-data.csv`:
