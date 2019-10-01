@@ -4,35 +4,62 @@ teaching: 15
 exercises: 0
 questions:
 - "How can I get help with R from the R community?"
-- "How can I write code that future me or other people can use?"
+- "How can I get help with R from the bcgov R community?"
 objectives:
 - "Describe best practices for getting help from the R community."
-- "Describe best practices for writing R and explain the justification for each."
 keypoints:
 - "To be able to seek help from your peers."
-- "Keep your project folder structured, organized and tidy."
-- "Document what and why, not how."
-- "Be consistent in naming, indentation, and other aspects of style."
 
 source: Rmd
 ---
 
-## When your code doesn't work: seeking help from your peers
+## When Your Code Doesn't Work: Seeking Help from your Peers
 
-If you're having trouble using a function, 9 times out of 10,
-the answers you are seeking have already been answered on
-[Stack Overflow](http://stackoverflow.com/). You can search using
+If you're having trouble using a function or package, or getting the syntax correct, 9 times out of 10 the answers you are seeking have already been asked and answered on-line:
+
+- [RStudio Community](https://community.rstudio.com/)
+- [Stack Overflow](http://stackoverflow.com/). You can search using
 the `[r]` tag.
+- [Google](https://www.google.ca/)
 
-If you can't find the answer, there are a few useful functions to
-help you ask a question from your peers:
+If you can't find the answer, there are a few useful tools to
+help you ask a question from your peers.
 
-```{r, eval=FALSE}
+- [bcgov Yammer channels (e.g. R, Data Science CoP)](https://www.yammer.com/gov.bc.ca)
+- [bcgov RocketChat #rstats channel](https://developer.gov.bc.ca/Community-and-Events/Steps-to-join-Pathfinder-Rocket.Chat#1-how-to-register-for-rocketchat)
+
+
+## Help People Help You
+
+Whan starting a conversation about code, there are a few things that when included make that conversation more efficient and pleasant for everyone:
+
+- some sample data
+- the _not-working_ code (with comments, white-space, indents `==` make it easy to read)
+- information about your computing environment, like your operating system, version of R, the packages you have loaded
+
+
+```{r help-dput, eval=FALSE}
 ?dput
 ```
 
 Will dump the data you're working with into a format so that it can
 be copy and pasted by anyone else into their R session.
+
+```{r dput, eval=FALSE}
+library(readr)
+cats <- read_csv(file = "data/feline-data.csv")
+
+dput(cats)
+
+cats <- structure(list(coat = c("calico", "black", "tabby"), weight = c(2.1, 
+5, 3.2), likes_string = c(1, 0, 1)), class = c("spec_tbl_df", 
+"tbl_df", "tbl", "data.frame"), row.names = c(NA, -3L), spec = structure(list(
+    cols = list(coat = structure(list(), class = c("collector_character", 
+    "collector")), weight = structure(list(), class = c("collector_double", 
+    "collector")), likes_string = structure(list(), class = c("collector_double", 
+    "collector"))), default = structure(list(), class = c("collector_guess", 
+    "collector")), skip = 1), class = "col_spec"))
+```
 
 ```{r}
 sessionInfo()
@@ -42,90 +69,84 @@ Will print out your current version of R, as well as any packages you
 have loaded. This can be useful for others to help reproduce and debug
 your issue.
 
+## A Reproducible Example or a "reprex"
 
-## Other ports of call
+[`reprex`](https://reprex.tidyverse.org/index.html): Prepare reprexes for posting to GitHub issues, StackOverflow, Slack snippets, or email and so on.
 
-* [Quick R](http://www.statmethods.net/)
+_demo_
+
+```{r reprex-demo1}
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+cats <- read_csv(file = "data/feline-data.csv")
+
+cats %>% 
+  select(coat, weight) %>% 
+  ggplot(aes(x = coat, y = weight)) +  
+  geom_col()
+
+# Make bar chart - this does not work?
+cats %>% 
+  select(coat, weight) %>% 
+  ggplot(aes(x = coat, y = weight)) %>%   
+  geom_col()
+```
+
+I have used `?ggplot2` and looked on-line and cannot find an answer. Maybe someone in the bcgovR community knows? 
+
+We need to invest a bit of time making the buggy code shareable.
+
+
+```{r reprex-demo2}
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+
+cats <- structure(list(coat = c("calico", "black", "tabby"), weight = c(2.1, 
+5, 3.2), likes_string = c(1, 0, 1)), class = c("spec_tbl_df", 
+"tbl_df", "tbl", "data.frame"), row.names = c(NA, -3L), spec = structure(list(
+    cols = list(coat = structure(list(), class = c("collector_character", 
+    "collector")), weight = structure(list(), class = c("collector_double", 
+    "collector")), likes_string = structure(list(), class = c("collector_double", 
+    "collector"))), default = structure(list(), class = c("collector_guess", 
+    "collector")), skip = 1), class = "col_spec"))
+
+
+cats %>% 
+  select(coat, weight) %>% 
+  ggplot(aes(x = coat, y = weight)) %>%  
+  geom_col()
+```
+
+```{r reprex-demo}
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+
+cats <- read_csv(file = "data/feline-data.csv")
+
+dput(cats)
+
+cats %>% 
+  select(coat, weight) %>% 
+  ggplot(aes(x = coat, y = weight)) %>%  
+  geom_col()
+
+
+starwars %>% 
+  select(name, height) %>% 
+  ggplot(aes(x = name, y = height)) %>%  
+  geom_col()
+
+```
+
+## Other Helpful Resources
+
 * [RStudio cheat sheets](http://www.rstudio.com/resources/cheatsheets/)
+* [Quick R](http://www.statmethods.net/)
 * [Cookbook for R](http://www.cookbook-r.com/)
-
-
-## Structure your project folder
-
-Keep your project folder structured, organized and tidy, by creating subfolders for your code files, manuals, data, binaries, output plots, etc. It can be done completely manually, or with the help of RStudio's `New Project` functionality, or a desginated package, such as `ProjectTemplate`.
-
-> ## Tip: ProjectTemplate - a possible solution
->
-> One way to automate the management of projects is to install the third-party package, `ProjectTemplate`.
-> This package will set up an ideal directory structure for project management.
-> This is very useful as it enables you to have your analysis pipeline/workflow organised and structured.
-> Together with the default RStudio project functionality and Git you will be able to keep track of your
-> work as well as be able to share your work with collaborators.
->
-> 1. Install `ProjectTemplate`.
-> 2. Load the library
-> 3. Initialise the project:
->
-> ```{r, eval=FALSE}
-> install.packages("ProjectTemplate")
-> library("ProjectTemplate")
-> create.project("../my_project_2", merge.strategy = "allow.non.conflict")
-> ```
->
-> For more information on ProjectTemplate and its functionality visit the
-> home page [ProjectTemplate](http://projecttemplate.net/index.html)
-{: .callout}
-
-
-## Make code readable
-
-The most important part of writing code is making it readable and understandable.
-You want someone else to be able to pick up your code and be able to understand
-what it does: more often than not this someone will be you 6 months down the line,
-who will otherwise be cursing past-self.
-
-## Documentation: tell us what and why, not how
-
-When you first start out, your comments will often describe what a command does,
-since you're still learning yourself and it can help to clarify concepts and
-remind you later. However, these comments aren't particularly useful later on
-when you don't remember what problem your code is trying to solve. Try to also
-include comments that tell you *why* you're solving a problem, and *what* problem
-that is. The *how* can come after that: it's an implementation detail you ideally
-shouldn't have to worry about.
-
-## Keep your code modular
-
-Our recommendation is that you should separate your functions from your analysis
-scripts, and store them in a separate file that you `source` when you open the R
-session in your project. This approach is nice because it leaves you with an
-uncluttered analysis script, and a repository of useful functions that can be
-loaded into any analysis script in your project. It also lets you group related
-functions together easily.
-
-## Break down problem into bite size pieces
-
-When you first start out, problem solving and function writing can be daunting
-tasks, and hard to separate from code inexperience. Try to break down your
-problem into digestible chunks and worry about the implementation details later:
-keep breaking down the problem into smaller and smaller functions until you
-reach a point where you can code a solution, and build back up from there.
-
-## Know that your code is doing the right thing
-
-Make sure to test your functions!
-
-## Don't repeat yourself
-
-Functions enable easy reuse within a project. If you see blocks of similar
-lines of code through your project, those are usually candidates for being
-moved into functions.
-
-If your calculations are performed through a series of functions, then the
-project becomes more modular and easier to change. This is especially the case
-for which a particular input always gives a particular output.
-
-## Remember to be stylish
-
-Apply consistent style to your code.
 
