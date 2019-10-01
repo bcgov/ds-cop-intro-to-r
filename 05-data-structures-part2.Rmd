@@ -279,6 +279,13 @@ can_mex <- gapminder$country %in% c("Canada", "Mexico")
 gapminder[can_mex, ]
 ```
 
+> ## Challenge 4
+> Select all the rows in `gapminder` with data from 1975 and earlier
+>
+> > Solution to Challenge 4
+> > ```{r}
+> > gapminder[gapminder$year <= 1975, ]
+> > ```
 
 We saw previously how we can select a single column using the dollar sign `$`:
 
@@ -286,4 +293,19 @@ We saw previously how we can select a single column using the dollar sign `$`:
 gapminder$country
 ```
 
-If we wanted to select a subset of columns, we can speci
+If we wanted to select a subset of columns, we can specify that in the second 
+position using a character vector of column names:
+
+```{r}
+gapminder[ , c("country", "year", "lifeExp")]
+```
+
+> ## Challenge 5
+> Select all the rows in `gapminder` with data from Canada, and just the columns
+> year, pop, and gdpPercap
+>
+> > Solution to Challenge 5
+> > ```{r}
+> > gapminder[gapminder$country == "Canada", c("year", "pop", "gdpPercap")]
+> > ```
+
