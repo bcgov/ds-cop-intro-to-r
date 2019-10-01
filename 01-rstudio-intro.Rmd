@@ -313,7 +313,7 @@ We can also do comparison in R:
 We can store values in variables using the assignment operator `<-`, like this:
 
 ```{r}
-x <- 1/40
+x <- 5
 ```
 
 Notice that assignment does not print a value. Instead, we stored it for later
@@ -469,18 +469,6 @@ you can pass the results of `ls` to the `rm` function:
 rm(list = ls())
 ```
 
-In this case we've combined the two. Like the order of operations, anything
-inside the innermost parentheses is evaluated first, and so on.
-
-In this case we've specified that the results of `ls` should be used for the
-`list` argument in `rm`. When assigning values to arguments by name, you *must*
-use the `=` operator!!
-
-If instead we use `<-`, there will be unintended side effects, or you may get an error message:
-
-```{r, error=TRUE}
-rm(list <- ls())
-```
 
 > ## Tip: Warnings vs. Errors
 >
