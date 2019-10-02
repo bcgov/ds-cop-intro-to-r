@@ -38,7 +38,7 @@ Please see: https://bcgov.github.io/ds-cop-intro-to-r/
 (7) Data Manipulation with `tidyr` (20 minutes)    
 (8) Seeking Help from Others with `reprex` (15 minutes)  
 
-Most of the above lesson material is sourced from the Software Carpentry Foundation (now The Carpenties) [R for Reproducible Scientific Analysis](http://swcarpentry.github.io/r-novice-gapminder/) lesson material: Thomas Wright and Naupaka Zimmerman (eds): _Software Carpentry: R for
+Most of the above lesson material is sourced or an adaptation of the Software Carpentry Foundation (now The Carpenties) [R for Reproducible Scientific Analysis](http://swcarpentry.github.io/r-novice-gapminder/) lesson material: Thomas Wright and Naupaka Zimmerman (eds): _Software Carpentry: R for
 Reproducible Scientific Analysis_.  Version 2016.06, June 2016,
 https://github.com/swcarpentry/r-novice-gapminder,
 10.5281/zenodo.57520.
@@ -71,7 +71,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 [![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/). 
 
 ```
-Copyright 2019 Province of British Columbia
+Original Work Copyright © [Software Carpentry](http://software-carpentry.org/), content modified by the Province of British Columbia.
 
 This work is licensed under the Creative Commons Attribution 4.0 International License.
 To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
