@@ -30,7 +30,7 @@ If you can't find the answer on-line, there are some on-line forums to seek help
 
 ## Help People Help You - reprex
 
-Whan starting a conversation about code, there are a few things that when included make that conversation more efficient and pleasant for everyone:
+When starting a conversation about code, there are a few things that when included make that conversation more efficient and pleasant for everyone:
 
 - some sample data (preferably provided _in_ the code)
 - some code (with comments, white-space, indents `==` make it easy to read)
@@ -65,7 +65,7 @@ cats %>%
   geom_col()
 ```
 
-You have read the error message but it was not helpful, you used `?ggplot2`, and looked on-line and I still cannot find an answer. Maybe someone in the bcgovR community knows? 
+You have read the error message but it was not helpful, you used `?ggplot2`, and looked on-line and still cannot find an answer. Maybe someone in the bcgovR community knows? 
 
 We need to invest a bit of time making the buggy code shareable -- the easier it is for someone to run the code, the easier -- and likely faster -- someone might be able to provide some help. 
 
@@ -112,7 +112,7 @@ starwars %>%
   geom_col()
 ```
 
-Once the code is ready for sharing, select the code and use `reprex_selection()` or the clickable RStudio `Addin` to copy the formatted code to the clipboard for sharing on-line (_demonstrated_).
+Once the code is ready for sharing, select the code and use `reprex_selection()` or the clickable RStudio `Addin` Reprex selection button to copy the formatted code to the clipboard for sharing on-line (_demonstrated_).
 
 
 Sometimes it is useful to share information about your computing environment as well:
@@ -122,7 +122,7 @@ sessionInfo()
 ```
 
 `sessionInfo()` will print out your current version of R, as well as any packages you
-have loaded. This can be useful for others to help reproduce and debug
+have loaded. This can be useful to help reproduce and debug
 your issue.
 
 
