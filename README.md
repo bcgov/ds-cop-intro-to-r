@@ -33,7 +33,7 @@ Please see: https://bcgov.github.io/ds-cop-intro-to-r/
 (2) Seeking Help in R (20 minutes) 
 (3) Project Management with RStudio (30 minutes)  
 (4) Data Structures (40 minutes) 
-(5) Exploring Data Frames (20 minutes)
+(5) Exploring Data Frames (20 minutes)  
 (6) Making Publication Quality Plots with `ggplot2` (80 minutes)  
 (7) Data Manipulation with `dplyr` (55 minutes)  
 (8) Data Manipulation with `tidyr` (20 minutes)    
