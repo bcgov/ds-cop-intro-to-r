@@ -1,4 +1,4 @@
-<a id="devex-badge" rel="Exploration" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="Being designed and built, but in the lab. May change, disappear, or be buggy." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/exploration.svg" title="Being designed and built, but in the lab. May change, disappear, or be buggy." /></a>
+<a id="devex-badge" rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>
 
 
 # Introduction to Data Science Using R
@@ -51,8 +51,10 @@ https://github.com/swcarpentry/r-novice-gapminder,
 #### @Connect 2019 Data Science Training Event, Wednesday October 2nd
 
 - _Instructors_: [Sam Albers](https://github.com/boshek), [Stephanie Hazlitt](https://github.com/stephhazlitt) & [Andy Teucher](https://github.com/ateucher)
+- _Suggested pre-reading_: [Good Enough Practices for Scientific Computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf)
+- _Course material_: https://bcgov.github.io/ds-cop-intro-to-r/
 - _Etherpad_: <https://pad.carpentries.org/ds-cop-intro-to-r>
-- Suggested pre-reading: [Good Enough Practices for Scientific Computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf)
+- _What we actually did on the day_: https://github.com/bcgov/ds-cop-intro-to-r/tree/master/what_we_actually_did/victoria_2019-10-02
 
 
 
