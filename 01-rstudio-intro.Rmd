@@ -327,7 +327,7 @@ x <- 5
 ```
 
 Notice that assignment does not print a value. Instead, we stored it for later
-in something called a **variable**. `x` now contains the **value** `0.025`:
+in something called a **variable**. `x` now contains the **value** `5`:
 
 ```{r}
 x
@@ -349,7 +349,7 @@ Notice also that variables can be reassigned:
 x <- 100
 ```
 
-`x` used to contain the value 0.025 and and now it has the value 100.
+`x` used to contain the value 5 and and now it has the value 100.
 
 Assignment values can contain the variable being assigned to:
 
